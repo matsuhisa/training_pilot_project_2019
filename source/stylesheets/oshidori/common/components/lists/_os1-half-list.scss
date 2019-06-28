@@ -1,0 +1,223 @@
+/*
+---
+name: 汎用 half リスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/lists
+  - 1_component/lists/half-list
+---
+
+## コンポーネント
+2段になっているリストコンポーネント
+
+### NOTE
+- modifier は組み合わせて使うことができる
+- 背景色は 白色 をデフォルトとする
+- 中身を必ず `div.os1-half-list__content` で囲んで使用する
+- リンクを貼る時は `div.os1-half-list__content` を `a.os1-half-list__link` で囲む
+
+### ノーマルの half-list
+
+```html
+<ul class="os1-half-list">
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+      <br>
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+</ul>
+```
+
+### ボーダーが上に付いている half-list
+
+- `-border-top` クラスで上付きのボーダーを指定
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-half-list -border-top">
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+      <br>
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+</ul>
+```
+
+### ボーダーの無い half-list
+
+- `-border-none` クラスでボーダーを消す
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-half-list -border-none">
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+      <br>
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+</ul>
+```
+
+### リンクに矢印が付いている half-list
+
+- `-arrow` クラスでリンクに矢印を指定
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-half-list -arrow">
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+      <br>
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <div class="os1-half-list__content">
+      half-list
+    </div>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+  <li class="os1-half-list__item">
+    <a href="#dummy" class="os1-half-list__link">
+      <div class="os1-half-list__content">
+        half-list
+      </div>
+    </a>
+  </li>
+</ul>
+```
+*/
+
+.os1-half-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .os1-half-list__item {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid $os1-color-gold-4S;
+    background-color: $os1-color-white;
+    width: 50%;
+    min-height: 43px;
+    &:nth-child(odd) {
+      border-right: 1px solid $os1-color-gold-4S;
+    }
+  }
+
+  .os1-half-list__content {
+    padding: 0 5px 0 8px;
+  }
+
+  .os1-half-list__link {
+    @include os1-link-coloring(link-color-navy);
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.-border-top {
+    border-top: 1px solid $os1-color-gold-4S;
+  }
+
+  &.-border-none {
+    .os1-half-list__item {
+      border: none;
+    }
+  }
+
+  &.-arrow {
+    .os1-half-list__link {
+      position: relative;
+      padding-right: 25px;
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: calc(50% - 7px);
+        right: 8px;
+        transform: rotate(45deg);
+        border-top: solid 2px $os1-color-green;
+        border-right: solid 2px $os1-color-green;
+        width: 11px;
+        height: 11px;
+        content: "";
+      }
+    }
+  }
+}

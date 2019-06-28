@@ -1,0 +1,235 @@
+/*
+---
+name: フォーム:汎用チェックボックス
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/checkbox
+---
+
+## コンポーネント
+
+### 縦並び用のチェックボックス
+- コンポーネントが複数並んでいる場合、間に上下マージン 20px が自動的に付与される
+
+```html
+<div class="os1-default-checkbox">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+### ❗注意事項 for IE11
+
+- Ruby on Rails で、checkbox を使うと hidden要素が自動的に追加されます。この時、IE 11 ではinput要素を関連づけできなくなります。そのため、for と id の指定が必要です
+
+```html
+<div class="os1-default-checkbox">
+  <label for="checkbox-id">
+    <input type="hidden" name="foo" value="0">
+    <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1" id="checkbox-id">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+### 横並び用のチェックボックス
+- `-horizontal` クラスで横並びを指定
+- 右マージン 5px が常に付与される
+
+```html
+<div class="os1-default-checkbox -horizontal">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="bar" value="bar1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+### チェックボックス (複数行の場合)
+
+```html
+<div class="os1-default-checkbox">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+### disabled 時のチェックボックス
+- `os1-default-checkbox__input` クラスに `disabled`を指定する
+
+```html
+<div class="os1-default-checkbox">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1" disabled>
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+## 使用例
+- checkbox コンポーネントを縦に並べる
+
+```html
+<div class="os1-default-checkbox">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+<div class="os1-default-checkbox">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+- checkbox コンポーネントを横に並べる（`-horizontal` を付与）
+
+```html
+<div class="os1-default-checkbox -horizontal">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="bar" value="bar1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+<div class="os1-default-checkbox -horizontal">
+  <label>
+    <input class="os1-default-checkbox__input" type="checkbox" name="bar" value="bar1">
+    <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+  </label>
+</div>
+```
+
+### リストの中で使用する
+- リスト内で使う場合は`<ul>` と `<li>` でマークアップする
+- `<li>` に `class="os1-default-checkbox"` を指定する (`<div>` を `<li>` に書き換える)
+- checkbox コンポーネントを縦に並べる
+
+```html
+<ul>
+  <li class="os1-default-checkbox">
+    <label>
+      <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo1">
+      <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+    </label>
+  </li>
+  <li class="os1-default-checkbox">
+    <label>
+      <input class="os1-default-checkbox__input" type="checkbox" name="foo" value="foo2">
+      <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+    </label>
+  </li>
+</ul>
+```
+
+- checkbox コンポーネントを横に並べる（ `-horizontal` を付与）
+
+```html
+<ul>
+  <li class="os1-default-checkbox -horizontal">
+    <label>
+      <input class="os1-default-checkbox__input" type="checkbox" name="bar" value="bar1">
+      <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+    </label>
+  </li>
+  <li class="os1-default-checkbox -horizontal">
+    <label>
+      <input class="os1-default-checkbox__input" type="checkbox" name="bar" value="bar2">
+      <span class="os1-default-checkbox__text">汎用チェックボックス</span>
+    </label>
+  </li>
+</ul>
+```
+*/
+
+.os1-default-checkbox {
+  @include os1-font-size;
+  @include os1-set-margin($margin-side: top-bottom);
+  min-height: 24px;
+
+  &:first-child {
+    @include os1-set-margin($margin-side: top, $margin-size: zero);
+  }
+
+  &:last-child {
+    @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+  }
+
+  &.-horizontal {
+    @include os1-set-margin($margin-side: top-bottom, $margin-size: zero);
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+    display: inline-flex;
+  }
+
+  .os1-default-checkbox__input {
+    display: inline;
+    position: absolute;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .os1-default-checkbox__input:checked {
+    & + .os1-default-checkbox__text {
+      &::before {
+        border-color: $os1-color-navy-1S;
+        background-image: linear-gradient($os1-color-green-D, $os1-color-green);
+      }
+
+      &::after {
+        position: absolute;
+        top: calc(50% - 8px);
+        left: 8px;
+        transform: rotate(45deg);
+        border-right: 2.5px solid $os1-color-white;
+        border-bottom: 2.5px solid $os1-color-white;
+        width: 6px;
+        height: 10px;
+        content: "";
+      }
+    }
+  }
+
+  .os1-default-checkbox__input:disabled {
+    & + .os1-default-checkbox__text {
+      cursor: default;
+      color: #b3b3b3;
+
+      &::before {
+        border-color: $os1-color-navy-3S;
+        background-color: $os1-color-white;
+        background-image: none;
+      }
+    }
+  }
+
+  .os1-default-checkbox__text {
+    display: flex;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 32px;
+
+    &::before {
+      @include os1-default-border($border-color: border-color-navy);
+      display: block;
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 0;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-image: linear-gradient(#fafafa, $os1-color-navy-3S);
+      width: 24px;
+      height: 24px;
+      content: "";
+    }
+  }
+}

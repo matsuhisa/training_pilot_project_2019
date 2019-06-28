@@ -1,0 +1,112 @@
+/*
+---
+name: Mixin:Set content 2 column
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/set-content-2-column
+  - 3_layouts
+  - 3_layouts/content
+---
+
+## Content に必要な基本のスタイルを設定する Mixin
+
+- この Mixin はメインとサイドの2つのカラムを持つ Content に必要なスタイルを設定する
+- 引数でページとカラムの幅、サイドカラムの配置をそれぞれ設定することができる
+- ❗ コンテンツ全体のレイアウトを決めるための Mixin のため、ページ内のコンポーネントには使用しない
+
+### 引数
+- $set-site-width
+  - ページの幅を設定する
+  - 省略した場合は `$os1-site-width`
+- $set-side-menu-width
+  - サイドカラムの幅を設定する
+  - 省略した場合は `$os1-side-menu-width`
+- $set-main-width
+  - メインカラムの幅を設定する
+  - 省略した場合は `$os1-main-width`
+- $set-side-column
+  - サイドカラムを右と左どちらかに配置するか設定する
+  - 値は `'right'` もしくは `'left'`
+  - 省略した場合は `'right'`
+
+```html
+@include os1-set-content-2-column;
+<div class="oshidori-set-content-2-column-sample-1">
+  <div class="oshidori-set-content-2-column-sample-1__main">
+    main
+  </div>
+  <div class="oshidori-set-content-2-column-sample-1__side">
+    side
+  </div>
+</div>
+
+@include os1-set-content-2-column($set-site-width: 100%, $set-side-menu-width: 100px, $set-main-width: calc(100% - 120px));
+<div class="oshidori-set-content-2-column-sample-2">
+  <div class="oshidori-set-content-2-column-sample-2__main">
+    main
+  </div>
+  <div class="oshidori-set-content-2-column-sample-2__side">
+    side
+  </div>
+</div>
+
+@include os1-set-content-2-column($set-side-column: 'left');
+<div class="oshidori-set-content-2-column-sample-3">
+  <div class="oshidori-set-content-2-column-sample-3__main">
+    main
+  </div>
+  <div class="oshidori-set-content-2-column-sample-3__side">
+    side
+  </div>
+</div>
+```
+
+## SCSSでの使い方
+
+```scss
+.os1-sample-scss1 {
+  // デフォルト
+  @include os1-set-content-2-column;
+}
+.os1-sample-scss2 {
+  // ページの幅を変更する
+  @include os1-set-content-2-column($set-site-width: 100%, $set-side-menu-width: 100px, $set-main-width: calc(100% - 120px));
+}
+.os1-sample-scss3 {
+  // サイドカラムを左に配置する
+  @include os1-set-content-2-column($set-side-column: 'left');
+}
+```
+*/
+
+@mixin os1-set-content-2-column($set-site-width: $os1-site-width, $set-side-menu-width: $os1-side-menu-width, $set-main-width: $os1-main-width, $set-side-column: 'right') {
+  @include os1-clearfix;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: $set-site-width;
+
+  &__main {
+    box-sizing: border-box;
+    width: $set-main-width;
+    @if ($set-side-column == 'right') {
+      float: left;
+    } @else {
+      float: right;
+    }
+  }
+
+  &__side {
+    box-sizing: border-box;
+    width: $set-side-menu-width;
+    @if ($set-side-column == 'right') {
+      float: right;
+    } @else {
+      float: left;
+    }
+  }
+}

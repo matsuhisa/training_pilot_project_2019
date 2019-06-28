@@ -1,0 +1,117 @@
+/*
+---
+name: Mixin:Set margin
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/set-margin
+---
+
+## コンポーネント間の margin を設定する mixin
+
+引数で margin サイズと margin をどこに付与するかを指定している
+
+### 引数
+- $margin-side
+  - $margin-side: all (デフォルト)
+    - margin を上下左右全てに付与する
+    - 未指定だとデフォルトで設定される
+  - $margin-side: top-bottom
+    - margin を上下に付与する
+  - $margin-side: left-right
+    - margin を左右に付与する
+  - $margin-side: top
+    - margin を上にのみ付与する
+  - $margin-side: bottom
+    - margin を下にのみ付与する
+  - $margin-side: left
+    - margin を左にのみ付与する
+  - $margin-side: right
+    - margin を右にのみ付与する
+- $margin-size
+  - $margin-size: zero
+    - margin を 0px に設定する
+  - $margin-size: XS
+    - margin を 5px に設定する
+  - $margin-size: S
+    - margin を 10px に設定する
+  - $margin-size: M (デフォルト)
+    - margin を 20px に設定する
+    - 未指定だとデフォルトで設定される
+  - $margin-size: L
+    - margin を 30px に設定する
+  - $margin-size: XL
+    - margin を 40px に設定する
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-margin">@include os1-set-margin;</div>
+  </li>
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-margin -size-L">@include os1-set-margin($margin-size: L);</div>
+  </li>
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-margin -side-top">@include os1-set-margin($margin-side: top);</div>
+  </li>
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-margin -side-bottom-size-XL">@include os1-set-margin($margin-side: bottom, $margin-size: XL);</div>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+引数を指定しない場合は `margin: 20px 0` に設定される
+
+```scss
+.os1-sample-scss {
+  // margin: 20px 0
+  @include os1-set-margin;
+}
+```
+
+引数は $margin-side と $margin-size のどちらかもしくは両方を指定する
+
+```scss
+.os1-sample-scss1 {
+  // margin: 30px 0;
+  @include os1-set-margin($margin-size: L);
+}
+.os1-sample-scss2 {
+  // margin-top: 20px;
+  @include os1-set-margin($margin-side: top);
+}
+.os1-sample-scss3 {
+  // margin-bottom: 40px;
+  @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+}
+```
+*/
+
+@mixin os1-set-margin($margin-side: all, $margin-size: M) {
+  @if ($margin-size == zero) {
+    $margin-size: 0;
+  } @else if ($margin-size == XS) {
+    $margin-size: 5px;
+  } @else if ($margin-size == S) {
+    $margin-size: 10px;
+  } @else if ($margin-size == M) {
+    $margin-size: 20px;
+  } @else if ($margin-size == L) {
+    $margin-size: 30px;
+  } @else if ($margin-size == XL) {
+    $margin-size: 40px;
+  }
+  @if ($margin-side == all) {
+    margin: $margin-size;
+  } @else if ($margin-side == top-bottom) {
+    margin: $margin-size 0;
+  } @else if ($margin-side == left-right) {
+    margin: 0 $margin-size;
+  } @else {
+    margin-#{$margin-side}: $margin-size;
+  }
+}

@@ -1,0 +1,221 @@
+/*
+---
+name: フォーム:汎用日付入力欄
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/date-field
+---
+
+## コンポーネント
+- PC版では常に右マージン 5px が付与される
+- SP版では最後の要素でない場合、下マージン 10px が付与される
+
+### ノーマルの日付入力欄
+- PC版では `width: auto;`
+- SP版では `width: 100%;`
+
+```html
+<span class="os1-default-date-field">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+```
+
+### invalid 時の日付入力欄
+- `aria-invalid="true"` で指定
+
+```html
+<span class="os1-default-date-field">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo" aria-invalid="true">
+</span>
+```
+
+### 幅220pxの日付入力欄
+- `-size-M-pc-only` クラスで幅を指定
+- PC版では `width: 220px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<span class="os1-default-date-field -size-M-pc-only">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+```
+
+### 幅320pxの日付入力欄
+- ` -size-L-pc-only` クラスで幅を指定
+- PC版では `width: 320px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<span class="os1-default-date-field -size-L-pc-only">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+```
+
+### 幅100%の日付入力欄
+- ` -size-full` クラスで幅を指定
+- PC版・SP版どちらとも `width: 100%;`
+
+```html
+<span class="os1-default-date-field -size-full">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+```
+
+### 補助テキストの付いた日付入力欄
+- テキストを含む場合は `<label>` に `class="os1-default-date-field"` を指定する
+- テキストに `-margin-left-S` か `-margin-right-S` クラスを指定して 10px の左右マージンを指定できる
+
+```html
+<label class="os1-default-date-field">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+  <span class="os1-default-date-field__text -margin-left-S">テキスト</span>
+</label>
+```
+
+- `-pc-only` クラスをテキストに付与するとPC時のみ表示にできる
+
+```html
+<label class="os1-default-date-field">
+  <span class="os1-default-date-field__text -margin-right-S -pc-only">テキスト</span>
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</label>
+```
+
+- `os1-default-date-field` に `-vertical-sp-only` クラスを付与するとSP時に自動で段落ちし、テキストに 5px の下マージンが付与される
+
+```html
+<label class="os1-default-date-field -vertical-sp-only">
+  <span class="os1-default-date-field__text -margin-right-S">テキスト</span>
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</label>
+```
+
+### 複数並ぶ日付入力欄
+
+```html
+<span class="os1-default-date-field">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+<span class="os1-default-date-field">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+```
+
+## 使用例
+- radio コンポーネントと併用
+
+```html
+<div class="os1-default-radio -horizontal">
+  <label>
+    <input class="os1-default-radio__input" type="radio" name="foo" value="foo1">
+    <span class="os1-default-radio__text">
+      既婚・結婚予定日決定
+    </span>
+  </label>
+</div>
+<span class="os1-default-date-field -size-L-pc-only">
+  <input class="os1-default-date-field__input" type="date" name="foo" id="foo">
+</span>
+```
+*/
+
+.os1-default-date-field {
+  align-items: center;
+  @include os1-screen(sp) {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    display: flex;
+    flex-grow: 1;
+    &:last-child {
+      @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+    }
+  }
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+    display: inline-flex;
+  }
+
+  &.-size-M-pc-only {
+    .os1-default-date-field__input {
+      @include os1-screen(pc) {
+        min-width: 220px;
+      }
+    }
+  }
+
+  &.-size-L-pc-only {
+    .os1-default-date-field__input {
+      @include os1-screen(pc) {
+        min-width: 320px;
+      }
+    }
+  }
+
+  &.-size-full {
+    display: flex;
+
+    .os1-default-date-field__input {
+      @include os1-screen(pc) {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &.-vertical-sp-only {
+    @include os1-screen(sp) {
+      flex-direction: column;
+      align-items: flex-start;
+      .os1-default-date-field__input {
+        min-width: 100%;
+      }
+      .os1-default-date-field__text {
+        @include os1-set-margin($margin-side: bottom, $margin-size: XS);
+        min-width: 100%;
+        &.-margin-right-S {
+          @include os1-set-margin($margin-side: right, $margin-size: zero);
+        }
+        &.-margin-left-S {
+          @include os1-set-margin($margin-side: left, $margin-size: zero);
+        }
+      }
+    }
+  }
+
+  .os1-default-date-field__input {
+    @include os1-default-border-radius;
+    @include os1-default-border($border-color: border-color-black);
+    @include os1-font-size;
+    box-sizing: border-box;
+    box-shadow: inset 1px 1px 4px #e6e6e6;
+    padding: 9.5px 10px;
+    @include os1-screen(sp) {
+      flex-grow: 1;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: $os1-color-red-D;
+      background-color: $os1-color-red-4S;
+    }
+  }
+
+  .os1-default-date-field__text {
+    @include os1-font-size;
+
+    &.-margin-right-S {
+      @include os1-set-margin($margin-side: right, $margin-size: S);
+    }
+
+    &.-margin-left-S {
+      @include os1-set-margin($margin-side: left, $margin-size: S);
+    }
+
+    &.-pc-only {
+      @include os1-screen(sp) {
+        display: none;
+      }
+    }
+  }
+}

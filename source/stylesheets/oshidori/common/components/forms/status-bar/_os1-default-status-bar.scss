@@ -1,0 +1,150 @@
+/*
+---
+name: フォーム:汎用ステータスバー
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/status-bar
+---
+
+## コンポーネント
+- 高さ40pxのステータスバー
+- 現在のステップ表示は `os1-status-bar__item-wrapper` クラスに `aria-current="step"` を指定する
+
+### 3ステップのステータスバー
+```html
+<ol class="os1-status-bar">
+  <li class="os1-status-bar__item-wrapper" aria-current="step">
+    <div class="os1-status-bar__item">
+      <span class="os1-status-bar__step-number">1</span>
+      <span class="os1-status-bar__step-text">入力</span>
+    </div>
+  </li>
+  <li class="os1-status-bar__item-wrapper">
+    <div class="os1-status-bar__item">
+      <span class="os1-status-bar__step-number">2</span>
+      <span class="os1-status-bar__step-text">確認</span>
+    </div>
+  </li>
+  <li class="os1-status-bar__item-wrapper">
+    <div class="os1-status-bar__item">
+      <span class="os1-status-bar__step-number">3</span>
+      <span class="os1-status-bar__step-text">完了</span>
+    </div>
+  </li>
+</ol>
+```
+
+### 2ステップのステータスバー
+```html
+<ol class="os1-status-bar">
+  <li class="os1-status-bar__item-wrapper">
+    <div class="os1-status-bar__item">
+      <span class="os1-status-bar__step-number">1</span>
+      <span class="os1-status-bar__step-text">入力</span>
+    </div>
+  </li>
+  <li class="os1-status-bar__item-wrapper" aria-current="step">
+    <div class="os1-status-bar__item">
+      <span class="os1-status-bar__step-number">2</span>
+      <span class="os1-status-bar__step-text">確認</span>
+    </div>
+  </li>
+</ol>
+```
+*/
+
+.os1-status-bar {
+  @include os1-font-size;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $os1-color-gold-4S;
+  width: 100%;
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: top-bottom, $margin-size: S);
+  }
+
+  .os1-status-bar__item-wrapper {
+    position: relative;
+    flex: 1;
+  }
+
+  .os1-status-bar__item {
+    display: flex;
+    align-items: center;
+    border-left: 2px solid $os1-color-white;
+    padding-left: 25px;
+    height: 40px;
+    overflow: hidden;
+    color: $os1-color-gold-2S;
+    justify-content: center;
+    @include os1-screen(pc) {
+      justify-content: flex-start;
+    }
+  }
+
+  .os1-status-bar__step-text {
+    line-height: 1;
+  }
+
+  .os1-status-bar__step-number {
+    @include os1-font-size($font-size: XS);
+    margin-right: 7px;
+    border-radius: 2px;
+    background-color: $os1-color-white;
+    padding: 3px 5px;
+    color: $os1-color-gold-2S;
+    line-height: 1;
+  }
+
+  .os1-status-bar__item-wrapper:first-child {
+    .os1-status-bar__item {
+      border-left: none;
+      padding-left: 10px;
+    }
+
+    .os1-status-bar__step-number {
+      left: 10px;
+    }
+  }
+
+  .os1-status-bar__item-wrapper:not(:last-child) {
+    &:before {
+      position: absolute;
+      top: 0;
+      right: -15px;
+      z-index: 2;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 15px solid $os1-color-gold-4S;
+      content: "";
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: -17px;
+      z-index: 1;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 15px solid $os1-color-white;
+      content: "";
+    }
+  }
+
+  .os1-status-bar__item-wrapper[aria-current="step"] {
+    background-color: $os1-color-gold-2S;
+
+    .os1-status-bar__item {
+      color: $os1-color-white;
+    }
+
+    &:before {
+      border-left-color: $os1-color-gold-2S;
+    }
+  }
+}

@@ -1,0 +1,281 @@
+/*
+---
+name: フォーム:汎用テキスト入力欄(一行)
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/text-field
+---
+
+## コンポーネント
+- PC版では常に右マージン 5px が付与される
+- SP版では最後の要素でない場合、下マージン 10px が付与される
+
+### ノーマルのテキスト入力欄
+- PC版では `width: auto;`
+- SP版では `width: 100%;`
+
+```html
+<span class="os1-default-text-field">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</span>
+```
+
+### invalid 時のテキスト入力欄
+- `aria-invalid="true"` で指定
+
+```html
+<span class="os1-default-text-field">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo" aria-invalid="true">
+</span>
+```
+
+### 幅220pxのテキスト入力欄
+- `-size-M-pc-only` クラスで幅を指定
+- PC版では `width: 220px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<span class="os1-default-text-field -size-M-pc-only">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</span>
+```
+
+### 幅320pxのテキスト入力欄
+- ` -size-L-pc-only` クラスで幅を指定
+- PC版では `width: 320px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<span class="os1-default-text-field -size-L-pc-only">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</span>
+```
+
+### 幅100%のテキスト入力欄
+- ` -size-full` クラスで幅を指定
+- PC版・SP版どちらとも `width: 100%;`
+
+```html
+<span class="os1-default-text-field -size-full">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</span>
+```
+
+### 補助テキストの付いたテキスト入力欄
+- テキストを含む場合は `<label>` に `class="os1-default-text-field"` を指定する
+- テキストに `-margin-left-S` か `-margin-right-S` クラスを指定して 10px の左右マージンを指定できる
+
+```html
+<label class="os1-default-text-field">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+  <span class="os1-default-text-field__text -margin-left-S">テキスト</span>
+</label>
+```
+
+- `-pc-only` クラスをテキストに付与するとPC時のみ表示にできる
+
+```html
+<label class="os1-default-text-field">
+  <span class="os1-default-text-field__text -margin-right-S -pc-only">テキスト</span>
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</label>
+```
+
+- `os1-default-text-field` に `-vertical-sp-only` クラスを付与するとSP時に自動で段落ちし、テキストに 5px の下マージンが付与される
+
+```html
+<label class="os1-default-text-field -vertical-sp-only">
+  <span class="os1-default-text-field__text -margin-right-S">テキスト</span>
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</label>
+```
+
+### 複数並ぶテキスト入力欄
+
+```html
+<span class="os1-default-text-field">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</span>
+<span class="os1-default-text-field">
+  <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+</span>
+```
+
+### 縦に同じ幅で並ぶテキスト + テキスト入力欄
+- `-vertical` クラスで縦並びを指定
+- `os1-default-text-field__vertical-wrapper` でlabelとinputをラップ
+- label要素に `for` 属性を追加
+- input要素に `id` 属性を追加
+- `for` 属性と `id` 属性の値は同じ値を指定
+- SP版ではテキストと入力欄が改行され、テキストに `margin-bottom: 5px;` が付与される
+
+```html
+<div class="os1-default-text-field -vertical -size-M-pc-only">
+  <div class="os1-default-text-field__vertical-wrapper">
+    <label class="os1-default-text-field__text" for="foo1">テキスト</label>
+    <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo1">
+  </div>
+  <div class="os1-default-text-field__vertical-wrapper">
+    <label class="os1-default-text-field__text" for="foo2">テキストテキスト</label>
+    <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo2">
+  </div>
+  <div class="os1-default-text-field__vertical-wrapper">
+    <label class="os1-default-text-field__text" for="foo3">テキストテキストテキスト</label>
+    <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo3">
+  </div>
+</div>
+```
+
+## 使用例
+- テキストを含む場合は `<label>` に `class="os1-default-text-field"` を指定する
+- 左配置のテキストを持つ 幅160pxの text-field を横に並べる
+
+```html
+<label class="os1-default-text-field">
+  <span class="os1-default-text-field__text -margin-right-S">姓</span>
+  <input class="os1-default-text-field__input" placeholder="皆野" type="text" name="foo">
+</label>
+<label class="os1-default-text-field">
+  <span class="os1-default-text-field__text -margin-right-S">名</span>
+  <input class="os1-default-text-field__input" placeholder="志穂" type="text" name="foo">
+</label>
+```
+*/
+
+.os1-default-text-field {
+  align-items: center;
+  @include os1-screen(sp) {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    display: flex;
+    flex-grow: 1;
+    &:last-child {
+      @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+    }
+  }
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+    display: inline-flex;
+  }
+
+  &.-size-M-pc-only {
+    .os1-default-text-field__input {
+      @include os1-screen(pc) {
+        min-width: 220px;
+      }
+    }
+  }
+
+  &.-size-L-pc-only {
+    .os1-default-text-field__input {
+      @include os1-screen(pc) {
+        min-width: 320px;
+      }
+    }
+  }
+
+  &.-size-full {
+    display: flex;
+
+    .os1-default-text-field__input {
+      @include os1-screen(pc) {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &.-vertical-sp-only {
+    @include os1-screen(sp) {
+      flex-direction: column;
+      align-items: flex-start;
+      .os1-default-text-field__input {
+        min-width: 100%;
+      }
+      .os1-default-text-field__text {
+        @include os1-set-margin($margin-side: bottom, $margin-size: XS);
+        min-width: 100%;
+        &.-margin-right-S {
+          @include os1-set-margin($margin-side: right, $margin-size: zero);
+        }
+        &.-margin-left-S {
+          @include os1-set-margin($margin-side: left, $margin-size: zero);
+        }
+      }
+    }
+  }
+
+  &.-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    .os1-default-text-field__input {
+      @include os1-screen(sp) {
+        min-width: 100%;
+      }
+    }
+    .os1-default-text-field__text {
+      display: block;
+      flex-grow: 1;
+      @include os1-screen(sp) {
+        @include os1-set-margin($margin-side: bottom, $margin-size: XS);
+      }
+      @include os1-screen(pc) {
+        @include os1-set-margin($margin-side: right, $margin-size: S);
+      }
+
+      &:last-child {
+        @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+      }
+    }
+  }
+
+  .os1-default-text-field__vertical-wrapper {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    width: 100%;
+    @include os1-screen(pc) {
+      display: flex;
+      align-items: center;
+    }
+
+    &:last-child {
+      @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+    }
+  }
+
+  .os1-default-text-field__input {
+    @include os1-default-border-radius;
+    @include os1-default-border($border-color: border-color-black);
+    @include os1-font-size;
+    box-sizing: border-box;
+    box-shadow: inset 1px 1px 4px #e6e6e6;
+    padding: 9.5px 10px;
+    @include os1-screen(sp) {
+      flex-grow: 1;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: $os1-color-red-D;
+      background-color: $os1-color-red-4S;
+    }
+  }
+
+  .os1-default-text-field__text {
+    @include os1-font-size;
+
+    &.-margin-right-S {
+      @include os1-set-margin($margin-side: right, $margin-size: S);
+    }
+
+    &.-margin-left-S {
+      @include os1-set-margin($margin-side: left, $margin-size: S);
+    }
+
+    &.-pc-only {
+      @include os1-screen(sp) {
+        display: none;
+      }
+    }
+  }
+}

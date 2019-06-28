@@ -1,0 +1,541 @@
+/*
+---
+name: 汎用 default リスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/lists
+  - 1_component/lists/default-list
+---
+
+## コンポーネント
+汎用的なリストとして使用できるコンポーネント
+
+### NOTE
+- modifier は組み合わせて使うことができる
+- 背景色は 白色 をデフォルトとする
+- 通常のテキストはUIに応じて span 要素と div 要素を採用する
+- リンクテキストは `a.os1-default-list__link` 要素を採用する
+
+### ノーマルのリスト
+
+```html
+<ul class="os1-default-list">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 横並びのリスト
+
+- この modifier に限り `-border`, `-border-top`, `-border-bottom`, `-arrow`, `-radius` とは併用できない
+
+```html
+<ul class="os1-default-list -horizontal">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 画像入りのリスト
+
+- img要素に `os1-default-list__image` クラスを指定する
+- span要素かdiv要素、a要素の中に内包する
+
+```html
+<ul class="os1-default-list">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content"><img src="https://placekitten.com/30/30" class="os1-default-list__image">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content"><img src="https://placekitten.com/30/30" class="os1-default-list__image">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link"><img src="https://placekitten.com/30/30" class="os1-default-list__image">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link"><img src="https://placekitten.com/30/30" class="os1-default-list__image">list</a>
+  </li>
+</ul>
+```
+
+### ボーダー付きのリスト
+
+- `-border` クラスでボーダーを指定
+- ほかの modifier と同時に指定することができる (ボーダー系を除く)
+- リストの上下にはボーダーは付かず、項目の間にボーダーを入れる
+
+```html
+<ul class="os1-default-list -border">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### ボーダーが上付きのリスト
+
+- `-border-top` クラスで上付きのボーダーを指定
+- ほかの modifier と同時に指定することができる (ボーダー系を除く)
+- 項目の上にボーダーを入れる
+
+```html
+<ul class="os1-default-list -border-top">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### ボーダーが下付きのリスト
+
+- `-border-bottom` クラスで下付きのボーダーを指定
+- ほかの modifier と同時に指定することができる (ボーダー系を除く)
+- 項目の下にボーダーを入れる
+
+```html
+<ul class="os1-default-list -border-bottom">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 角丸のリスト
+
+- `-radius` クラスで角丸を指定
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-default-list -radius">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### リンクにゴールドの矢印が付いているリスト
+
+- `-arrow-gold` クラスでリンクに矢印を指定
+- `-arrow-green` を除きほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-default-list -arrow-gold">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### リンクにグリーンの矢印が付いているリスト
+
+- `-arrow-green` クラスでリンクに矢印を指定
+- `-arrow-gold` を除きほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-default-list -arrow-green">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 外枠付きのリスト
+
+- `-outside-border` クラスで外枠を指定
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-default-list -outside-border">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 影付きのリスト
+
+- `-box-shadow` クラスで影付きを指定
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-default-list -box-shadow">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### フォントサイズを指定
+
+- modifier クラスを使ってフォントサイズを指定する
+- ほかの modifier と同時に指定することができる
+- フォントサイズS（12px）： `-font-size-S`
+- フォントサイズL（16px）： `-font-size-L`
+
+```html
+<ul class="os1-default-list -font-size-S">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 上マージン付きのリスト
+
+- リストの上にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-top-M`
+- マージンサイズXL（40px）： `-margin-top-XL`
+
+```html
+<ul class="os1-default-list -margin-top-M">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 下マージン付きのリスト
+
+- リストの下にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+- マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<ul class="os1-default-list -margin-bottom-M">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 上下マージン付きのリスト
+
+```html
+<ul class="os1-default-list -margin-top-M -margin-bottom-M">
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">list</span>
+  </li>
+  <li class="os1-default-list__item">
+    <div class="os1-default-list__content">list</div>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+</ul>
+```
+*/
+
+.os1-default-list {
+  @include os1-font-size($font-size: M);
+  color: $os1-color-navy-D;
+  list-style: none;
+
+  .os1-default-list__item {
+    background-color: $os1-color-white;
+  }
+
+  .os1-default-list__image {
+    margin-right: 10px;
+    border: solid 1px $os1-color-gold-4S;
+  }
+
+  .os1-default-list__content {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .os1-default-list__link {
+    @include os1-link-coloring(link-color-navy);
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  &.-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+
+    .os1-default-list__item {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      text-align: center;
+      @include os1-screen(pc) {
+        display: block;
+        flex: none;
+        text-align: left;
+      }
+    }
+  }
+
+  &.-border {
+    .os1-default-list__item {
+      border-bottom: 1px solid $os1-color-gold-4S;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .os1-default-list__accordion-item {
+      border-bottom: 1px solid $os1-color-gold-4S;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.-border-top {
+    .os1-default-list__item {
+      border-top: 1px solid $os1-color-gold-4S;
+    }
+
+    .os1-default-list__accordion-item {
+      border-top: 1px solid $os1-color-gold-4S;
+    }
+  }
+
+  &.-border-bottom {
+    .os1-default-list__item {
+      border-bottom: 1px solid $os1-color-gold-4S;
+    }
+
+    .os1-default-list__accordion-item {
+      border-bottom: 1px solid $os1-color-gold-4S;
+    }
+  }
+
+  &.-radius {
+    @include os1-default-border-radius;
+
+    .os1-default-list__item {
+      &:first-child {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+  }
+
+  &.-arrow-gold {
+    .os1-default-list__link {
+      padding-right: 30px;
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: calc(50% - 7px);
+        right: 13px;
+        transform: rotate(45deg);
+        border-top: solid 2px $os1-color-gold-2S;
+        border-right: solid 2px $os1-color-gold-2S;
+        width: 11px;
+        height: 11px;
+        content: "";
+      }
+    }
+  }
+
+  &.-arrow-green {
+    .os1-default-list__link {
+      padding-right: 30px;
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: calc(50% - 7px);
+        right: 13px;
+        transform: rotate(45deg);
+        border-top: solid 2px $os1-color-green;
+        border-right: solid 2px $os1-color-green;
+        width: 11px;
+        height: 11px;
+        content: "";
+      }
+    }
+  }
+
+  &.-with-disc {
+    list-style: disc;
+    background-color: #ffffff;
+
+    .os1-default-list__item {
+      margin-left: 27px;
+    }
+
+    .os1-default-list__content {
+      padding-left: 0;
+    }
+
+    .os1-default-list__link {
+      padding-left: 0;
+    }
+  }
+
+  &.-outside-border {
+    @include os1-default-border;
+  }
+
+  &.-box-shadow {
+    box-shadow: 0 1px 1px $os1-color-gold-3S;
+  }
+
+  &.-font-size-S {
+    @include os1-font-size($font-size: S);
+  }
+
+  &.-font-size-L {
+    @include os1-font-size($font-size: L);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}

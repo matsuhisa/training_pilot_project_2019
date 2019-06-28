@@ -1,0 +1,79 @@
+/*
+---
+name: Link Decoration:汎用 hint リンク
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/link-decoration
+  - 1_component/link-decoration/link-hint
+---
+
+## コンポーネント
+リンクに付与するヒントアイコン付きのリンク
+
+### NOTE
+- ❗ a要素にのみ使用する
+- このコンポーネントはアイコンのサイズやテキストとの余白は調整できない
+
+### hint リンク
+
+```html
+<a href="#dummy" class="os1-link-hint">ヒント</a>
+```
+
+### 上マージン付きの link-hint 「？」リンク
+
+- マージンサイズS（10px）： -margin-top-S
+- マージンサイズM（20px）： -margin-top-M
+
+
+```html
+<a href="#dummy" class="os1-link-hint -margin-top-S">ヒント</a>
+<a href="#dummy" class="os1-link-hint -margin-top-M">ヒント</a>
+```
+
+### 下マージン付きの link-hint 「？」リンク
+
+- マージンサイズS（10px）： -margin-top-S
+- マージンサイズM（20px）： -margin-top-M
+
+```html
+<a href="#dummy" class="os1-link-hint -margin-bottom-S">ヒント</a>
+<a href="#dummy" class="os1-link-hint -margin-bottom-M">ヒント</a>
+```
+
+## 誤った使用例
+❌ a要素以外に使用する
+```html
+<span class="os1-link-hint">ヒント</span>
+```
+*/
+
+.os1-link-hint {
+  @include os1-link-coloring(link-color-gold);
+  display: block;
+
+  &::before {
+    @include os1-symbol-base;
+    content: map-get($os1-symbol-unicodes, 'question');
+    padding-right: 3px;
+  }
+
+  &.-margin-top-S {
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-bottom-S {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+}

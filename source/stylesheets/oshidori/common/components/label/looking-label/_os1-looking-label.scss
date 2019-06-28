@@ -1,0 +1,83 @@
+/*
+---
+name: ラベル:汎用 Looking ラベル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/label
+  - 1_component/label/looking-label
+---
+
+## コンポーネント
+注目を集めるために使用するラベル
+
+- 主に式場ページなどで利用する
+
+### NOTE
+- modifier クラスを使ってラベルの左右余白を指定できる
+- font-size や font-weight の変更は許容しない
+
+### ノーマルの looking-label
+
+```html
+<span class="os1-looking-label">NEW OPEN</span>
+```
+
+### 右マージン付きの looking-label
+- `os1-looking-label` クラスにマルチクラスで指定する
+- `-margin-right-(サイズ)` クラスで右マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-looking-label -margin-right-S">NEW OPEN</span>
+```
+
+### 左マージン付きの looking-label
+- `os1-looking-label` クラスにマルチクラスで指定する
+- `-margin-left-(サイズ)` クラスで左マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-looking-label -margin-left-S">NEW OPEN</span>
+```
+
+### 左右マージン付きの looking-label
+- `os1-looking-label` クラスにマルチクラスで指定する
+
+```html
+<span class="os1-looking-label -margin-right-S -margin-left-S">NEW OPEN</span>
+```
+
+## 使用例
+
+```html
+<div>
+  <span class="os1-looking-label">対象となる投稿</span>
+  3年以内の挙式（下見の場合は訪問日、申込の場合は申込日）
+</div>
+```
+*/
+
+.os1-looking-label {
+  @include os1-labels;
+  background-color: #fff8d5;
+  color: $os1-color-navy-1S;
+
+  &.-margin-right-XS {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+  }
+
+  &.-margin-right-S {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+  }
+
+  &.-margin-left-XS {
+    @include os1-set-margin($margin-side: left, $margin-size: XS);
+  }
+
+  &.-margin-left-S {
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+  }
+}

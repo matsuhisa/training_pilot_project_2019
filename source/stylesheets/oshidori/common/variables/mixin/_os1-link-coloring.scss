@@ -1,0 +1,133 @@
+/*
+---
+name: Mixin:Link coloring
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/link-coloring
+---
+
+## リンクの色と下線を設定するMixin
+
+- このmixinではリンクの色と下線を指定している
+- 引数に指定のないデフォルトでは `green` 色を表示する
+- `os1-link-coloring($anchor-color);` の引数 `$anchor-color` にカラーコードを渡すと、アンカー状態での色を出しわけできる
+- 色は `link-color-green / link-color-gold / link-color-navy` の中から使用できる
+- 下線はデフォルトでは無しになっており、マウスオーバーで表示される
+
+
+### NOTE
+- a要素のクラスにのみ使用する
+- ❗ `link-color-navy` のみ常に下線が付く
+- 重要度の高さは `green` => `gold` => `navy` の順
+  - 一番目立たせたいリンクに `green` のボタンを設置するルールのため、ページ内の色配分を考慮すること
+- 下線をつけない設定をするのは、アイコン画像にリンクをつける時などテキスト以外の時のみ限る
+
+### 引数
+
+- $anchor-color
+  - $anchor-color: link-color-green (デフォルト)
+    - color を green で設定する
+  - $anchor-color: link-color-gold
+    - color を gold で設定する
+  - $anchor-color: link-color-navy
+    - color を navy で設定する
+- $underline
+  - $underline: true (デフォルト)
+    - 下線をつける
+  - $underline: false
+    - 下線をつけない
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__link-coloring">@include os1-link-coloring;</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__link-coloring -gold">@include os1-link-coloring(link-color-gold);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__link-coloring -navy">@include os1-link-coloring(link-color-navy);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__link-coloring -underline-none">@include os1-link-coloring(link-color-gold, false);</a>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+引数を指定しない場合は `link-color-green` を設定する
+
+```scss
+.os1-sample-scss {
+  // color: $os1-color-green;
+  @include os1-link-coloring;
+}
+```
+
+- $anchor-color に `link-color-gold / link-color-navy` のいずれかを指定すると、リンク色をその色に設定できる
+- $underline に `false` の指定すると下線をつけない設定ができる（ アイコン画像にリンクをつける時などのみに利用する ）
+
+```scss
+.os1-sample-scss1 {
+  // color: $os1-color-gold;
+  @include os1-link-coloring(link-color-gold);
+}
+.os1-sample-scss2 {
+  // color: $os1-color-navy;
+  @include os1-link-coloring(link-color-navy);
+}
+.os1-sample-scss3 {
+  // color: $os1-color-navy;
+  @include os1-link-coloring(link-color-gold, false);
+}
+```
+*/
+
+@mixin os1-link-coloring($anchor-color: link-color-green, $underline: true) {
+  @if ($anchor-color == link-color-green) {
+    &, &:link, &:active, &:visited {
+      color: $os1-color-green;
+    }
+    &:hover, &:focus {
+      color: $os1-color-green-D;
+      @if ($underline == true) {
+        text-decoration: underline;
+      } @else {
+        text-decoration: none;
+      }
+    }
+  } @else if ($anchor-color == link-color-gold) {
+    &, &:link, &:active, &:visited {
+      color: $os1-color-gold;
+    }
+    &:hover, &:focus {
+      color: $os1-color-gold-D;
+      @if ($underline == true) {
+        text-decoration: underline;
+      } @else {
+        text-decoration: none;
+      }
+    }
+  } @else if ($anchor-color == link-color-navy) {
+    &, &:link, &:active, &:visited {
+      color: $os1-color-navy-D;
+      @if ($underline == true) {
+        text-decoration: underline;
+      } @else {
+        text-decoration: none;
+      }
+    }
+    &:hover, &:focus {
+      color: darken($os1-color-navy-D, 20%);
+      @if ($underline == true) {
+        text-decoration: underline;
+      } @else {
+        text-decoration: none;
+      }
+    }
+  }
+}

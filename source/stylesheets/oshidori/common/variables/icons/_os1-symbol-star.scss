@@ -1,0 +1,79 @@
+/*
+---
+name: Icons Star Symbols
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/icons
+  - 2_variables/icons/symbol-star
+---
+
+```html
+<ul class="oshidori-icons">
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-00"></span>&lt;span class="os1-symbol-star-00"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-10"></span>&lt;span class="os1-symbol-star-10"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-15"></span>&lt;span class="os1-symbol-star-15"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-20"></span>&lt;span class="os1-symbol-star-20"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-25"></span>&lt;span class="os1-symbol-star-25"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-30"></span>&lt;span class="os1-symbol-star-30"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-35"></span>&lt;span class="os1-symbol-star-35"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-40"></span>&lt;span class="os1-symbol-star-40"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-45"></span>&lt;span class="os1-symbol-star-45"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-star-50"></span>&lt;span class="os1-symbol-star-50"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-00"></span>&lt;span class="os1-symbol-blue-star-00"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-10"></span>&lt;span class="os1-symbol-blue-star-10"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-15"></span>&lt;span class="os1-symbol-blue-star-15"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-20"></span>&lt;span class="os1-symbol-blue-star-20"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-25"></span>&lt;span class="os1-symbol-blue-star-25"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-30"></span>&lt;span class="os1-symbol-blue-star-30"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-35"></span>&lt;span class="os1-symbol-blue-star-35"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-40"></span>&lt;span class="os1-symbol-blue-star-40"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-45"></span>&lt;span class="os1-symbol-blue-star-45"&gt;&lt;/span&gt;</li>
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-blue-star-50"></span>&lt;span class="os1-symbol-blue-star-50"&gt;&lt;/span&gt;</li>
+</ul>
+```
+*/
+
+@each $star-number in "00", "10", "15", "20", "25", "30", "35", "40", "45", "50" {
+  .os1-symbol-star-#{$star-number},
+  .os1-symbol-blue-star-#{$star-number} {
+    @include os1-symbol-star-base;
+    &:after {
+      @if $star-number == "10" {
+        content: "\e93a";
+        color: $os1-color-pink-3S;
+      } @else if $star-number == "15" {
+        content: "\e93a\e938";
+        color: $os1-color-pink-3S;
+      } @else if $star-number == "20" {
+        content: "\e93a\e93a";
+        color: $os1-color-pink-2S;
+      } @else if $star-number == "25" {
+        content: "\e93a\e93a\e938";
+        color: $os1-color-pink-2S;
+      } @else if $star-number == "30" {
+        content: "\e93a\e93a\e93a";
+        color: $os1-color-pink-1S;
+      } @else if $star-number == "35" {
+        content: "\e93a\e93a\e93a\e938";
+        color: $os1-color-pink-1S;
+      } @else if $star-number == "40" {
+        content: "\e93a\e93a\e93a\e93a";
+        color: $os1-color-pink;
+      } @else if $star-number == "45" {
+        content: "\e93a\e93a\e93a\e93a\e938";
+        color: $os1-color-pink;
+      } @else if $star-number == "50" {
+        content: "\e93a\e93a\e93a\e93a\e93a";
+        color: $os1-color-pink-D;
+      }
+    }
+  }
+  .os1-symbol-blue-star-#{$star-number} {
+    &:after {
+      color: $os1-color-blue;
+    }
+  }
+}

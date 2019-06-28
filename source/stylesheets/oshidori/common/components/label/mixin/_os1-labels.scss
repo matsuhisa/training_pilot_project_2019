@@ -1,0 +1,8 @@
+@mixin os1-labels {
+  @include os1-font-size($font-size: S);
+  display: inline-block;
+  padding: 3px 5px;
+  font-weight: normal;
+  color: $os1-color-white;
+  vertical-align: middle;
+}

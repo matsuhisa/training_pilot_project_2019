@@ -1,0 +1,142 @@
+/*
+---
+name: Color scheme Brand
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/color-scheme
+  - 2_variables/color-scheme/brand
+---
+
+## Oshidori CSSで使える色変数一覧
+
+### GOLD
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#816938" class="oshidori-color-scheme__item -gold-D">$os1-color-gold-D: #816938;</li>
+  <li title="#ac8c4b" class="oshidori-color-scheme__item -gold">$os1-color-gold: #ac8c4b;</li>
+  <li title="#d4c29d" class="oshidori-color-scheme__item -gold-2S">$os1-color-gold-2S: #d4c29d;</li>
+  <li title="#e2d6bd" class="oshidori-color-scheme__item -gold-3S">$os1-color-gold-3S: #e2d6bd;</li>
+  <li title="#f0eadd" class="oshidori-color-scheme__item -gold-4S">$os1-color-gold-4S: #f0eadd;</li>
+  <li title="#f9f7f2" class="oshidori-color-scheme__item -gold-5S">$os1-color-gold-5S: #f9f7f2;</li>
+</ul>
+```
+
+### GREEN
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#269e87" class="oshidori-color-scheme__item -green-D">$os1-color-green-D: #269e87;</li>
+  <li title="#2fc3a7" class="oshidori-color-scheme__item -green">$os1-color-green: #2fc3a7;</li>
+  <li title="#8ae3d2" class="oshidori-color-scheme__item -green-2S">$os1-color-green-2S: #8ae3d2;</li>
+  <li title="#d4f5ee" class="oshidori-color-scheme__item -green-4S">$os1-color-green-4S: #d4f5ee;</li>
+  <li title="#f5fcfb" class="oshidori-color-scheme__item -green-5S">$os1-color-green-5S: #f5fcfb;</li>
+</ul>
+```
+
+### NAVY
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#3b4b5b" class="oshidori-color-scheme__item -navy-D">$os1-color-navy-D: #3b4b5b;</li>
+  <li title="#536a80" class="oshidori-color-scheme__item -navy">$os1-color-navy: #536a80;</li>
+  <li title="#8198ae" class="oshidori-color-scheme__item -navy-1S">$os1-color-navy-1S: #8198ae;</li>
+  <li title="#b0becc" class="oshidori-color-scheme__item -navy-2S">$os1-color-navy-2S: #b0becc;</li>
+  <li title="#dee4ea" class="oshidori-color-scheme__item -navy-3S">$os1-color-navy-3S: #dee4ea;</li>
+  <li title="#f1f3f6" class="oshidori-color-scheme__item -navy-4S">$os1-color-navy-4S: #f1f3f6;</li>
+  <li title="#f8f9fa" class="oshidori-color-scheme__item -navy-5S">$os1-color-navy-5S: #f8f9fa;</li>
+</ul>
+```
+
+### WHITE
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#ffffff" class="oshidori-color-scheme__item -white">$os1-color-white: #ffffff;</li>
+</ul>
+```
+
+### PINK
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#ff3265" class="oshidori-color-scheme__item -pink-D">$os1-color-pink-D: #ff3265;</li>
+  <li title="#ff658b" class="oshidori-color-scheme__item -pink">$os1-color-pink: #ff658b;</li>
+  <li title="#ff7698" class="oshidori-color-scheme__item -pink-1S">$os1-color-pink-1S: #ff7698;</li>
+  <li title="#ff98b2" class="oshidori-color-scheme__item -pink-2S">$os1-color-pink-2S: #ff98b2;</li>
+  <li title="#ffbacb" class="oshidori-color-scheme__item -pink-3S">$os1-color-pink-3S: #ffbacb;</li>
+  <li title="#ffdce5" class="oshidori-color-scheme__item -pink-4S">$os1-color-pink-4S: #ffdce5;</li>
+  <li title="#ffedf1" class="oshidori-color-scheme__item -pink-5S">$os1-color-pink-5S: #ffedf1;</li>
+</ul>
+```
+
+### RED
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#e73613" class="oshidori-color-scheme__item -red-D">$os1-color-red-D: #e73613;</li>
+  <li title="#f0684e" class="oshidori-color-scheme__item -red">$os1-color-red: #f0684e;</li>
+  <li title="#fce0db" class="oshidori-color-scheme__item -red-4S">$os1-color-red-4S: #fce0db;</li>
+</ul>
+```
+
+### ORANGE
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#e67300" class="oshidori-color-scheme__item -orange-D">$os1-color-orange-D: #e67300;</li>
+  <li title="#ff952b" class="oshidori-color-scheme__item -orange">$os1-color-orange: #ff952b;</li>
+  <li title="#ffead5" class="oshidori-color-scheme__item -orange-4S">$os1-color-orange-4S: #ffead5;</li>
+</ul>
+```
+
+### BLUE
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="#1298d1" class="oshidori-color-scheme__item -blue-D">$os1-color-blue-D: #1298d1;</li>
+  <li title="#49beef" class="oshidori-color-scheme__item -blue">$os1-color-blue: #49beef;</li>
+  <li title="#d5f0fb" class="oshidori-color-scheme__item -blue-4S">$os1-color-blue-4S: #d5f0fb;</li>
+</ul>
+```
+*/
+
+//brand colors
+$os1-color-gold-D: #816938;
+$os1-color-gold: #ac8c4b;
+$os1-color-gold-2S: #d4c29d;
+$os1-color-gold-3S: #e2d6bd;
+$os1-color-gold-4S: #f0eadd;
+$os1-color-gold-5S: #f9f7f2;
+$os1-color-green-D: #269e87;
+$os1-color-green: #2fc3a7;
+$os1-color-green-2S: #8ae3d2;
+$os1-color-green-4S: #d4f5ee;
+$os1-color-green-5S: #f5fcfb;
+$os1-color-navy-D: #3b4b5b;
+$os1-color-navy: #536a80;
+$os1-color-navy-1S: #8198ae;
+$os1-color-navy-2S: #b0becc;
+$os1-color-navy-3S: #dee4ea;
+$os1-color-navy-4S: #f1f3f6;
+$os1-color-navy-5S: #f8f9fa;
+$os1-color-white: #ffffff;
+$os1-color-pink-D: #ff3265;
+$os1-color-pink: #ff658b;
+$os1-color-pink-1S: #ff7698;
+$os1-color-pink-2S: #ff98b2;
+$os1-color-pink-3S: #ffbacb;
+$os1-color-pink-4S: #ffdce5;
+$os1-color-pink-5S: #ffedf1;
+$os1-color-red-D: #e73613;
+$os1-color-red: #f0684e;
+$os1-color-red-4S: #fce0db;
+$os1-color-orange-D: #e67300;
+$os1-color-orange: #ff952b;
+$os1-color-orange-4S: #ffead5;
+$os1-color-blue-D: #1298d1;
+$os1-color-blue: #49beef;
+$os1-color-blue-4S: #d5f0fb;

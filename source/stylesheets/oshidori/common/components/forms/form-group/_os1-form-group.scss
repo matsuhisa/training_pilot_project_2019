@@ -1,0 +1,264 @@
+/*
+---
+name: フォーム用コンポーネント
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/form-group
+---
+
+## コンポーネント
+フォームで入力項目、入力欄を並べるためのレイアウト用コンポーネント
+
+- 大見出し（ __title ）を作ることができる
+- os1-*-label と label 要素を組み合わせた小見出し（ __sub-title ）を作ることができる
+- 入力項目に関する注意書き（ __caption ）を作ることができる
+
+### タイトルに対して margin を設定する
+
+- os1-status-bar より上にあるタイトルに使用する
+- os1-form-title でh1などのタイトル要素へ左右のmarginを10px指定できる
+
+```html
+<form>
+  <div class="os1-form-title">
+    <h1 class="os1-title -h1">お問い合わせ</h1>
+  </div>
+</form>
+```
+
+### コンテンツに対して  margin を設定する
+
+- os1-status-bar より下にあるコンテンツに使用する
+- os1-form-body で form 内の複数のコンポーネントを包括し、左右のmarginを10px指定できる
+
+```html
+<form>
+  <div class="os1-form-body">
+    <div class="os1-form-group">
+      <h3 class="os1-form-group__title">
+        <label for="os1-foo-1">住所</label>
+      </h3>
+      <h4 class="os1-form-group__sub-title">
+        <span class="os1-must-label -margin-right-XS">必須</span>
+        <label for="os1-foo-1">住所1</label>
+      </h4>
+      <div class="os1-form-group__input">
+        <div class="os1-default-text-field">
+          <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="os1-foo-1">
+        </div>
+      </div>
+      <h4 class="os1-form-group__sub-title">
+        <span class="os1-any-label -margin-right-XS">任意</span>
+        <label for="os1-foo-1">建物</label>
+      </h4>
+      <div class="os1-form-group__input">
+        <div class="os1-default-text-field">
+          <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="os1-foo-1">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+```
+
+### 大見出しを作る
+
+- os1-form-group__title で複数の入力項目に対する大見出しを作る
+
+```html
+<form>
+  <div class="os1-form-group">
+    <h3 class="os1-form-group__title">
+      <label for="os1-foo-1">入力内容</label>
+    </h3>
+  </div>
+</form>
+```
+
+### label 要素を組み合わせた小見出しを作る
+
+- os1-form-group__sub-title で 必須、任意の os1-*-label と label要素 をまとめる
+- os1-form-group__input に入力内容を設置する
+
+```html
+<form>
+  <div class="os1-form-group">
+    <h4 class="os1-form-group__sub-title">
+      <span class="os1-any-label -margin-right-XS">任意</span>
+      <label for="os1-foo-1">メールアドレス</label>
+    </h4>
+    <div class="os1-form-group__input">
+      <div class="os1-default-mail-field">
+        <input class="os1-default-mail-field__input" placeholder="minnano.shiho@mwed.co.jp" type="email" name="foo" id="os1-foo-1">
+      </div>
+    </div>
+  </div>
+
+  <div class="os1-form-group">
+    <h4 class="os1-form-group__sub-title">
+      <span class="os1-must-label -margin-right-XS">必須</span>
+      <label>名前</label>
+    </h4>
+    <div class="os1-form-group__input">
+      <label class="os1-default-text-field">
+        <span class="os1-default-text-field__text -margin-right-S">姓</span>
+        <input class="os1-default-text-field__input" placeholder="皆野" type="text" name="foo">
+      </label>
+      <label class="os1-default-text-field">
+        <span class="os1-default-text-field__text -margin-right-S">名</span>
+        <input class="os1-default-text-field__input" placeholder="志穂" type="text" name="foo">
+      </label>
+    </div>
+  </div>
+</form>
+```
+
+### 大見出しと label 要素を組み合わせた小見出しを設定する
+
+```html
+<form>
+  <div class="os1-form-group">
+    <h3 class="os1-form-group__title">
+      <label for="os1-foo-1">住所</label>
+    </h3>
+    <h4 class="os1-form-group__sub-title">
+      <span class="os1-must-label -margin-right-XS">必須</span>
+      <label for="os1-foo-1">住所1</label>
+    </h4>
+    <div class="os1-form-group__input">
+      <div class="os1-default-text-field">
+        <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="os1-foo-1">
+      </div>
+    </div>
+    <h4 class="os1-form-group__sub-title">
+      <span class="os1-any-label -margin-right-XS">任意</span>
+      <label for="os1-foo-1">建物</label>
+    </h4>
+    <div class="os1-form-group__input">
+      <div class="os1-default-text-field">
+        <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="os1-foo-1">
+      </div>
+    </div>
+  </div>
+</form>
+```
+
+### 入力項目に関する注意書きを作る
+
+```html
+<form>
+  <div class="os1-form-group">
+    <h3 class="os1-form-group__title">
+      <label for="os1-foo-1">ユーザー情報</label>
+    </h3>
+    <div class="os1-form-group__caption">
+      あなたのユーザー情報に関する項目です。
+    </div>
+    <h4 class="os1-form-group__sub-title">
+    <span class="os1-must-label -margin-right-XS">必須</span>
+      <label for="os1-foo-1">メールアドレス</label>
+    </h4>
+    <div class="os1-form-group__caption">
+      ドメイン指定受信を設定されている方は[mwed.jp]と[edmont.co.jp]のドメインからのメールを受信できるよう設定してください。
+    </div>
+
+    <div class="os1-form-group__input">
+      <div class="os1-default-mail-field">
+        <input class="os1-default-mail-field__input" placeholder="minnano.shiho@mwed.co.jp" type="email" name="foo" id="os1-foo-1">
+      </div>
+    </div>
+  </div>
+</form>
+```
+
+## 誤った使用例
+
+### 複数の os1-form-group__input がある
+
+❌ 補助テキストをつけて表示すると、縦の並びがキレイにならない
+
+```html
+  <div class="os1-form-group">
+    <h4 class="os1-form-group__sub-title">
+      <span class="os1-must-label -margin-right-XS">必須</span>
+      <label>名前</label>
+    </h4>
+    <div class="os1-form-group__input">
+      <label class="os1-default-text-field">
+        <span class="os1-default-text-field__text -margin-right-S">名前</span>
+        <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+      </label>
+    </div>
+    <div class="os1-form-group__input">
+      <label class="os1-default-text-field">
+        <span class="os1-default-text-field__text -margin-right-S">ふりがな</span>
+        <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+      </label>
+    </div>
+  </div>
+```
+
+### 補助テキストに label を含む
+
+❌ 補助テキストlabel を含むのはスマートフォンで入力欄がギュウギュウになるため禁止
+
+```html
+<form>
+  <div class="os1-form-group">
+    <h3 class="os1-form-group__title">
+      <label for="os1-foo-2">あなたが住んでいる住所</label>
+    </h3>
+    <div class="os1-form-group__input">
+      <label class="os1-default-text-field">
+        <span class="os1-default-text-field__text -margin-right-S">
+          <span class="os1-must-label">必須</span>
+          都道府県
+        </span>
+        <input class="os1-default-text-field__input" placeholder="" type="text" name="foo" id="foo">
+      </label>
+    </div>
+  </div>
+</form>
+```
+
+*/
+
+.os1-form-title {
+  @include os1-set-margin($margin-side: left-right, $margin-size: S);
+}
+
+.os1-form-body {
+  @include os1-set-margin($margin-side: left-right, $margin-size: S);
+}
+
+.os1-form-group {
+  @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+
+  .os1-form-group__title {
+    @include os1-default-border($border-side: bottom);
+    @include os1-set-padding($padding-side: bottom, $padding-size: XS);
+    @include os1-set-margin($margin-side: bottom, $margin-size: M);
+    @include os1-font-size($font-size: XL, $line-height: 1.5);
+    font-weight: bold;
+  }
+
+  .os1-form-group__sub-title {
+    @include os1-font-size($font-size: L, $line-height: 1.5);
+    @include os1-set-margin($margin-side: top, $margin-size: M);
+    font-weight: bold;
+  }
+
+  .os1-form-group__caption {
+    @include os1-set-margin($margin-side: top-bottom, $margin-size: S);
+    @include os1-font-size($font-size: S, $line-height: 1.2);
+    color: $os1-color-navy-2S;
+  }
+
+  .os1-form-group__input {
+    @include os1-set-margin($margin-side: top-bottom, $margin-size: S);
+  }
+}

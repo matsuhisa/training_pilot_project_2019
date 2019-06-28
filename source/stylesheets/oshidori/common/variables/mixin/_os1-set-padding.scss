@@ -1,0 +1,117 @@
+/*
+---
+name: Mixin:Set padding
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/set-padding
+---
+
+## コンポーネント間の padding を設定する mixin
+
+引数で padding サイズと padding をどこに付与するかを指定している
+
+### 引数
+- $padding-side
+  - $padding-side: all (デフォルト)
+    - padding を上下左右全てに付与する
+    - 未指定だとデフォルトで設定される
+  - $padding-side: top-bottom
+    - padding を上下に付与する
+  - $padding-side: left-right
+    - padding を左右に付与する
+  - $padding-side: top
+    - padding を上にのみ付与する
+  - $padding-side: bottom
+    - padding を下にのみ付与する
+  - $padding-side: left
+    - padding を左にのみ付与する
+  - $padding-side: right
+    - padding を右にのみ付与する
+- $padding-size
+  - $padding-size: zero
+    - padding を 0px に設定する
+  - $padding-size: XS
+    - padding を 5px に設定する
+  - $padding-size: S
+    - padding を 10px に設定する
+  - $padding-size: M (デフォルト)
+    - padding を 20px に設定する
+    - 未指定だとデフォルトで設定される
+  - $padding-size: L
+    - padding を 30px に設定する
+  - $padding-size: XL
+    - padding を 40px に設定する
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-padding">@include os1-set-padding;</div>
+  </li>
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-padding -size-L">@include os1-set-padding($padding-size: L);</div>
+  </li>
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-padding -side-top">@include os1-set-padding($padding-side: top);</div>
+  </li>
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__set-padding -side-bottom-size-XL">@include os1-set-padding($padding-side: bottom, $padding-size: XL);</div>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+引数を指定しない場合は `padding: 20px 0` に設定される
+
+```scss
+.os1-sample-scss {
+  // padding: 20px 0
+  @include os1-set-padding;
+}
+```
+
+引数は $padding-side と $padding-size のどちらかもしくは両方を指定する
+
+```scss
+.os1-sample-scss1 {
+  // padding: 30px 0;
+  @include os1-set-padding($padding-size: L);
+}
+.os1-sample-scss2 {
+  // padding-top: 20px;
+  @include os1-set-padding($padding-side: top);
+}
+.os1-sample-scss3 {
+  // padding-bottom: 40px;
+  @include os1-set-padding($padding-side: bottom, $padding-size: XL);
+}
+```
+*/
+
+@mixin os1-set-padding($padding-side: all, $padding-size: M) {
+  @if ($padding-size == zero) {
+    $padding-size: 0;
+  } @else if ($padding-size == XS) {
+    $padding-size: 5px;
+  } @else if ($padding-size == S) {
+    $padding-size: 10px;
+  } @else if ($padding-size == M) {
+    $padding-size: 20px;
+  } @else if ($padding-size == L) {
+    $padding-size: 30px;
+  } @else if ($padding-size == XL) {
+    $padding-size: 40px;
+  }
+  @if ($padding-side == all) {
+    padding: $padding-size;
+  } @else if ($padding-side == top-bottom) {
+    padding: $padding-size 0;
+  } @else if ($padding-side == left-right) {
+    padding: 0 $padding-size;
+  } @else {
+    padding-#{$padding-side}: $padding-size;
+  }
+}

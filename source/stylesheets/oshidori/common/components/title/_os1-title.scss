@@ -1,0 +1,232 @@
+/*
+---
+name: 汎用 title
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/title
+---
+
+## コンポーネント
+h要素（見出し）である、テキストのページタイトルに使う
+
+### NOTE
+- 画像がタイトルになる場合や特殊ページ（キャンペーンページ、新規事業のコンテンツなど）はこのルールに従わない
+- 特殊ページ以外のテキストのタイトルは必ずルールに則ってこのコンポーネントを使う
+
+### 使用方法
+- ❗ このコンポーネントは modifier 無しでは使用できない
+- 見出しのレベルに合わせて `.-h1` から `.-h4` までの modifier を使用する
+- `h1` には `.-h1` 、 `h2` には `.-h2` ... を必ず使わなければいけないわけではなく、デザイン上の見出しレベルに合わせて使用する（後述の禁止事項も参照）
+
+### ⭕ 許可事項
+- hクラスの順番を歯抜けで使用する
+  - 例) h1、h3、h4 の順で使う
+
+### ❌ 禁止事項
+- 本文など、タイトルになり得ない要素に使用する
+- アイコンを入れて使用する
+- 重要度レベルの違うものに使用する（h2要素にh1クラスを使用する、等）
+
+※マークアップ上とデザイン上の見出しレベルは必ずしも常に一致するわけではありません。OKとNGの判定は以下の例を参考にしてください。
+
+（NG例）
+
+```
+h1.os1-title.-h2
+ h2.os1-title.-h1
+  h3.os1-title.-h2
+```
+
+（OK例）h2要素からページのコンテンツが始まる場合に、h2要素に h1の見た目をあてたい、など
+
+```
+h1.logo
+ h2.os1-title.-h1
+  h3.os1-title.-h2
+```
+
+- hクラスの順番を入れ替える
+
+（NG例）h1、h4、h2 の順で使う
+
+```
+h1.os1-title.-h1
+ h2.os1-title.-h4
+  h3.os1-title.-h2
+```
+（OK例）※コンテンツが2つ以上、同一ページに並んだ時など、以下のようなパターンはありです。
+```
+h2.os1-title.-h2
+ h4.os1-title.-h4
+h2.os1-title.-h2
+ h3.os1-title.-h3
+  h4.os1-title.-h4
+```
+
+### h1 相当の title
+
+- デフォルトで上下 20px のマージンが指定されている
+
+```html
+<h1 class="os1-title -h1">title</h1>
+```
+
+### sub-text の付いた h1 相当の title
+
+- h1 相当の title に限り、 sub-text が使用できる
+- ❗ sub-text と title の文字数のバランスは未調整
+
+```html
+<h1 class="os1-title -h1">
+  国際みんなのウェディングホテル
+  <span class="os1-title__sub-text">sub-text</span>
+</h1>
+```
+
+```haml
+%h1.os1-title.-h1
+  国際みんなのウェディングホテル
+  %span.os1-title__sub-text sub-text
+```
+
+### h2 相当の title
+
+- デフォルトで上 40px 下 20px のマージンが指定されている
+
+```html
+<h2 class="os1-title -h2">
+  title
+</h2>
+```
+
+### h3 相当の title
+
+- デフォルトで上 40px 下 20px のマージンが指定されている
+
+```html
+<h3 class="os1-title -h3">
+  title
+</h3>
+```
+
+### h4 相当の title
+
+- デフォルトで上 20px 下 10px のマージンが指定されている
+
+```html
+<h4 class="os1-title -h4">
+  title
+</h4>
+```
+
+### マージンサイズを変えた title
+
+- title のマージンサイズを変えたい時にmodifier クラスを使ってマージンを指定する
+- 上マージンサイズXS（5px）： `-margin-top-XS`
+- 上マージンサイズS（10px）： `-margin-top-S`
+- 上マージンサイズM（20px）： `-margin-top-M`
+- 上マージンサイズXL（40px）： `-margin-top-XL`
+- 下マージンサイズXS（5px）： `-margin-bottom-XS`
+- 下マージンサイズS（10px）： `-margin-bottom-S`
+- 下マージンサイズM（20px）： `-margin-bottom-M`
+- 下マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<h1 class="os1-title -h1 -margin-top-XS -margin-bottom-XS">title</h1>
+<h1 class="os1-title -h4 -margin-top-XL -margin-bottom-XL">title</h1>
+```
+*/
+
+.os1-title {
+  display: block;
+  font-weight: bold;
+  line-height: 1.5;
+
+  &.-h1 {
+    @include os1-font-size($font-size: XL, $line-height: 1.5);
+    @include os1-set-margin($margin-side: top-bottom, $margin-size: M);
+    display: flex;
+    align-items: baseline;
+    @include os1-screen(pc) {
+      font-size: 32px;
+    }
+
+    .os1-title__sub-text {
+      @include os1-font-size($line-height: 1.5);
+      margin-left: 10px;
+      color: $os1-color-navy-1S;
+      font-weight: normal;
+    }
+  }
+
+  &.-h2 {
+    @include os1-default-border($border-side: bottom);
+    @include os1-font-size($font-size: XL, $line-height: 1.5);
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+    @include os1-set-margin($margin-side: bottom, $margin-size: M);
+    position: relative;
+    padding-bottom: 2px;
+    @include os1-screen(pc) {
+      font-size: 20px;
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      bottom: 1px;
+      left: 0;
+      background-color: $os1-color-gold-2S;
+      width: 100%;
+      height: 1px;
+      content: "";
+    }
+  }
+
+  &.-h3 {
+    @include os1-default-border($border-side: bottom);
+    @include os1-font-size($font-size: XL, $line-height: 1.5);
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+    @include os1-set-margin($margin-side: bottom, $margin-size: M);
+  }
+
+  &.-h4 {
+    @include os1-font-size($font-size: L, $line-height: 1.5);
+    @include os1-set-margin($margin-side: top, $margin-size: M);
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+  }
+
+  &.-margin-top-XS {
+    @include os1-set-margin($margin-side: top, $margin-size: XS);
+  }
+
+  &.-margin-top-S {
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top, $margin-size: M);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-XS {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XS);
+  }
+
+  &.-margin-bottom-S {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom, $margin-size: M);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}

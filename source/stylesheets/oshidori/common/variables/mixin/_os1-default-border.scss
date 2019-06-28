@@ -1,0 +1,138 @@
+/*
+---
+name: Mixin:Default border
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/default-border
+---
+
+## borderを設定するMixin
+
+- borderを複数のコンポーネント間で統一して設定するためのMixin
+- 引数で border の色と border をどこに付与するかを設定できる
+
+### 引数
+- $border-color
+  - $border-color: border-color-gold (デフォルト)
+    - border-color をゴールドに設定する
+    - 未指定だとデフォルトで設定される
+  - $border-color: border-color-black
+    - border-color をブラックに設定する
+  - $border-color: border-color-navy
+    - border-color をネイビーに設定する
+  - $border-color: border-color-pale-gray
+    - border-color をペールグレーに設定する
+  - $border-color: border-color-green
+    - border-color をグリーンに設定する
+- $border-side
+  - $border-side: all (デフォルト)
+    - 上下左右にボーダーを付ける
+    - 未指定だとデフォルトで設定される
+  - $border-side: top
+    - 上にボーダーを付ける
+  - $border-side: right
+    - 右にボーダーを付ける
+  - $border-side: bottom
+    - 下にボーダーを付ける
+  - $border-side: left
+    - 左にボーダーを付ける
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border">@include os1-default-border;</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border -black">@include os1-default-border($border-color: border-color-black);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border -navy">@include os1-default-border($border-color: border-color-navy);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border -pale-gray">@include os1-default-border($border-color: border-color-pale-gray);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border -green">@include os1-default-border($border-color: border-color-green);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border -side-top">@include os1-default-border($border-side: top);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border -black-side-top">@include os1-default-border($border-color: border-color-black, $border-side: top);</a>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+$border-color と $border-side どちらかもしくは両方を指定する
+
+```scss
+.os1-sample-scss-1 {
+  // border: 1px solid #b3b3b3;
+  @include os1-default-border($border-color: border-color-black);
+}
+.os1-sample-scss-2 {
+  // border: 1px solid $os1-color-navy-2S;
+  @include os1-default-border($border-color: border-color-navy);
+}
+.os1-sample-scss-3 {
+  // border: 1px solid #e6e6e6;
+  @include os1-default-border($border-color: border-color-pale-gray);
+}
+.os1-sample-scss-4 {
+  // border-top: 1px solid $os1-color-gold-2S;
+  @include os1-default-border($border-side: top);
+}
+.os1-sample-scss-5 {
+  // border-top: 1px solid #e6e6e6;
+  @include os1-default-border($border-color: border-color-black, $border-side: top);
+}
+```
+
+引数を未指定にすると `border: 1px solid $os1-color-gold-2S;` に設定される
+
+```scss
+.os1-sample-scss {
+  // border: 1px solid $os1-color-gold-2S;
+  @include os1-default-border;
+}
+```
+*/
+
+@mixin os1-default-border($border-color: border-color-gold, $border-side: all) {
+  @if ($border-color == border-color-gold) {
+    @if ($border-side == all) {
+      border: 1px solid $os1-color-gold-2S;
+    } @else {
+      border-#{$border-side}: 1px solid $os1-color-gold-2S;
+    }
+  } @else if ($border-color == border-color-black) {
+    @if ($border-side == all) {
+      border: 1px solid #b3b3b3;
+    } @else {
+      border-#{$border-side}: 1px solid #b3b3b3;
+    }
+  } @else if ($border-color == border-color-navy) {
+    @if ($border-side == all) {
+      border: 1px solid $os1-color-navy-2S;
+    } @else {
+      border-#{$border-side}: 1px solid $os1-color-navy-2S;
+    }
+  } @else if ($border-color == border-color-pale-gray) {
+    @if ($border-side == all) {
+      border: 1px solid #e6e6e6;
+    } @else {
+      border-#{$border-side}: 1px solid #e6e6e6;
+    }
+  } @else if ($border-color == border-color-green) {
+    @if ($border-side == all) {
+      border: 1px solid $os1-color-green;
+    } @else {
+      border-#{$border-side}: 1px solid $os1-color-green;
+    }
+  }
+}

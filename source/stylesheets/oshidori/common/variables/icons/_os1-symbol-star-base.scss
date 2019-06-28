@@ -1,0 +1,22 @@
+@mixin os1-symbol-star-base {
+  @include os1-symbol-base;
+  position: relative;
+  letter-spacing: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  &:before,
+  &:after {
+    display: block;
+    top: 0;
+    left: 0;
+    line-height: 1;
+  }
+  &:before {
+    position: relative;
+    content: "\e93a\e93a\e93a\e93a\e93a";
+    color: #b3b3b3;
+  }
+  &:after {
+    position: absolute;
+  }
+}

@@ -1,0 +1,551 @@
+/*
+---
+name: 汎用 accordion リスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/lists
+  - 1_component/lists/accordion-list
+---
+
+## コンポーネント
+アコーディオンで開閉するリストとして使用できるコンポーネント
+
+- `ul.list-accordion` クラスを付与することでアコーディオンの動作を実装している
+- `li.os1-accordion-list__item` に `plus` か `minus` クラスを付与してデフォルトの開閉状態を示す
+  - `plus` が閉じた状態
+  - `minus` が開いた状態
+- アコーディオンの子リストは `ul.os1-accordion-list__accordion` と `li.os1-accordion-list__accordion-item` で指定する
+
+### NOTE
+- modifier は組み合わせて使うことができる
+- 背景色は 白色 をデフォルトとする
+- ❗ 通常のテキストは div 要素のみ（div 以外を使うとアコーディオンが動作しない）
+- リンクテキストは `a.os1-accordion-list__link` 要素を採用する
+
+### アコーディオンリスト
+
+```html
+<ul class="os1-accordion-list list-accordion">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 画像入りのアコーディオンリスト
+
+- img 要素に `os1-accordion-list__image` クラスを指定する
+- div要素 か a 要素の中に内包する
+
+```html
+<ul class="os1-accordion-list list-accordion">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link"><img src="https://placekitten.com/30/30" class="os1-accordion-list__image">list</a>
+  </li>
+</ul>
+```
+
+### ボーダー付きのアコーディオンリスト
+
+- `-border` クラスでボーダーを指定
+- ほかの modifier と同時に指定することができる (ボーダー系を除く)
+- アコーディオンの上下にはボーダーは付かず、項目の間にボーダーを入れる
+
+```html
+<ul class="os1-accordion-list list-accordion -border">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### ボーダーが上付きのアコーディオンリスト
+
+- `-border-top` クラスで上付きのボーダーを指定
+- ほかの modifier と同時に指定することができる (ボーダー系を除く)
+- 項目の上にボーダーを入れる
+
+```html
+<ul class="os1-accordion-list list-accordion -border-top">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### ボーダーが下付きのアコーディオンリスト
+
+- `-border-bottom` クラスで下付きのボーダーを指定
+- ほかの modifier と同時に指定することができる (ボーダー系を除く)
+- 項目の下にボーダーを入れる
+
+```html
+<ul class="os1-accordion-list list-accordion -border-bottom">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 角丸のアコーディオンリスト
+
+- `-radius` クラスで角丸を指定
+- ほかの modifier と同時に指定することができる
+
+```html
+<ul class="os1-accordion-list list-accordion -radius">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### フォントサイズを指定
+
+- modifier クラスを使ってフォントサイズを指定する
+- ほかの modifier と同時に指定することができる
+- フォントサイズS（12px）： `-font-size-S`
+- フォントサイズL（16px）： `-font-size-L`
+
+```html
+<ul class="os1-accordion-list list-accordion -font-size-S">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 上マージン付きのアコーディオンリスト
+
+- アコーディオンの上にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-top-M`
+- マージンサイズXL（40px）： `-margin-top-XL`
+
+```html
+<ul class="os1-accordion-list list-accordion -margin-top-M">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 下マージン付きのアコーディオンリスト
+
+- アコーディオンの下にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+- マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<ul class="os1-accordion-list list-accordion -margin-bottom-M">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 上下マージン付きのアコーディオンリスト
+
+```html
+<ul class="os1-accordion-list list-accordion -margin-top-M -margin-bottom-M">
+  <li class="os1-accordion-list__item plus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item minus">
+    <div class="os1-accordion-list__content">list</div>
+    <ul class="os1-accordion-list__accordion">
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+      <li class="os1-accordion-list__accordion-item">
+        <a href="#dummy" class="os1-accordion-list__link">list</a>
+      </li>
+    </ul>
+  </li>
+  <li class="os1-accordion-list__item">
+    <a href="#dummy" class="os1-accordion-list__link">list</a>
+  </li>
+</ul>
+```
+*/
+
+.os1-accordion-list {
+  @include os1-font-size($font-size: M);
+  color: $os1-color-navy-D;
+  list-style: none;
+
+  .os1-accordion-list__item {
+    background-color: $os1-color-white;
+
+    &.minus {
+      cursor: pointer;
+
+      .os1-accordion-list__content {
+        padding: 10px 30px 10px 10px;
+        background: none;
+
+        &::before {
+          display: block;
+          position: absolute;
+          top: calc(50% - 1px);
+          right: 9px;
+          background-color: $os1-color-gold-2S;
+          width: 16px;
+          height: 2px;
+          content: "";
+        }
+      }
+    }
+
+    &.plus {
+      cursor: pointer;
+
+      .os1-accordion-list__content {
+        padding: 10px 30px 10px 10px;
+        background: none;
+
+        &::before {
+          display: block;
+          position: absolute;
+          top: calc(50% - 1px);
+          right: 9px;
+          background-color: $os1-color-gold-2S;
+          width: 16px;
+          height: 2px;
+          content: "";
+        }
+
+        &::after {
+          display: block;
+          position: absolute;
+          top: calc(50% - 8px);
+          right: 16px;
+          background-color: $os1-color-gold-2S;
+          width: 2px;
+          height: 16px;
+          content: "";
+        }
+      }
+    }
+  }
+
+  .os1-accordion-list__image {
+    margin-right: 10px;
+    border: solid 1px $os1-color-gold-4S;
+  }
+
+  .os1-accordion-list__content {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+  }
+
+  .os1-accordion-list__link {
+    @include os1-link-coloring(link-color-navy);
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    padding: 10px 30px 10px 10px;
+    background: none;
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: calc(50% - 7px);
+      right: 13px;
+      transform: rotate(45deg);
+      border-top: solid 2px $os1-color-gold-2S;
+      border-right: solid 2px $os1-color-gold-2S;
+      width: 10px;
+      height: 10px;
+      content: "";
+    }
+  }
+
+  .os1-accordion-list__accordion {
+    background-color: $os1-color-white;
+    padding: 0 10px 10px;
+  }
+
+  .os1-accordion-list__accordion-item {
+    position: relative;
+    border-bottom: 1px solid $os1-color-gold-4S;
+    background-color: $os1-color-gold-5S;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &.-border {
+    .os1-accordion-list__item {
+      border-bottom: 1px solid $os1-color-gold-4S;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.-border-top {
+    .os1-accordion-list__item {
+      border-top: 1px solid $os1-color-gold-4S;
+    }
+  }
+
+  &.-border-bottom {
+    .os1-accordion-list__item {
+      border-bottom: 1px solid $os1-color-gold-4S;
+    }
+  }
+
+  &.-radius {
+    @include os1-default-border-radius;
+
+    .os1-accordion-list__item {
+      &:first-child {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+  }
+
+  &.-font-size-S {
+    @include os1-font-size($font-size: S);
+  }
+
+  &.-font-size-L {
+    @include os1-font-size($font-size: L);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}

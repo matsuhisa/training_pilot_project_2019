@@ -1,0 +1,64 @@
+/*
+---
+name: フォーム用フッター
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/form-footer
+---
+
+## コンポーネント
+
+- フォーム用のフッターを作ります
+- ❌ フォーム以外での利用は禁止です
+
+```html
+<footer class="os1-form-footer">
+  <p class="os1-form-footer__links">
+    <a class="os1-form-footer__link" target="_blank" rel="noopener" href="http://www.mwed.co.jp/">会社概要</a>
+    |
+    <a class="os1-form-footer__link" rel="nofollow noopener" target="_blank" href="http://localhost:3000/kiyaku">会員規約</a>
+    |
+    <a class="os1-form-footer__link" target="_blank" rel="noopener" href="http://www.mwed.co.jp/privacy">プライバシーポリシー</a>
+  </p>
+  <p class="os1-form-footer__copyright">© Minnano Wedding Co., Ltd.</p>
+</footer>
+```
+
+```haml
+%footer.os1-form-footer
+  %p.os1-form-footer__links
+    = link_to "会社概要", "http://www.mwed.co.jp/", { class: "os1-form-footer__link", target: "_blank", rel: "noopener" }
+    |
+    = link_to "会員規約", kiyaku_url, { class: "os1-form-footer__link", rel: "nofollow noopener", target: "_blank" }
+    |
+    = link_to "プライバシーポリシー", Settings.corporate.privacy_url, { class: "os1-form-footer__link", target: "_blank", rel: "noopener" }
+  %p.os1-form-footer__copyright &copy; Minnano Wedding Co., Ltd.
+```
+
+*/
+
+.os1-form-footer {
+  @include os1-set-margin($margin-side: top);
+  @include os1-set-padding($padding-side: top-bottom, $padding-size: XL);
+  @include os1-font-size($font-size: S);
+  background-color: $os1-color-gold-5S;
+  text-align: center;
+
+  .os1-form-footer__links {
+    @include os1-set-margin($margin-side: bottom);
+    color: $os1-color-gold-4S;
+  }
+
+  .os1-form-footer__link {
+    @include os1-link-coloring(link-color-navy);
+  }
+
+  .os1-form-footer__copyright {
+    text-align: center;
+  }
+}
+

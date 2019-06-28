@@ -1,0 +1,443 @@
+/*
+---
+name: ボタン:汎用 default ボタン
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/buttons
+  - 1_component/buttons/default-button
+---
+
+## コンポーネント
+他ボタンの役割に該当しないデフォルトのボタン。
+
+「キャンセル」など、あまり重要ではない操作の場合は、このボタンを使用する。
+
+### 使用できるテキストの表記
+ボタンを選択した結果をユーザーが想像できるような文言を動詞で入れる。
+
+例： `修正する` `〜へ戻る` `〜を見る` `App ストアでダウンロードする`
+
+### NOTE
+- デフォルトで上下 10px のマージンが指定されている
+- modifier クラスを使ってボタンの各サイズ・上下のテキスト付き・アイコン付き・マージンサイズを指定する
+- `os1-default-button` クラスにマルチクラスで指定する
+- 使用用途と使用箇所に応じてmodifierを採用する
+- UIに応じてa要素とbutton要素を採用する
+
+### ❗ 禁止事項
+- アイコンとテキスト以外の何かを乗せる
+- アイコンを右側に付ける
+- 複数のアイコンを付ける
+- アローを右側に付ける
+- 説明テキストが入る場合を除き、テキストが複数行になる
+- フォントサイズの複数使用
+- LINE@ などのロゴとの組み合わせ
+- カードに載せる
+- テキストに動的要素を入れる
+
+### ノーマルのボタン
+
+- `min-height: 43px`
+- PC版では `width: 180px`
+- SP版では `width: 80%`
+
+```html
+<div class="os1-default-button">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### 小さいサイズのボタン
+
+- `-size-S` クラスで小さいサイズを指定
+- `min-height: 36px`
+- PC版では `width: 130px`
+- SP版では `width: 60%`
+
+```html
+<div class="os1-default-button -size-S">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button -size-S">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### 大きめのボタン
+
+- `-size-L` クラスで大きいサイズを指定
+- `min-height: 43px`
+- PC版では `width: 250px`
+- SP版では `width: 90%`
+
+```html
+<div class="os1-default-button -size-L">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button -size-L">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### 幅100%のボタン（左右マージン付き）
+
+- `-size-full` クラスでボタン幅100%を指定
+- 幅100%の場合のみ左右に 20px のマージンが付く
+- 他のmodifierと組み合わせが可能
+- 他のmodifierで指定している高さや文字サイズを維持しながら、ボタンを内包する要素の幅に合わせてボタン幅が変わる
+
+```html
+<div class="os1-default-button -size-full">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button -size-full">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### 幅100%のボタン（左右マージン無し）
+
+- `-margin-left-and-right-zero` クラスを指定して左右マージンを0にする
+
+```html
+<div class="os1-default-button -size-full -margin-left-and-right-zero">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button -size-full -margin-left-and-right-zero">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### マージンサイズを変えたボタン
+
+- ボタンのマージンサイズを変えたい時にmodifier クラスを使ってマージンを指定する
+- ほかのmodifierと同時に指定することができる
+- 上マージンサイズ0（0px）： `-margin-top-zero`
+- 上マージンサイズM（20px）： `-margin-top-M`
+- 上マージンサイズXL（40px）： `-margin-top-XL`
+- 下マージンサイズ0（0px）： `-margin-bottom-zero`
+- 下マージンサイズM（20px）： `-margin-bottom-M`
+- 下マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<div class="os1-default-button -margin-top-zero -margin-bottom-zero">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button -margin-top-M -margin-bottom-M">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button -margin-top-XL -margin-bottom-XL">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### 選択不可時のボタン
+
+- `aria-disabled="true"` で指定
+
+```html
+<div class="os1-default-button" aria-disabled="true">
+  <a class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </a>
+</div>
+<div class="os1-default-button" aria-disabled="true">
+  <button type="button" class="os1-default-button__item">
+    <span class="os1-default-button__text">button</span>
+  </button>
+</div>
+```
+
+### 説明テキスト付きのボタン
+
+- `span.os1-default-button__sub-text` でラップ
+- アイコンと同時に使用できる
+
+#### 上付き
+```html
+<div class="os1-default-button">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__sub-text">ログインなしでも使えます</span>
+    <span class="os1-default-button__text">お気に入り</span>
+  </a>
+</div>
+<div class="os1-default-button -icon-horizontal">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__sub-text">ログインなしでも使えます</span>
+    <span class="os1-default-button__text"><span class="os1-default-button__icon os1-symbol-like"></span>お気に入り</span>
+  </a>
+</div>
+```
+#### 下付き
+```html
+<div class="os1-default-button">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">お気に入り</span>
+    <span class="os1-default-button__sub-text">ログインなしでも使えます</span>
+  </a>
+</div>
+<div class="os1-default-button -icon-horizontal">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text"><span class="os1-default-button__icon os1-symbol-like"></span>お気に入り</span>
+    <span class="os1-default-button__sub-text">ログインなしでも使えます</span>
+  </a>
+</div>
+```
+
+### アイコン付きのボタン
+
+- `-icon-vertical` クラスで上付きアイコンを指定
+- `-icon-horizontal` クラスで左付きアイコンを指定
+- `os1-symbol-(シンボル名)` クラスでアイコンを表示
+- アイコンの位置はUIや使用用途によって選択する
+
+### NOTE
+- アイコンはボタンを選択した結果の意味を伝えるものを1つまで使用する
+- 基本的に文字色と同じ色・同じサイズに
+
+```html
+<div class="os1-default-button -icon-vertical">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text"><span class="os1-default-button__icon os1-symbol-like"></span>button</span>
+  </a>
+</div>
+<div class="os1-default-button -icon-horizontal">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text"><span class="os1-default-button__icon os1-symbol-like"></span>button</span>
+  </a>
+</div>
+```
+
+## 正しい使用例
+🆗 主要動線ではなく推す必要はない時に使用する
+
+```html
+<div class="os1-default-button">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">ログインする</span>
+  </a>
+</div>
+```
+```html
+<div class="os1-default-button -size-full">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">みんなのウェディングニューストップへ</span>
+  </a>
+</div>
+```
+
+🆗 ほかのボタンと並べて使用する
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button -size-minim -icon-horizontal">
+    <a href="#dummy" class="os1-default-button__item">
+      <span class="os1-default-button__text"><span class="os1-default-button__icon os1-symbol-like"></span>お気に入り</span>
+    </a>
+  </div>
+  <div class="os1-primary-button">
+    <a href="#dummy" class="os1-primary-button__item">
+      <span class="os1-primary-button__text">試着予約する</span>
+    </a>
+  </div>
+</div>
+```
+
+## 誤った使用例
+❌ ほかのmodifierのほうが適切
+
+```html
+<div class="os1-default-button">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">ポイントを交換する</span>
+  </a>
+</div>
+<div class="os1-default-button">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">会員登録する</span>
+  </a>
+</div>
+```
+
+❌ 説明テキスト以外でテキストが複数行になっている
+
+```html
+<div class="os1-default-button -size-full -icon-horizontal">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text"><span class="os1-default-button__icon os1-symbol-like"></span>お気に入り<br>ログインなしでも使えます</span>
+  </a>
+</div>
+```
+
+❌ テキストに動的要素が入っている
+
+```html
+<div class="os1-default-button -size-full -icon-horizontal">
+  <a href="#dummy" class="os1-default-button__item">
+    <span class="os1-default-button__text">みんなのウェディングホテルを詳しくみる</span>
+  </a>
+</div>
+```
+*/
+
+.os1-default-button {
+  @include os1-set-margin($margin-side: top-bottom, $margin-size: S);
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  min-height: 43px;
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: right, $margin-size: zero);
+    @include os1-set-margin($margin-side: left, $margin-size: zero);
+    width: 180px;
+  }
+
+  .os1-default-button__item {
+    @include os1-default-border-radius;
+    @include os1-default-border($border-color: border-color-navy);
+    @include os1-font-size($line-height: 1.5);
+    display: block;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: $os1-color-white;
+    padding: 10px;
+    width: 100%;
+    color: $os1-color-navy-D;
+    font-weight: bold;
+    text-align: center;
+
+    &:hover {
+      border-color: lighten($os1-color-navy-2S, 10%);
+      color: $os1-color-navy-D;
+      text-decoration: none;
+    }
+  }
+
+  .os1-default-button__sub-text {
+    display: block;
+    /*どのボタンサイズでもそれに指定されたフォントサイズの85%のサイズで表示されるように指定*/
+    font-size: 85%;
+    font-weight: normal;
+    line-height: 1.4;
+  }
+
+  &.-size-S {
+    width: 60%;
+    min-height: 36px;
+    @include os1-screen(pc) {
+      width: 130px;
+    }
+
+    .os1-default-button__item {
+      @include os1-font-size($font-size: S, $line-height: 1.5);
+      padding: 8px;
+    }
+  }
+
+  &.-size-L {
+    width: 90%;
+    @include os1-screen(pc) {
+      width: 250px;
+    }
+  }
+
+  &.-size-full {
+    @include os1-set-margin($margin-side: right);
+    @include os1-set-margin($margin-side: left);
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+  }
+
+  &.-margin-left-and-right-zero {
+    @include os1-set-margin($margin-side: right, $margin-size: zero);
+    @include os1-set-margin($margin-side: left, $margin-size: zero);
+    width: 100%;
+  }
+
+  &.-margin-top-zero {
+    @include os1-set-margin($margin-side: top, $margin-size: zero);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-zero {
+    @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+
+  &.-icon-vertical {
+    .os1-default-button__icon {
+      display: block;
+      margin-bottom: -4px;
+    }
+  }
+
+  &.-icon-horizontal {
+    .os1-default-button__text {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .os1-default-button__icon {
+      margin-right: 5px;
+    }
+  }
+
+  &[aria-disabled="true"] {
+    .os1-default-button__item {
+      cursor: default;
+      border: solid 1px $os1-color-navy-3S;
+      color: $os1-color-navy-2S;
+
+      &:hover {
+        border-color: $os1-color-navy-3S;
+      }
+    }
+  }
+}

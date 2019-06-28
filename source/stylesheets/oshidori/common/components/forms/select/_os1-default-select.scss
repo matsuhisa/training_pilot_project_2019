@@ -1,0 +1,376 @@
+/*
+---
+name: フォーム:汎用セレクトフォーム
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/select
+---
+
+## コンポーネント
+- PC版では常に右マージン 5px が付与される
+- SP版では最後の要素でない場合、下マージン 10px が付与される
+
+### ノーマルのセレクトフォーム
+- PC版では `width: auto;`
+- SP版では `width: 100%;`
+
+```html
+<div class="os1-default-select">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+### disabled 時のセレクトフォーム
+- `os1-default-select__item` クラスに `disabled`を指定する
+
+```html
+<div class="os1-default-select">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo" disabled>
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+### 幅160pxのセレクトフォーム
+- `-size-S-pc-only` クラスで幅を指定
+- PC版では `width: 160px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<div class="os1-default-select -size-S-pc-only">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+### 幅220pxのセレクトフォーム
+- `-size-M-pc-only` クラスで幅を指定
+- PC版では `width: 220px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<div class="os1-default-select -size-M-pc-only">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+### 幅320pxのセレクトフォーム
+- ` -size-L-pc-only` クラスで幅を指定
+- PC版では `width: 320px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<div class="os1-default-select -size-L-pc-only">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+### 幅100%のセレクトフォーム
+- ` -size-full` クラスで幅を指定
+- PC版・SP版どちらとも `width: 100%;`
+
+```html
+<div class="os1-default-select -size-full">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+### 補助テキストの付いたセレクトフォーム
+- テキストを含む場合は `<label>` に `class="os1-default-select"` を指定する
+- テキストに `-margin-left-S` か `-margin-right-S` クラスを指定して 10px の左右マージンを指定できる
+
+```html
+<label class="os1-default-select">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+  <span class="os1-default-select__text -margin-left-S">テキスト</span>
+</label>
+```
+
+- `-pc-only` クラスをテキストに付与するとPC時のみ表示にできる
+
+```html
+<label class="os1-default-select">
+  <span class="os1-default-select__text -margin-right-S -pc-only">テキスト</span>
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</label>
+```
+
+- `os1-default-select` に `-vertical-sp-only` クラスを付与するとSP時に自動で段落ちし、テキストに 5px の下マージンが付与される
+
+```html
+<label class="os1-default-select -vertical-sp-only">
+  <span class="os1-default-select__text -margin-right-S">テキスト</span>
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</label>
+```
+
+### 複数並ぶセレクトフォーム
+
+```html
+<div class="os1-default-select">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+<div class="os1-default-select">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">北海道</option>
+      <option value="2">青森県</option>
+      <option value="3">岩手県</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+</div>
+```
+
+## 使用例
+- number-field コンポーネントを併用
+- テキストを含む幅160pxの select コンポーネントを配置
+
+```html
+<label class="os1-default-number-field">
+  <input class="os1-default-number-field__input" type="number" name="foo" id="foo" placeholder="年">
+  <span class="os1-default-number-field__text -margin-left-S -pc-only">年</span>
+</label>
+<div class="os1-default-select -size-S-pc-only">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">月</option>
+      <option value="2">1</option>
+      <option value="3">2</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+  <span class="os1-default-select__text -margin-left-S -pc-only">月</span>
+</div>
+<label class="os1-default-number-field">
+  <input class="os1-default-number-field__input" type="number" name="foo" id="foo" placeholder="日">
+  <span class="os1-default-number-field__text -margin-left-S -pc-only">日</span>
+</label>
+```
+*/
+
+.os1-default-select {
+  align-items: center;
+  @include os1-screen(sp) {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    display: flex;
+    flex-grow: 1;
+    &:last-child {
+      @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+    }
+  }
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+    display: inline-flex;
+  }
+
+  &.-size-S-pc-only {
+    .os1-default-select__item-wrapper {
+      @include os1-screen(pc) {
+        min-width: 160px;
+      }
+    }
+  }
+
+  &.-size-M-pc-only {
+    .os1-default-select__item-wrapper {
+      @include os1-screen(pc) {
+        min-width: 220px;
+      }
+    }
+  }
+
+  &.-size-L-pc-only {
+    .os1-default-select__item-wrapper {
+      @include os1-screen(pc) {
+        min-width: 320px;
+      }
+    }
+  }
+
+  &.-size-full {
+    display: flex;
+
+    .os1-default-select__item-wrapper {
+      @include os1-screen(pc) {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &.-vertical-sp-only {
+    @include os1-screen(sp) {
+      flex-direction: column;
+      align-items: flex-start;
+      .os1-default-select__item-wrapper {
+        min-width: 100%;
+      }
+      .os1-default-select__text {
+        @include os1-set-margin($margin-side: bottom, $margin-size: XS);
+        min-width: 100%;
+        &.-margin-right-S {
+          @include os1-set-margin($margin-side: right, $margin-size: zero);
+        }
+        &.-margin-left-S {
+          @include os1-set-margin($margin-side: left, $margin-size: zero);
+        }
+      }
+    }
+  }
+
+  .os1-default-select__item-wrapper {
+    display: inline-block;
+    position: relative;
+    @include os1-screen(sp) {
+      flex-grow: 1;
+    }
+  }
+
+  .os1-default-select__arrow-mark {
+    @include os1-default-border($border-color: border-color-navy);
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    border-radius: 0 4px 4px 0;
+    background-image: linear-gradient(#fafafa, $os1-color-navy-3S);
+    width: 36px;
+    height: 40px;
+    pointer-events: none;
+    content: "";
+
+    &::after {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      transform: rotate(45deg);
+      border-right: 2px solid $os1-color-navy;
+      border-bottom: 2px solid $os1-color-navy;
+      width: 9px;
+      height: 9px;
+      pointer-events: none;
+      content: "";
+    }
+  }
+
+  .os1-default-select__item {
+    @include os1-default-border-radius;
+    @include os1-default-border($border-color: border-color-navy);
+    @include os1-font-size;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: $os1-color-white;
+    padding: 9.5px 10px;
+    width: 100%;
+    height: 40px;
+    color: $os1-color-navy-D;
+
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .os1-default-select__item:disabled {
+    cursor: default;
+    border-color: $os1-color-navy-3S;
+    color: $os1-color-navy-2S;
+
+    & + .os1-default-select__arrow-mark {
+      border-color: $os1-color-navy-3S;
+      background-image: linear-gradient($os1-color-navy-4S, $os1-color-navy-3S);
+
+      &::after {
+        border-right-color: #b3b3b3;
+        border-bottom-color: #b3b3b3;
+      }
+    }
+  }
+
+  .os1-default-select__text {
+    @include os1-font-size;
+
+    &.-margin-right-S {
+      @include os1-set-margin($margin-side: right, $margin-size: S);
+    }
+
+    &.-margin-left-S {
+      @include os1-set-margin($margin-side: left, $margin-size: S);
+    }
+
+    &.-pc-only {
+      @include os1-screen(sp) {
+        display: none;
+      }
+    }
+  }
+}

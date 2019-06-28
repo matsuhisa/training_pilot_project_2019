@@ -1,0 +1,220 @@
+/*
+---
+name: Mixin:Scroll horizontal
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/scroll-horizontal
+---
+
+## 横にスクロールするコンテンツリストを作成する mixin
+
+- ブロック内で横にスクロールするコンテンツリストを作成する
+- 引数でブロックの高さ、スクロールリストの高さ、コンテンツの幅を指定できる
+- この mixin を @include した要素の中に以下の順でクラスを指定して使用する
+  - `<div class="-scroll-horizontal-content">`
+    - スクロールリストが入るブロックを作る
+    - div に限らずブロックレベル要素に使える
+  - `<ul class="-scroll-horizontal-list">`
+    - スクロールリストを作る
+    - ul のみとする
+  - `<li class="-scroll-horizontal-list-item">`
+    - リスト内のコンテンツを作る
+    - li のみとする
+
+### 引数
+- $base-height
+  - スクロールリストが入るブロック自体の高さを指定する
+  - $base-height: auto (デフォルト)
+    - スクロールリストの高さに合わせる
+    - 未指定だとデフォルトで設定される
+- $scroll-height
+  - スクロールリストの高さを指定する
+  - $scroll-height: auto (デフォルト)
+    - スクロールリスト内のコンテンツの高さに合わせる
+    - 未指定だとデフォルトで設定される
+- $item-width
+  - スクロールリスト内で横並びになったコンテンツの幅を指定する
+  - $item-width: 200px (デフォルト)
+    - 200px に指定する
+    - 未指定だとデフォルトで設定される
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item -spacing">
+    @include os1-scroll-horizontal;
+    <div class="oshidori-mixin__scroll-horizontal">
+      <div class="-scroll-horizontal-content">
+        <ul class="-scroll-horizontal-list">
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ1スクロールコンテンツ1
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ2スクロールコンテンツ2
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ3スクロールコンテンツ3
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ4スクロールコンテンツ4
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ5スクロールコンテンツ5
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="oshidori-mixin__item -spacing">
+    @include os1-scroll-horizontal($base-height: 100px);
+    <div class="oshidori-mixin__scroll-horizontal -base-height-100">
+      <div class="-scroll-horizontal-content">
+        <ul class="-scroll-horizontal-list">
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ1スクロールコンテンツ1
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ2スクロールコンテンツ2
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ3スクロールコンテンツ3
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ4スクロールコンテンツ4
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ5スクロールコンテンツ5
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="oshidori-mixin__item -spacing">
+    @include os1-scroll-horizontal($scroll-height: 100px);
+    <div class="oshidori-mixin__scroll-horizontal -scroll-height-100">
+      <div class="-scroll-horizontal-content">
+        <ul class="-scroll-horizontal-list">
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ1スクロールコンテンツ1
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ2スクロールコンテンツ2
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ3スクロールコンテンツ3
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ4スクロールコンテンツ4
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ5スクロールコンテンツ5
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li class="oshidori-mixin__item -spacing">
+    @include os1-scroll-horizontal($item-width: 300px);
+    <div class="oshidori-mixin__scroll-horizontal -item-width-300">
+      <div class="-scroll-horizontal-content">
+        <ul class="-scroll-horizontal-list">
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ1スクロールコンテンツ1
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ2スクロールコンテンツ2
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ3スクロールコンテンツ3
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ4スクロールコンテンツ4
+          </li>
+          <li class="-scroll-horizontal-list-item">
+            スクロールコンテンツ5スクロールコンテンツ5
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>
+```
+
+## HTMLでの使い方
+```html 
+<div class="os1-scroll-horizontal-sample"><!--スクロールリストが入るブロック-->
+  <div class="-scroll-horizontal-content"><!--スクロールリスト-->
+    <ul class="-scroll-horizontal-list"><!--スクロールリストアイテム-->
+      <li class="-scroll-horizontal-list-item">
+        スクロールコンテンツ1スクロールコンテンツ1
+      </li>
+      <li class="-scroll-horizontal-list-item">
+        スクロールコンテンツ2スクロールコンテンツ2
+      </li>
+      <li class="-scroll-horizontal-list-item">
+        スクロールコンテンツ3スクロールコンテンツ3
+      </li>
+      <li class="-scroll-horizontal-list-item">
+        スクロールコンテンツ4スクロールコンテンツ4
+      </li>
+      <li class="-scroll-horizontal-list-item">
+        スクロールコンテンツ5スクロールコンテンツ5
+      </li>
+    </ul>
+  </div>
+</div>
+```
+
+## SCSSでの使い方
+引数を指定しない場合は `$base-height: auto, $scroll-height: auto, $item-width: 200px` に設定される
+
+```scss
+.os1-scroll-horizontal-sample {
+  @include os1-scroll-horizontal;
+}
+```
+
+引数は $base-height, $scroll-height, $item-width のいずれかもしくは全てを指定する
+
+```scss
+.os1-sample-scss1 {
+  @include os1-scroll-horizontal($base-height: 100px);
+}
+.os1-sample-scss2 {
+  @include os1-scroll-horizontal($scroll-height: 100px);
+}
+.os1-sample-scss3 {
+  @include os1-scroll-horizontal($item-width: 300px);
+}
+```
+*/
+@mixin os1-scroll-horizontal ($base-height: auto, $scroll-height: auto, $item-width: 200px) {
+  overflow: hidden;
+  width: 100%;
+  height: $base-height;
+
+  .-scroll-horizontal-content {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    height: $scroll-height;
+    padding: 2px 0;
+  }
+
+  .-scroll-horizontal-list {
+    display: inline-table;
+    overflow-x: auto;
+    padding: 0;
+    margin: 0 0 0 -10px;
+    border-collapse: separate;
+    border-spacing: 10px 0;
+  }
+
+  .-scroll-horizontal-list-item {
+    display: table-cell;
+    min-width: $item-width;
+  }
+}

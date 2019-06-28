@@ -1,0 +1,308 @@
+/*
+---
+name: 汎用 default テーブル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/table
+  - 1_component/table/default-table
+---
+
+## コンポーネント
+汎用的なテーブルとして使用することの出来るコンポーネント
+
+### NOTE
+- デフォルトの下マージンは設定していない
+- デフォルトの上マージンは `margin-top:10px`
+- 背景色は 白色 をデフォルトとする
+
+### 通常のテーブル
+
+- セルの幅はセル数にかかわらず常に均等幅になる
+
+```html
+<table class="os1-default-table">
+  <thead>
+    <tr>
+      <th class="os1-default-th">1</td>
+      <th class="os1-default-th">Mark</td>
+      <th class="os1-default-th">Otto</td>
+      <th class="os1-default-th">@mdo</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="os1-default-td">1</td>
+      <td class="os1-default-td">Mark</td>
+      <td class="os1-default-td">Otto</td>
+      <td class="os1-default-td">@mdo</td>
+    </tr>
+    <tr>
+      <td class="os1-default-td">2</td>
+      <td class="os1-default-td">Jacob</td>
+      <td class="os1-default-td">Thornton</td>
+      <td class="os1-default-td">@fat</td>
+    </tr>
+    <tr>
+      <td class="os1-default-td">3</td>
+      <td class="os1-default-td">Larry</td>
+      <td class="os1-default-td">the Bird</td>
+      <td class="os1-default-td">@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### 内容量によって幅が決まるテーブル
+
+- `-layout-auto` クラスを指定
+
+```html
+<table class="os1-default-table -layout-auto">
+  <thead>
+    <tr>
+      <th class="os1-default-th">1</td>
+      <th class="os1-default-th">Mark</td>
+      <th class="os1-default-th">Otto</td>
+      <th class="os1-default-th">@mdo</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="os1-default-td">1</td>
+      <td class="os1-default-td">Mark</td>
+      <td class="os1-default-td">Otto</td>
+      <td class="os1-default-td">@mdo</td>
+    </tr>
+    <tr>
+      <td class="os1-default-td">2</td>
+      <td class="os1-default-td">Jacob</td>
+      <td class="os1-default-td">Thornton</td>
+      <td class="os1-default-td">@fat</td>
+    </tr>
+    <tr>
+      <td class="os1-default-td">3</td>
+      <td class="os1-default-td">Larry</td>
+      <td class="os1-default-td">the Bird</td>
+      <td class="os1-default-td">@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### テキストが真ん中寄せになるテーブル
+
+- `-center` クラスを指定
+
+```html
+<table class="os1-default-table -center">
+  <thead>
+    <tr>
+      <th class="os1-default-th">1</td>
+      <th class="os1-default-th">Mark</td>
+      <th class="os1-default-th">Otto</td>
+      <th class="os1-default-th">@mdo</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="os1-default-td">2</td>
+      <td class="os1-default-td">Jacob</td>
+      <td class="os1-default-td">Thornton</td>
+      <td class="os1-default-td">@fat</td>
+    </tr>
+    <tr>
+      <td class="os1-default-td">3</td>
+      <td class="os1-default-td">Larry</td>
+      <td class="os1-default-td">the Bird</td>
+      <td class="os1-default-td">@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### 横付きの th がテキスト量に応じて広がるテーブル
+
+- `-horizontal` クラスを指定
+- th が横に付く場合のみ使用する
+- th の幅は、テキスト量に応じて広がる
+- th のテキストは折り返さない（改行が必要な時は `br` を入れる）
+
+```html
+<table class="os1-default-table -horizontal">
+  <tbody>
+    <tr>
+      <th class="os1-default-th">1</td>
+      <td class="os1-default-td">Mark</td>
+      <td class="os1-default-td">Otto</td>
+      <td class="os1-default-td">@mdo</td>
+    </tr>
+    <tr>
+      <th class="os1-default-th">2</td>
+      <td class="os1-default-td">Jacob</td>
+      <td class="os1-default-td">Thornton</td>
+      <td class="os1-default-td">@fat</td>
+    </tr>
+    <tr>
+      <th class="os1-default-th">3</td>
+      <td class="os1-default-td">Larry</td>
+      <td class="os1-default-td">the Bird</td>
+      <td class="os1-default-td">@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### セルの左右にボーダーが付かないテーブル
+
+- `-border-left-and-right-none`を指定
+
+```html
+<table class="os1-default-table -border-left-and-right-none">
+  <tbody>
+    <tr>
+      <th class="os1-default-th">1</td>
+      <td class="os1-default-td">Mark</td>
+      <td class="os1-default-td">Otto</td>
+      <td class="os1-default-td">@mdo</td>
+    </tr>
+    <tr>
+      <th class="os1-default-th">2</td>
+      <td class="os1-default-td">Jacob</td>
+      <td class="os1-default-td">Thornton</td>
+      <td class="os1-default-td">@fat</td>
+    </tr>
+    <tr>
+      <th class="os1-default-th">3</td>
+      <td class="os1-default-td">Larry</td>
+      <td class="os1-default-td">the Bird</td>
+      <td class="os1-default-td">@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### 下マージン付きのテーブル
+
+- テーブルの下にマージンを持たせたい時にmodifier クラスを使ってマージンを指定する
+- ほかのmodifierと同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+- マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<table class="os1-default-table -margin-bottom-M">
+  <tbody>
+    <tr>
+      <th class="os1-default-th">1</td>
+      <td class="os1-default-td">Mark</td>
+      <td class="os1-default-td">Otto</td>
+      <td class="os1-default-td">@mdo</td>
+    </tr>
+    <tr>
+      <th class="os1-default-th">2</td>
+      <td class="os1-default-td">Jacob</td>
+      <td class="os1-default-td">Thornton</td>
+      <td class="os1-default-td">@fat</td>
+    </tr>
+    <tr>
+      <th class="os1-default-th">3</td>
+      <td class="os1-default-td">Larry</td>
+      <td class="os1-default-td">the Bird</td>
+      <td class="os1-default-td">@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+.os1-default-table {
+  //$os1-color-gold-3S -> $os1-color-gold-2S
+  @include os1-default-border($border-side: top);
+  @include os1-font-size;
+  @include os1-set-margin($margin-side: top, $margin-size: S);
+  background-color: $os1-color-white;
+  width: 100%;
+  table-layout: fixed;
+  color: $os1-color-navy-D;
+
+  &.-layout-auto {
+    table-layout: auto;
+  }
+
+  &.-center {
+    .os1-default-th {
+      text-align: center;
+    }
+
+    .os1-default-td {
+      text-align: center;
+    }
+  }
+
+  &.-horizontal {
+    table-layout: auto;
+
+    .os1-default-th {
+      min-width: 20%;
+      white-space: nowrap;
+    }
+  }
+
+  .os1-default-th {
+    //$os1-color-gold-3S -> $os1-color-gold-2S
+    @include os1-default-border($border-side: right);
+    //$os1-color-gold-3S -> $os1-color-gold-2S
+    @include os1-default-border($border-side: bottom);
+    @include os1-font-size($font-size: S);
+    background-color: $os1-color-gold-5S;
+    padding: 10px;
+    color: $os1-color-navy;
+    font-weight: bold;
+
+    &:first-child {
+      //$os1-color-gold-3S -> $os1-color-gold-2S
+      @include os1-default-border($border-side: left);
+    }
+  }
+
+  .os1-default-td {
+    //$os1-color-gold-3S -> $os1-color-gold-2S
+    @include os1-default-border($border-side: right);
+    //$os1-color-gold-3S -> $os1-color-gold-2S
+    @include os1-default-border($border-side: bottom);
+    padding: 10px;
+
+    &:first-child {
+      //$os1-color-gold-3S -> $os1-color-gold-2S
+      @include os1-default-border($border-side: left);
+    }
+  }
+
+  &.-border-left-and-right-none {
+    .os1-default-th {
+      border-right: none;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+
+    .os1-default-td {
+      border-right: none;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}

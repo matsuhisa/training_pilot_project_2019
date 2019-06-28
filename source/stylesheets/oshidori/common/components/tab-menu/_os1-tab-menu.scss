@@ -1,0 +1,120 @@
+/*
+---
+name: 汎用 default タブ
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/tab-menu
+---
+
+## コンポーネント
+
+- `ul.js_menu-tab`クラス、 `div.js_menu-tab-target` クラスを付与することでタブの動作を実装している
+- `current` を指定して現在選択中のタブを示す
+- タブに内包するコンテンツは `div.os1-tab-menu__tab-content` 要素の中に入れる
+
+### ノーマルのタブ
+
+```html
+<div class="os1-tab-menu">
+  <ul class="os1-tab-menu__tab-list js_menu-tab">
+    <li class="os1-tab-menu__tab current">
+      <a class="os1-tab-menu__tab-title">tab-menu</a>
+    </li>
+    <li class="os1-tab-menu__tab">
+      <a class="os1-tab-menu__tab-title">tab-menu</a>
+    </li>
+    <li class="os1-tab-menu__tab">
+      <a class="os1-tab-menu__tab-title">tab-menu</a>
+    </li>
+  </ul>
+  <div class="os1-tab-menu__tab-content js_menu-tab-target current">tab-menu content1</div>
+  <div class="os1-tab-menu__tab-content js_menu-tab-target">tab-menu content2</div>
+  <div class="os1-tab-menu__tab-content js_menu-tab-target">tab-menu content3</div>
+</div>
+```
+
+### 背景色がゴールドのタブ
+
+```html
+<div class="os1-tab-menu -background-color-gold">
+  <ul class="os1-tab-menu__tab-list js_menu-tab">
+    <li class="os1-tab-menu__tab current">
+      <a class="os1-tab-menu__tab-title">tab-menu</a>
+    </li>
+    <li class="os1-tab-menu__tab">
+      <a class="os1-tab-menu__tab-title">tab-menu</a>
+    </li>
+    <li class="os1-tab-menu__tab">
+      <a class="os1-tab-menu__tab-title">tab-menu</a>
+    </li>
+  </ul>
+  <div class="os1-tab-menu__tab-content js_menu-tab-target current">tab-menu content1</div>
+  <div class="os1-tab-menu__tab-content js_menu-tab-target">tab-menu content2</div>
+  <div class="os1-tab-menu__tab-content js_menu-tab-target">tab-menu content3</div>
+</div>
+```
+*/
+
+.os1-tab-menu {
+  @include os1-font-size;
+
+  .os1-tab-menu__tab-list {
+    @include os1-default-border($border-side: bottom);
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -5px;
+    padding: 0 10px;
+    @include os1-screen(pc) {
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+  }
+
+  .os1-tab-menu__tab {
+    @include os1-default-border;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0 2.5px -1px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: $os1-color-white;
+    @include os1-screen(pc) {
+      margin: 0 5px -1px 0;
+    }
+
+    &.current {
+      border-bottom: 2px solid $os1-color-white;
+      font-weight: bold;
+    }
+  }
+
+  .os1-tab-menu__tab-title {
+    @include os1-default-border-radius;
+    @include os1-link-coloring(link-color-navy);
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    @include os1-screen(pc) {
+      text-align: left;
+    }
+  }
+
+  .os1-tab-menu__tab-content {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-background-color-gold {
+    .os1-tab-menu__tab {
+      background-color: $os1-color-gold-5S;
+
+      &.current {
+        border-bottom-color: $os1-color-gold-5S;
+      }
+    }
+  }
+}

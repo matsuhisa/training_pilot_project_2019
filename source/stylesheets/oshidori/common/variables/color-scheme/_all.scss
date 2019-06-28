@@ -1,0 +1,86 @@
+@import "../color-scheme/os1-basic";
+@import "../color-scheme/os1-brand";
+@import "../color-scheme/os1-other";
+
+// NOTE:
+//スタイルガイドで色コードと変数を直接プレビューできるようにするためにstyleguide用のclassを使って指定しています。
+//color-scheme/ディレクトリ内のプレビュー確認用にまとめて記述しています。
+.aigis-contents {
+  .oshidori-color-scheme {
+    overflow: hidden;
+    .oshidori-color-scheme__item {
+      margin: 2px;
+      padding: 3px;
+      display: block;
+      border-radius: 4px;
+      &.-gold-D { background-color: $os1-color-gold-D; }
+      &.-gold { background-color: $os1-color-gold; }
+      &.-gold-1S { background-color: #C6ae7d; }
+      &.-gold-2S { background-color: $os1-color-gold-2S; }
+      &.-gold-3S { background-color: $os1-color-gold-3S; }
+      &.-gold-4S { background-color: $os1-color-gold-4S; }
+      &.-gold-5S { background-color: $os1-color-gold-5S; }
+      &.-green-D { background-color: $os1-color-green-D; }
+      &.-green { background-color: $os1-color-green; }
+      &.-green-1S { background-color: #58d7bf; }
+      &.-green-2S { background-color: $os1-color-green-2S; }
+      &.-green-3S { background-color: #afece0; }
+      &.-green-4S { background-color: $os1-color-green-4S; }
+      &.-green-5S { background-color: $os1-color-green-5S; }
+      &.-navy-D { background-color: $os1-color-navy-D; }
+      &.-navy { background-color: $os1-color-navy; }
+      &.-navy-1S { background-color: $os1-color-navy-1S; }
+      &.-navy-2S { background-color: $os1-color-navy-2S; }
+      &.-navy-3S { background-color: $os1-color-navy-3S; }
+      &.-navy-4S { background-color: $os1-color-navy-4S; }
+      &.-navy-5S { background-color: $os1-color-navy-5S; }
+      &.-white { background-color: $os1-color-white; }
+      &.-pink-D { background-color: $os1-color-pink-D; }
+      &.-pink { background-color: $os1-color-pink; }
+      &.-pink-1S { background-color: $os1-color-pink-1S; }
+      &.-pink-2S { background-color: $os1-color-pink-2S; }
+      &.-pink-3S { background-color: $os1-color-pink-3S; }
+      &.-pink-4S { background-color: $os1-color-pink-4S; }
+      &.-pink-5S { background-color: $os1-color-pink-5S; }
+      &.-red-D { background-color: $os1-color-red-D; }
+      &.-red { background-color: $os1-color-red; }
+      &.-red-1S { background-color: #f3836d; }
+      &.-red-2S { background-color: #f69e8c; }
+      &.-red-3S { background-color: #f9c6bb; }
+      &.-red-4S { background-color: $os1-color-red-4S; }
+      &.-red-5S { background-color: #fdeeea; }
+      &.-orange-D { background-color: $os1-color-orange-D; }
+      &.-orange { background-color: $os1-color-orange; }
+      &.-orange-1S { background-color: #ffa64d; }
+      &.-orange-2S { background-color: #ffbf80; }
+      &.-orange-3S { background-color: #ffd9b3; }
+      &.-orange-4S { background-color: $os1-color-orange-4S; }
+      &.-orange-5S { background-color: #fff2e6; }
+      &.-blue-D { background-color: $os1-color-blue-D; }
+      &.-blue { background-color: $os1-color-blue; }
+      &.-blue-1S { background-color: #78cef3; }
+      &.-blue-2S { background-color: #97daf6; }
+      &.-blue-3S { background-color: #b6e5f9; }
+      &.-blue-4S { background-color: $os1-color-blue-4S; }
+      &.-blue-5S { background-color: #f5fbfe; }
+      &.-rainking-1 { background-color: $os1-color-gold; }
+      &.-rainking-2 { background-color: $os1-color-navy-2S; }
+      &.-rainking-3 { background-color: #cc9966; }
+      &.-facebook { background-color: #3b5998; }
+      &.-twitter { background-color: #55acee; }
+      &.-line { background-color: #1dcd00; }
+      &.-kufu { background-color: #fff574; }
+      &.-anchor-green { background-color: $os1-color-green; }
+      &.-anchor-gold { background-color: $os1-color-gold; }
+      &.-anchor-navy { background-color: $os1-color-navy-D; }
+      &.-saturday { background-color: $os1-color-saturday; }
+      &.-saturday-background { background-color: $os1-color-saturday-background; }
+      &.-holiday { background-color: $os1-color-holiday; }
+      &.-holiday-background { background-color: $os1-color-holiday-background; }
+    }
+    .oshidori-color-scheme__note {
+      padding-left: 1em;
+      color: $os1-color-red;
+    }
+  }
+}

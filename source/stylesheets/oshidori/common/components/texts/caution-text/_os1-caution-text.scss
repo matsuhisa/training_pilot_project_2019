@@ -1,0 +1,137 @@
+/*
+---
+name: テキスト:汎用 caution テキスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/texts
+  - 1_component/texts/caution-text
+---
+
+## コンポーネント
+サービス利用上の注意や、一時的なサービス停止、今後の機能変更を、ユーザーにお願いしたい時に使うテキスト
+
+### NOTE
+- modifier クラスを使って上下余白を指定できる
+- font-size / font-weight / color の変更は許容しない
+- UIに応じて要素を採用する
+
+### ノーマルの caution-text
+
+```html
+<div class="os1-caution-text">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+</div>
+```
+
+### ノーマルの caution-textにテキストリンクが含まれる場合
+
+```html
+<div class="os1-caution-text">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+  <div class="os1-caution-text__link -text-align-right">
+    <a href="#">くわしくはこちら</a>
+  </div>
+</div>
+```
+
+### 上マージン付きの caution-text
+
+- caution-text の上にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-top-M`
+- マージンサイズXL（40px）： `-margin-top-XL`
+
+```html
+<div class="os1-caution-text -margin-top-M">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+</div>
+```
+
+### 下マージン付きの caution-text
+
+- caution-text の下にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+- マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<div class="os1-caution-text -margin-bottom-M">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+</div>
+```
+
+### 上下マージン付きの caution-text
+
+```html
+<div class="os1-caution-text -margin-top-M -margin-bottom-M">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+</div>
+```
+
+## 正しい使用例
+🆗 注意をユーザーにお願いしたい時に使用する
+
+```html
+<div class="os1-caution-text">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+</div>
+```
+
+🆗 リストなどで複数行のテキストが入る
+
+```html
+<div class="os1-caution-text">
+  <ul>
+    <li>この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。</li>
+    <li>不正な書き込みを発見した場合はこちらからご連絡下さい。</li>
+  </ul>
+</div>
+```
+
+## 誤った使用例
+❌ ほかのコンポーネントのほうが適切
+
+```html
+<div class="os1-caution-text">
+  メールアドレスまたはパスワードが正しくありません
+</div>
+```
+*/
+
+.os1-caution-text {
+  @include os1-font-size;
+  display: block;
+  border: 1px solid $os1-color-orange-D;
+  background-color: $os1-color-orange-4S;
+  padding: 10px;
+  color: $os1-color-navy-D;
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}
+
+.os1-caution-text__link {
+  & > a {
+    @include os1-link-coloring(link-color-navy);
+  }
+
+  &.-text-align-right {
+    text-align: right;
+  }
+}

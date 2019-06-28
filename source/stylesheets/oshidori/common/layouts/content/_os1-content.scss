@@ -1,0 +1,100 @@
+/*
+---
+name: Content
+tag:
+  - 3_layouts
+  - os1
+category:
+  - 3_layouts
+  - 3_layouts/content
+---
+
+## コンポーネント
+
+- コンテンツ全体をラップする基本のコンポーネント
+- 各要素幅・サイドカラムの配置を変更したい場合は[Mixin:Set content 2 column](/styleguide/category/3_layouts/content/index.html#Mixin:Set%20content%202%20column)を参照
+- Content の幅は[変数 Content Width](/styleguide/category/3_layouts/content/index.html#Content%20width)で変数化されている
+- ❗ SP版ではスタイルは当たらない
+
+### Content
+
+```html
+<div class="os1-content">
+  content
+</div>
+```
+
+```html
+<div class="os1-content">
+  <div class="os1-content__main">
+    main
+  </div>
+  <div class="os1-content__side">
+    side
+  </div>
+</div>
+```
+
+```haml
+.os1-content
+  .os1-content__main
+    main
+  .os1-content__side
+    side
+```
+
+### サイドバーが gold-5S の Content
+
+- `-side-background-gold-5S` クラスでサイドバーの背景色を指定
+- サイドバーに 10px の padding が付与される
+- ほかの modifier と同時に指定することができる
+
+```html
+<div class="os1-content -side-background-gold-5S">
+  <div class="os1-content__main">
+    main
+  </div>
+  <div class="os1-content__side">
+    side
+  </div>
+</div>
+```
+
+### コンテンツの中身に上マージンが付いている Content
+
+- コンテンツの中身に上マージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズL（30px）： `-margin-top-L`
+
+```html
+<div class="os1-content -margin-top-L">
+  <div class="os1-content__main">
+    main
+  </div>
+  <div class="os1-content__side">
+    side
+  </div>
+</div>
+```
+
+*/
+
+.os1-content {
+  @include os1-screen(pc) {
+    @include os1-set-content-2-column;
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+
+    &.-side-background-gold-5S {
+      .os1-content__side {
+        background-color: $os1-color-gold-5S;
+        padding: 10px;
+      }
+    }
+
+    &.-margin-top-L {
+      .os1-content__main, .os1-content__side {
+        @include os1-set-margin($margin-side: top, $margin-size: L);
+      }
+    }
+  }
+}

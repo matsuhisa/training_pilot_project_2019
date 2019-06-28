@@ -1,0 +1,230 @@
+/*
+---
+name: フォーム:汎用数字入力欄
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/number-field
+---
+
+## コンポーネント
+- PC版では常に右マージン 5px が付与される
+- SP版では最後の要素でない場合、下マージン 10px が付与される
+
+### ノーマルの数字入力欄
+- PC版では `width: auto;`
+- SP版では `width: 100%;`
+
+```html
+<span class="os1-default-number-field">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</span>
+```
+
+### invalid 時の数字入力欄
+- `aria-invalid="true"` で指定
+
+```html
+<span class="os1-default-number-field">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo" aria-invalid="true">
+</span>
+```
+
+### 幅220pxの数字入力欄
+- `-size-M-pc-only` クラスで幅を指定
+- PC版では `width: 220px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<span class="os1-default-number-field -size-M-pc-only">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</span>
+```
+
+### 幅320pxの数字入力欄
+- ` -size-L-pc-only` クラスで幅を指定
+- PC版では `width: 320px;`
+- SP版では `width: 100%;` のまま
+
+```html
+<span class="os1-default-number-field -size-L-pc-only">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</span>
+```
+
+### 幅100%の数字入力欄
+- ` -size-full` クラスで幅を指定
+- PC版・SP版どちらとも `width: 100%;`
+
+```html
+<span class="os1-default-number-field -size-full">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</span>
+```
+
+### 補助テキストの付いた数字入力欄
+- テキストを含む場合は `<label>` に `class="os1-default-number-field"` を指定する
+- テキストに `-margin-left-S` か `-margin-right-S` クラスを指定して 10px の左右マージンを指定できる
+
+```html
+<label class="os1-default-number-field">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+  <span class="os1-default-number-field__text -margin-left-S">テキスト</span>
+</label>
+```
+
+- `-pc-only` クラスをテキストに付与するとPC時のみ表示にできる
+
+```html
+<label class="os1-default-number-field">
+  <span class="os1-default-number-field__text -margin-right-S -pc-only">テキスト</span>
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</label>
+```
+
+- `os1-default-number-field` に `-vertical-sp-only` クラスを付与するとSP時に自動で段落ちし、テキストに 5px の下マージンが付与される
+
+```html
+<label class="os1-default-number-field -vertical-sp-only">
+  <span class="os1-default-number-field__text -margin-right-S">テキスト</span>
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</label>
+```
+
+### 複数並ぶ数字入力欄
+
+```html
+<span class="os1-default-number-field">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</span>
+<span class="os1-default-number-field">
+  <input class="os1-default-number-field__input" placeholder="1080073" type="number" name="foo" id="foo">
+</span>
+```
+
+## 使用例
+- select コンポーネントを併用
+- 右配置のテキストを持つ number-field コンポーネントを横に配置
+
+```html
+<label class="os1-default-number-field">
+  <input class="os1-default-number-field__input" type="number" name="foo" id="foo" placeholder="年">
+  <span class="os1-default-number-field__text -margin-left-S -pc-only">年</span>
+</label>
+<div class="os1-default-select -size-S-pc-only">
+  <div class="os1-default-select__item-wrapper">
+    <select class="os1-default-select__item" name="foo" id="foo">
+      <option value="1">月</option>
+      <option value="2">1</option>
+      <option value="3">2</option>
+    </select>
+    <span class="os1-default-select__arrow-mark"></span>
+  </div>
+  <span class="os1-default-select__text -margin-left-S -pc-only">月</span>
+</div>
+<label class="os1-default-number-field">
+  <input class="os1-default-number-field__input" type="number" name="foo" id="foo" placeholder="日">
+  <span class="os1-default-number-field__text -margin-left-S -pc-only">日</span>
+</label>
+```
+*/
+
+.os1-default-number-field {
+  align-items: center;
+  @include os1-screen(sp) {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    display: flex;
+    flex-grow: 1;
+    &:last-child {
+      @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+    }
+  }
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+    display: inline-flex;
+  }
+
+  &.-size-M-pc-only {
+    .os1-default-number-field__input {
+      @include os1-screen(pc) {
+        min-width: 220px;
+      }
+    }
+  }
+
+  &.-size-L-pc-only {
+    .os1-default-number-field__input {
+      @include os1-screen(pc) {
+        min-width: 320px;
+      }
+    }
+  }
+
+  &.-size-full {
+    display: flex;
+
+    .os1-default-number-field__input {
+      @include os1-screen(pc) {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &.-vertical-sp-only {
+    @include os1-screen(sp) {
+      flex-direction: column;
+      align-items: flex-start;
+      .os1-default-number-field__input {
+        min-width: 100%;
+      }
+      .os1-default-number-field__text {
+        @include os1-set-margin($margin-side: bottom, $margin-size: XS);
+        min-width: 100%;
+        &.-margin-right-S {
+          @include os1-set-margin($margin-side: right, $margin-size: zero);
+        }
+        &.-margin-left-S {
+          @include os1-set-margin($margin-side: left, $margin-size: zero);
+        }
+      }
+    }
+  }
+
+  .os1-default-number-field__input {
+    @include os1-default-border-radius;
+    @include os1-default-border($border-color: border-color-black);
+    @include os1-font-size;
+    box-sizing: border-box;
+    box-shadow: inset 1px 1px 4px #e6e6e6;
+    padding: 9.5px 10px;
+    @include os1-screen(sp) {
+      flex-grow: 1;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: $os1-color-red-D;
+      background-color: $os1-color-red-4S;
+    }
+  }
+
+  .os1-default-number-field__text {
+    @include os1-font-size;
+
+    &.-margin-right-S {
+      @include os1-set-margin($margin-side: right, $margin-size: S);
+    }
+
+    &.-margin-left-S {
+      @include os1-set-margin($margin-side: left, $margin-size: S);
+    }
+
+    &.-pc-only {
+      @include os1-screen(sp) {
+        display: none;
+      }
+    }
+  }
+}

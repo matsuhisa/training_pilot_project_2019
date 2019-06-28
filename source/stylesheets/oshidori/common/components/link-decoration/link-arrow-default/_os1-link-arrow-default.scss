@@ -1,0 +1,77 @@
+/*
+---
+name: Link Decoration:汎用 default 矢印リンク
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/link-decoration
+  - 1_component/link-decoration/link-arrow-default
+---
+
+## コンポーネント
+リンクに付与する基本となるアロー
+
+### NOTE
+- ❗ a要素にのみ使用する
+- このコンポーネントはアローのサイズやテキストとの余白は調整できない
+
+### 左寄せの default arrow
+
+```html
+<a href="#dummy" class="os1-link-arrow-default">.os1-link-arrow-default</a>
+```
+
+### 右寄せの default arrow
+
+- `-text-align-right` クラスで文字配置を右寄せに変更する
+
+```html
+<a href="#dummy" class="os1-link-arrow-default -text-align-right">.os1-link-arrow-default</a>
+```
+
+### 下線なし default arrow
+
+- `-text-decoration-none` クラスで下線を無しにする
+
+```html
+<a href="#dummy" class="os1-link-arrow-default -text-decoration-none">.os1-link-arrow-default</a>
+```
+
+## 誤った使用例
+❌ a要素以外に使用する
+```html
+<span class="os1-link-arrow-default">.os1-link-arrow-default</span>
+```
+*/
+
+.os1-link-arrow-default {
+  @include os1-link-coloring(link-color-navy);
+  display: block;
+  position: relative;
+  padding-right: 30px;
+  text-align: left;
+  text-decoration: none;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 13px;
+    transform: rotate(45deg);
+    border-top: solid 2px $os1-color-gold-2S;
+    border-right: solid 2px $os1-color-gold-2S;
+    width: 10px;
+    height: 10px;
+    content: "";
+  }
+
+  &.-text-align-right {
+    text-align: right;
+  }
+
+  &.-text-decoration-none {
+    text-decoration: none;
+  }
+}

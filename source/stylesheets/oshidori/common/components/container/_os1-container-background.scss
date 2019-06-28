@@ -1,0 +1,155 @@
+/*
+---
+name: 汎用 container-background
+tag:
+- 1_components
+- os1
+category:
+- 1_component
+- 1_component/container
+- 1_component/container/container-background
+---
+
+## コンポーネント
+汎用的な背景色ありのコンテナとして使用することの出来るコンポーネント
+
+### NOTE
+- modifier は組み合わせて使うことができる
+- modifier クラスを使ってコンテナの背景色・上下余白・font-size を指定する
+- 背景色のデフォルトは白色
+
+### ノーマルの container-background
+
+```html
+<div class="os1-container-background">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+
+### 背景色がゴールドの container-background
+
+```html
+<div class="os1-container-background -background-color-gold">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+
+### 内側にパディングの無い container-background
+
+- コンポーネントの中身を `os1-container-background` の直下に置くことで、内側に余白なく要素を配置する
+
+```html
+<div class="os1-container-background">
+  <img src="http://placekitten.com/100/100">
+</div>
+```
+
+- 中身を `os1-container-background` の直下に置き、なおかつ `os1-container-background__content` を使うこともできる
+
+```html
+<div class="os1-container-background">
+  <img src="http://placekitten.com/100/100">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+
+### フォントサイズを指定
+
+- modifier クラスを使ってフォントサイズを指定する
+- ほかの modifier と同時に指定することができる
+- フォントサイズS（12px）： `-font-size-S`
+- フォントサイズL（16px）： `-font-size-L`
+
+```html
+<div class="os1-container-background -font-size-S">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+
+### 上マージン付きの container-background
+
+- container-background の上にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-top-M`
+- マージンサイズXL（40px）： `-margin-top-XL`
+
+```html
+<div class="os1-container-background -margin-top-M">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+
+### 下マージン付きの container-background
+
+- container-background の下にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+- マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<div class="os1-container-background -margin-bottom-M">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+
+### 上下マージン付きの container-background
+
+```html
+<div class="os1-container-background -margin-top-M -margin-bottom-M">
+  <div class="os1-container-background__content">
+    container-background
+  </div>
+</div>
+```
+*/
+
+.os1-container-background {
+  @include os1-font-size;
+  display: block;
+  background-color: $os1-color-white;
+  color: $os1-color-navy-D;
+
+  .os1-container-background__content {
+    padding: 10px;
+  }
+
+  &.-background-color-gold {
+    background-color: $os1-color-gold-5S;
+  }
+
+  &.-font-size-S {
+    @include os1-font-size($font-size: S);
+  }
+
+  &.-font-size-L {
+    @include os1-font-size($font-size: L);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}

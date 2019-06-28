@@ -1,0 +1,83 @@
+/*
+---
+name: ラベル:汎用 PR ラベル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/label
+  - 1_component/label/pr-label
+---
+
+## コンポーネント
+広告（バナーや記事広告など）の時に使用するラベル
+
+### 使用できるテキストの表記
+- `PR`
+
+### NOTE
+- modifier クラスを使ってラベルの左右余白を指定できる
+- font-size や font-weight の変更は許容しない
+
+### ノーマルの pr-label
+
+```html
+<span class="os1-pr-label">PR</span>
+```
+
+### 右マージン付きの pr-label
+- `os1-pr-label` クラスにマルチクラスで指定する
+- `-margin-right-(サイズ)` クラスで右マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-pr-label -margin-right-S">PR</span>
+```
+
+### 左マージン付きの pr-label
+- `os1-pr-label` クラスにマルチクラスで指定する
+- `-margin-left-(サイズ)` クラスで左マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-pr-label -margin-left-S">PR</span>
+```
+
+### 左右マージン付きの pr-label
+- `os1-pr-label` クラスにマルチクラスで指定する
+
+```html
+<span class="os1-pr-label -margin-right-S -margin-left-S">PR</span>
+```
+
+## 使用例
+
+```html
+<div>
+  <span class="os1-pr-label -margin-right-XS">PR</span>
+  <span>このエリアのオススメ式場</span>
+</div>
+```
+*/
+
+.os1-pr-label {
+  @include os1-labels;
+  background-color: $os1-color-gold;
+
+  &.-margin-right-XS {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+  }
+
+  &.-margin-right-S {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+  }
+
+  &.-margin-left-XS {
+    @include os1-set-margin($margin-side: left, $margin-size: XS);
+  }
+
+  &.-margin-left-S {
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+  }
+}

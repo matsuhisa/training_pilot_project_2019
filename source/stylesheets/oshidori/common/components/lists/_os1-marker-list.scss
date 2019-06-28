@@ -1,0 +1,176 @@
+/*
+---
+name: 汎用 marker リスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/lists
+  - 1_component/lists/marker-list
+---
+
+## コンポーネント
+汎用的なリストとして使用できるコンポーネント
+
+### NOTE
+- modifier は組み合わせて使うことができる
+- 背景色は 白色 をデフォルトとする
+- 通常のテキストはUIに応じて span 要素と div 要素を採用する
+- リンクテキストは `a.os1-marker-list__link` 要素を採用する
+
+### マーカーの付いたリスト
+
+```html
+<ul class="os1-marker-list">
+  <li class="os1-marker-list__item">
+    <span class="os1-marker-list__content">list</span>
+  </li>
+  <li class="os1-marker-list__item">
+    <div class="os1-marker-list__content">list</div>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+</ul>
+```
+
+### フォントサイズを指定
+
+- modifier クラスを使ってフォントサイズを指定する
+- ほかの modifier と同時に指定することができる
+- フォントサイズS（12px）： `-font-size-S`
+
+```html
+<ul class="os1-marker-list -font-size-S">
+  <li class="os1-marker-list__item">
+    <span class="os1-marker-list__content">list</span>
+  </li>
+  <li class="os1-marker-list__item">
+    <div class="os1-marker-list__content">list</div>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 上マージン付きのリスト
+
+- リストの上にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-top-M`
+
+```html
+<ul class="os1-marker-list -margin-top-M">
+  <li class="os1-marker-list__item">
+    <span class="os1-marker-list__content">list</span>
+  </li>
+  <li class="os1-marker-list__item">
+    <div class="os1-marker-list__content">list</div>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 下マージン付きのリスト
+
+- リストの下にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+
+```html
+<ul class="os1-marker-list -margin-bottom-M">
+  <li class="os1-marker-list__item">
+    <span class="os1-marker-list__content">list</span>
+  </li>
+  <li class="os1-marker-list__item">
+    <div class="os1-marker-list__content">list</div>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+</ul>
+```
+
+### 上下マージン付きのリスト
+
+```html
+<ul class="os1-marker-list -margin-top-M -margin-bottom-M">
+  <li class="os1-marker-list__item">
+    <span class="os1-marker-list__content">list</span>
+  </li>
+  <li class="os1-marker-list__item">
+    <div class="os1-marker-list__content">list</div>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+  <li class="os1-marker-list__item">
+    <a href="#dummy" class="os1-marker-list__link">list</a>
+  </li>
+</ul>
+```
+*/
+
+.os1-marker-list {
+  @include os1-font-size($font-size: M);
+  color: $os1-color-navy-D;
+
+  .os1-marker-list__item {
+    position: relative;
+    padding-left: 0.85em;
+
+    &:after {
+      content: "";
+      background-color: #3b4b5b;
+      width: 0.32em;
+      height: 0.32em;
+      top: calc(0.5em + 10px);
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+    }
+  }
+
+  .os1-marker-list__content {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 0 10px 1em;
+    width: 100%;
+  }
+
+  .os1-marker-list__link {
+    @include os1-link-coloring(link-color-navy);
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 0 10px 1em;
+    width: 100%;
+  }
+
+  &.-font-size-S {
+    @include os1-font-size($font-size: S);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+}

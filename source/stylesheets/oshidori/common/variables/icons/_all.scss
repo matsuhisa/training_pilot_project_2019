@@ -1,0 +1,23 @@
+@import "../icons/os1-font-face";
+@import "../icons/os1-symbol-base";
+@import "../icons/os1-unicodes";
+@import "../icons/os1-symbol-star-base";
+@import "../icons/os1-symbol-star";
+@import "../icons/os1-symbol-numerical";
+
+// NOTE:
+//スタイルガイドで色コードと変数を直接プレビューできるようにするためにstyleguide用のclassを使って指定しています。
+//icons/ディレクトリ内のプレビュー確認用にまとめて記述しています。
+.aigis-contents {
+  .oshidori-icons {
+    overflow: hidden;
+    .oshidori-icons__item {
+      margin: 2px;
+      padding: 3px;
+      display: block;
+    }
+    .oshidori-icons__icon {
+      margin-right: 1em;
+    }
+  }
+}

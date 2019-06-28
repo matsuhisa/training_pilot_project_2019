@@ -1,0 +1,143 @@
+/*
+---
+name: テキスト:汎用 alert テキスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/texts
+  - 1_component/texts/alert-text
+---
+
+## コンポーネント
+ユーザーの操作に対してフィードバックを表示するテキスト
+
+### NOTE
+- 必ず `-success` か `-error` のどちらかのクラスとセットで使用する
+- modifier クラスを使って上下余白を指定できる
+- font-size / font-weight / color の変更は許容しない
+- UIに応じて要素を採用する
+
+### success 時の alert-text
+
+```html
+<div class="os1-alert-text -success">
+  回答ありがとうございました
+</div>
+```
+
+### error 時の alert-text
+
+```html
+<div class="os1-alert-text -error">
+  メールアドレスまたはパスワードが正しくありません
+</div>
+```
+
+### 上マージン付きの alert-text
+
+- alert-text の上にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-top-M`
+- マージンサイズXL（40px）： `-margin-top-XL`
+
+```html
+<div class="os1-alert-text -success -margin-top-M">
+  回答ありがとうございました
+</div>
+```
+
+### 下マージン付きの alert-text
+
+- alert-text の下にマージンを持たせたい時に modifier クラスを使ってマージンを指定する
+- ほかの modifier と同時に指定することができる
+- マージンサイズM（20px）： `-margin-bottom-M`
+- マージンサイズXL（40px）： `-margin-bottom-XL`
+
+```html
+<div class="os1-alert-text -success -margin-bottom-M">
+  回答ありがとうございました
+</div>
+```
+
+### 上下マージン付きの alert-text
+
+```html
+<div class="os1-alert-text -success -margin-top-M -margin-bottom-M">
+  回答ありがとうございました
+</div>
+```
+
+## 正しい使用例
+🆗 ユーザーの操作に対して success を返す時に表示させる
+
+```html
+<div class="os1-alert-text -success">
+  回答ありがとうございました
+</div>
+```
+
+🆗 ユーザーの操作に対して error を返す時に表示させる
+
+```html
+<div class="os1-alert-text -error">
+  メールアドレスまたはパスワードが正しくありません
+</div>
+```
+
+🆗 リストなどで複数行のテキストが入る
+
+```html
+<div class="os1-alert-text -error">
+  <ul>
+    <li>過去日を入力してください</li>
+    <li>メールアドレスまたはパスワードが正しくありません</li>
+  </ul>
+</div>
+```
+
+
+## 誤った使用例
+❌ ユーザーの操作に対して返すテキストではない
+
+```html
+<div class="os1-alert-text -error">
+  この費用明細は投稿されてから5年以上経過しており、現状とは異なる可能性があります。
+</div>
+```
+*/
+
+.os1-alert-text {
+  @include os1-font-size;
+  display: block;
+  padding: 10px;
+
+  &.-success {
+    border: 1px solid $os1-color-green;
+    background-color: $os1-color-green-5S;
+    color: $os1-color-green;
+  }
+
+  &.-error {
+    border: 1px solid $os1-color-red-D;
+    background-color: $os1-color-red-4S;
+    color: $os1-color-red-D;
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+
+  &.-margin-top-XL {
+    @include os1-set-margin($margin-side: top, $margin-size: XL);
+  }
+
+  &.-margin-bottom-M {
+    @include os1-set-margin($margin-side: bottom);
+  }
+
+  &.-margin-bottom-XL {
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  }
+}

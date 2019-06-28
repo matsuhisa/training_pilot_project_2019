@@ -1,0 +1,195 @@
+/*
+---
+name: 横並びボタン用コンポーネント
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/buttons
+  - 1_component/buttons/button-group
+  - 1_component/buttons/button-group/horizontal-button-group
+---
+
+## コンポーネント
+ボタンを横に並べるためのレイアウト用のコンポーネント
+
+- どのボタンにも汎用的に使うことができる
+- 最大3つまで並べられる
+- 単体のときも中央寄せになる
+- 2つ以上並ぶ場合 button の間に 10px の margin を開ける
+- 並べるボタンの横幅が違っていてもOK
+
+### a 要素の default ボタンを横に並べる
+
+- 中央揃え
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button">
+    <a href="#dummy" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </a>
+  </div>
+  <div class="os1-primary-button">
+    <a href="#dummy" class="os1-primary-button__item">
+      <span class="os1-primary-button__text">button2</span>
+    </a>
+  </div>
+  <div class="os1-secondary-button">
+    <a href="#dummy" class="os1-secondary-button__item">
+      <span class="os1-secondary-button__text">button3</span>
+    </a>
+  </div>
+</div>
+```
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button">
+    <a href="#dummy" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </a>
+  </div>
+</div>
+```
+
+### button 要素の default ボタンを横に並べる
+
+- 中央揃え
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button">
+    <button type="button" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </button>
+  </div>
+  <div class="os1-primary-button">
+    <button type="button" class="os1-primary-button__item">
+      <span class="os1-primary-button__text">button2</span>
+    </button>
+  </div>
+  <div class="os1-secondary-button">
+    <button type="button" class="os1-secondary-button__item">
+      <span class="os1-secondary-button__text">button3</span>
+    </button>
+  </div>
+</div>
+```
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button">
+    <button type="button" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </button>
+  </div>
+</div>
+```
+
+### default ボタンを横並び
+
+- 左寄せ
+- SP版では中央揃えと同じスタイルになる
+
+```html
+<div class="os1-horizontal-button-group -inline">
+  <div class="os1-default-button">
+    <a href="#dummy" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </a>
+  </div>
+  <div class="os1-primary-button">
+    <a href="#dummy" class="os1-primary-button__item">
+      <span class="os1-primary-button__text">button2</span>
+    </a>
+  </div>
+  <div class="os1-secondary-button">
+    <a href="#dummy" class="os1-secondary-button__item">
+      <span class="os1-secondary-button__text">button3</span>
+    </a>
+  </div>
+</div>
+```
+
+## 正しい使用例
+
+🆗 並べるボタンの横幅が違っていてもOK
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button">
+    <a href="#dummy" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </a>
+  </div>
+  <div class="os1-primary-button -size-full">
+    <a href="#dummy" class="os1-primary-button__item">
+      <span class="os1-primary-button__text">button2</span>
+    </a>
+  </div>
+  <div class="os1-secondary-button">
+    <a href="#dummy" class="os1-secondary-button__item">
+      <span class="os1-secondary-button__text">button3</span>
+    </a>
+  </div>
+</div>
+```
+
+## 誤った使用例
+
+❌ 4つ以上並べる
+
+```html
+<div class="os1-horizontal-button-group">
+  <div class="os1-default-button">
+    <button type="button" class="os1-default-button__item">
+      <span class="os1-default-button__text">button1</span>
+    </button>
+  </div>
+  <div class="os1-default-button">
+    <button type="button" class="os1-default-button__item">
+      <span class="os1-default-button__text">button2</span>
+    </button>
+  </div>
+  <div class="os1-primary-button">
+    <button type="button" class="os1-primary-button__item">
+      <span class="os1-primary-button__text">button3</span>
+    </button>
+  </div>
+  <div class="os1-secondary-button">
+    <button type="button" class="os1-secondary-button__item">
+      <span class="os1-secondary-button__text">button4</span>
+    </button>
+  </div>
+</div>
+```
+*/
+
+.os1-horizontal-button-group {
+  display: flex;
+  justify-content: center;
+
+  &.-inline {
+    @include os1-screen(pc) {
+      display: inline-flex;
+      justify-content: flex-start;
+    }
+  }
+
+  @each $button-type in "default", "post", "primary", "secondary", "warning" {
+    .os1-#{$button-type}-button:not(:last-child) {
+      @include os1-set-margin($margin-side: right, $margin-size: S);
+    }
+
+    .-size-full {
+      @include os1-screen(pc) {
+        @include os1-set-margin($margin-side: right, $margin-size: zero);
+        @include os1-set-margin($margin-side: left, $margin-size: zero);
+        flex: 1;
+        width: 100%;
+      }
+    }
+  }
+}

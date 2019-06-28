@@ -1,0 +1,84 @@
+/*
+---
+name: ラベル:汎用 Any ラベル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/label
+  - 1_component/label/any-label
+---
+
+## コンポーネント
+フォームで入力が任意であることを知らせるために使用するラベル
+
+### 使用できるテキストの表記
+- `任意`
+
+### NOTE
+- modifier クラスを使ってラベルの左右余白を指定できる
+- font-size や font-weight の変更は許容しない
+
+### ノーマルの any-label
+
+```html
+<span class="os1-any-label">任意</span>
+```
+
+### 右マージン付きの any-label
+- `os1-any-label` クラスにマルチクラスで指定する
+- `-margin-right-(サイズ)` クラスで右マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-any-label -margin-right-S">任意</span>
+```
+
+### 左マージン付きの any-label
+- `os1-any-label` クラスにマルチクラスで指定する
+- `-margin-left-(サイズ)` クラスで左マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-any-label -margin-left-S">任意</span>
+```
+
+### 左右マージン付きの any-label
+- `os1-any-label` クラスにマルチクラスで指定する
+
+```html
+<span class="os1-any-label -margin-right-S -margin-left-S">任意</span>
+```
+
+## 使用例
+
+```html
+<div>
+  <span class="os1-any-label">任意</span>
+  <label>希望エリア</label>
+</div>
+<input placeholder="例）東京" type="text">
+```
+*/
+
+.os1-any-label {
+  @include os1-labels;
+  background-color: $os1-color-navy-1S;
+
+  &.-margin-right-XS {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+  }
+
+  &.-margin-right-S {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+  }
+
+  &.-margin-left-XS {
+    @include os1-set-margin($margin-side: left, $margin-size: XS);
+  }
+
+  &.-margin-left-S {
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+  }
+}

@@ -1,0 +1,87 @@
+/*
+---
+name: パンくずリスト
+tag:
+  - 3_layouts
+  - os1
+category:
+  - 3_layouts
+  - 3_layouts/breadcrumb
+---
+
+## コンポーネント
+
+Schemaの記述方法は、 [_breadcrumb.html.haml](https://github.com/mwed/wedding/blob/master/app/views/places/_breadcrumb.html.haml) , [_breadcrumb.html+smartphone.haml](https://github.com/mwed/wedding/blob/master/app/views/places/_breadcrumb.html%2Bsmartphone.haml) を参考にしてください。
+
+### パンくずリスト
+
+```html
+<ol class="os1-breadcrumb">
+  <li class="os1-breadcrumb__item"><a href="#dummy">結婚式口コミ みんなのウェディング</a></li>
+  <li class="os1-breadcrumb__item">Oshidori</li>
+</ol>
+
+```
+*/
+
+.os1-breadcrumb {
+  @include os1-default-border($border-color: border-color-pale-gray, $border-side: top);
+  @include os1-default-border($border-color: border-color-pale-gray, $border-side: bottom);
+  @include os1-set-padding($padding-size: S);
+  box-sizing: border-box;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: left;
+  @include os1-screen(pc) {
+    @include os1-set-padding($padding-side: top);
+    @include os1-set-padding($padding-side: left, $padding-size: zero);
+    @include os1-set-padding($padding-side: right, $padding-size: zero);
+    @include os1-set-margin($margin-side: top, $margin-size: zero);
+    @include os1-set-margin($margin-side: bottom);
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    width: $os1-site-width;
+  }
+
+  .os1-breadcrumb__item {
+    display: inline;
+    color: $os1-color-navy-1S;
+
+    @include os1-screen(pc) {
+      @include os1-font-size($font-size: XS);
+      color: $os1-color-navy-D;
+    }
+
+    &:not(:last-child) {
+      &:after {
+        @include os1-default-border($border-color: border-color-black, $border-side: top);
+        @include os1-default-border($border-color: border-color-black, $border-side: right);
+        display: inline-block;
+        transform: rotate(45deg);
+        margin-right: 8px;
+        margin-bottom: 1px;
+        margin-left: 6px;
+        width: 8.5px;
+        height: 8.5px;
+        content: "";
+        @include os1-screen(pc) {
+          margin-right: 4px;
+          margin-bottom: -0.5px;
+          margin-left: 2px;
+          border-top-width: 2px;
+          border-right-width: 2px;
+          width: 7.5px;
+          height: 7.5px;
+        }
+      }
+    }
+
+    > a {
+      @include os1-screen(sp) {
+        @include os1-link-coloring(link-color-navy, false);
+      }
+    }
+  }
+}

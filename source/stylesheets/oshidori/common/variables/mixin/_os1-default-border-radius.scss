@@ -1,0 +1,38 @@
+/*
+---
+name: Mixin:Default border-radius
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/default-border-radius
+---
+
+## border-radiusを設定するMixin
+
+- border-radiusを複数のコンポーネント間で統一して設定するためのMixin
+- 引数無し
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__default-border-radius">@include os1-default-border-radius;</a>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+`border-radius: 4px;`を設定する
+
+```scss
+.os1-sample-scss {
+  @include os1-default-border-radius;
+}
+```
+*/
+
+@mixin os1-default-border-radius {
+  border-radius: 4px;
+}

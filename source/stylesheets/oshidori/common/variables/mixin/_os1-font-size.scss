@@ -1,0 +1,100 @@
+/*
+---
+name: Mixin:Font size
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/font-size
+---
+
+## フォントサイズと line-height を設定する mixin
+
+- 引数でフォントサイズと line-height を指定している
+
+### 引数
+- $font-size
+  - $font-size: M (デフォルト)
+    - font-size を 14px に設定する
+    - 未指定だとデフォルトで設定される
+  - $font-size: XS
+    - font-size を 10px に設定する
+  - $font-size: S
+    - font-size を 12px に設定する
+  - $font-size: L
+    - font-size を 16px に設定する
+  - $font-size: XL
+    - font-size を 18px に設定する
+- $line-height
+  - 引数を自由に指定できる
+  - $line-height: 1.4 (デフォルト)
+    - line-height を 1.4 に設定する
+    - 未指定だとデフォルトで設定される
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__font-size -XS">@include os1-font-size($font-size: XS);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__font-size -S">@include os1-font-size($font-size: S);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__font-size">@include os1-font-size;</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__font-size -L">@include os1-font-size($font-size: L);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__font-size -XL">@include os1-font-size($font-size: XL);</a>
+  </li>
+  <li class="oshidori-mixin__item">
+    <a href="#dummy" class="oshidori-mixin__font-size -line-height-1-8">@include os1-font-size($line-height: 1.8);</a>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+$font-size と $line-height のどちらかもしくは両方を指定する
+
+```scss
+.os1-sample-scss1 {
+  // font-size: 16px;
+  @include os1-font-size($font-size: L);
+}
+.os1-sample-scss2 {
+  // line-height: 1.8;
+  @include os1-font-size($line-height: 1.8);
+}
+.os1-sample-scss3 {
+  // font-size: 16px; line-height: 1.8;
+  @include os1-font-size($font-size: L, $line-height: 1.8);
+}
+```
+
+引数を未指定にすると `font-size: 14px;` `line-height: 1.4` に設定される
+
+```scss
+.os1-sample-scss {
+  // font-size: 14px; line-height: 1.4;
+  @include os1-font-size;
+}
+```
+*/
+
+@mixin os1-font-size($font-size: M, $line-height: 1.4) {
+  @if ($font-size == XS) {
+    font-size: 10px;
+  } @else if ($font-size == S) {
+    font-size: 12px;
+  } @else if ($font-size == M) {
+    font-size: 14px;
+  } @else if ($font-size == L) {
+    font-size: 16px;
+  } @else if ($font-size == XL) {
+    font-size: 18px;
+  }
+  line-height: $line-height;
+}

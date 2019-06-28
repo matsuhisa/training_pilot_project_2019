@@ -1,0 +1,84 @@
+/*
+---
+name: ラベル:汎用 New ラベル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/label
+  - 1_component/label/new-label
+---
+
+## コンポーネント
+新しいコンテンツの時に使用するラベル
+
+### 使用できるテキストの表記
+- `NEW`
+
+### NOTE
+- modifier クラスを使ってラベルの左右余白を指定できる
+- font-size や font-weight の変更は許容しない
+- 原則としてリリース後2ヶ月後には外すこと
+
+### ノーマルの new-label
+
+```html
+<span class="os1-new-label">NEW</span>
+```
+
+### 右マージン付きの new-label
+- `os1-new-label` クラスにマルチクラスで指定する
+- `-margin-right-(サイズ)` クラスで右マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-new-label -margin-right-S">NEW</span>
+```
+
+### 左マージン付きの new-label
+- `os1-new-label` クラスにマルチクラスで指定する
+- `-margin-left-(サイズ)` クラスで左マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-new-label -margin-left-S">NEW</span>
+```
+
+### 左右マージン付きの new-label
+- `os1-new-label` クラスにマルチクラスで指定する
+
+```html
+<span class="os1-new-label -margin-right-S -margin-left-S">NEW</span>
+```
+
+## 使用例
+
+```html
+  <div>
+    式場名
+    <span class="os1-new-label">NEW</span>
+  </div>
+```
+*/
+
+.os1-new-label {
+  @include os1-labels;
+  background-color: $os1-color-orange;
+
+  &.-margin-right-XS {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+  }
+
+  &.-margin-right-S {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+  }
+
+  &.-margin-left-XS {
+    @include os1-set-margin($margin-side: left, $margin-size: XS);
+  }
+
+  &.-margin-left-S {
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+  }
+}

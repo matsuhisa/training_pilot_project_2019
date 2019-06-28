@@ -1,0 +1,60 @@
+/*
+---
+name: フォーム用ヘッダー
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/form-header
+---
+
+## コンポーネント
+
+- フォーム用のヘッダーを作ります
+- ❌ フォーム以外での利用は禁止です
+
+```html
+<header class="os1-form-header">
+  <a href="/"><img class="os1-form-header__logo" alt="" src="https://placekitten.com/112/25"></a>
+</header>
+```
+
+```haml
+%header.os1-form-header
+  = link_to root_path do
+    = image_tag "pc/global/logo.png", { class: "os1-form-header__logo", alt: "" }
+```
+
+*/
+
+.os1-form-header {
+  margin-right: auto;
+  margin-left: auto;
+
+  @include os1-screen(pc) {
+    @include os1-set-margin($margin-side: bottom);
+    @include os1-set-padding($padding-side: top-bottom, $padding-size: S);
+    max-width: $os1-site-width;
+    border-bottom: 2px solid $os1-color-green;
+  }
+
+  @include os1-screen(sp) {
+    @include os1-set-padding($padding-size: S);
+    border-top: 3px solid $os1-color-green;
+    border-bottom: 1px solid $os1-color-gold-4S;
+  }
+
+  .os1-form-header__logo {
+    @include os1-screen(pc) {
+      width: 216px;
+      height: 47px;
+    }
+    @include os1-screen(sp) {
+      width: 112px;
+      height: 25px;
+      @include os1-set-margin($margin-side: top-bottom, $margin-size: XS);
+    }
+  }
+}

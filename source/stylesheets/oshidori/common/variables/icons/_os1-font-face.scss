@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'MwedSymbol';
+  src: asset_url('MwedSymbol.eot');
+  src: asset_url('MwedSymbol.eot') format('embedded-opentype'),
+    asset_url('MwedSymbol.ttf') format('truetype'),
+    asset_url('MwedSymbol.woff') format('woff'),
+    asset_url('MwedSymbol.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

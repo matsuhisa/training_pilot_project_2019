@@ -1,0 +1,92 @@
+/*
+---
+name: Link Decoration:汎用 see-more 矢印リンク
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/link-decoration
+  - 1_component/link-decoration/link-see-more
+---
+
+## コンポーネント
+リンクに付与するもっと見るアイコン付きのリンク
+
+### NOTE
+- ❗ a要素にのみ使用する
+- ❗ listの中では使用しない
+- このコンポーネントはアイコンのサイズやテキストとの余白は調整できない
+
+### 使用できるテキストの表記
+
+- `もっと見る`
+- `○○をもっと見る`
+
+### see-more 矢印リンク
+
+```html
+<a href="#dummy" class="os1-link-see-more">もっと見る</a>
+```
+
+### 上マージン付きの see-more 矢印リンク
+
+- マージンサイズS（10px）： -margin-top-S
+- マージンサイズM（20px）： -margin-top-M
+
+```html
+<a href="#dummy" class="os1-link-see-more -margin-top-S">もっと見る</a>
+<a href="#dummy" class="os1-link-see-more -margin-top-M">もっと見る</a>
+```
+
+## 誤った使用例
+❌ a要素以外に使用する
+```html
+<span class="os1-link-see-more">もっと見る</span>
+```
+
+❌ 長すぎるテキストで使用する
+```html
+<a href="#dummy" class="os1-link-see-more">東京：表参道・青山・渋谷エリアの結婚式場ランキングをもっと見る</a>
+```
+
+❌ listの中で使用する
+```html
+<ul class="os1-default-list -border">
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <a href="#dummy" class="os1-default-list__link">list</a>
+  </li>
+  <li class="os1-default-list__item">
+    <span class="os1-default-list__content">
+      <a href="#dummy" class="os1-link-see-more">もっと見る</a>
+    </span>
+  </li>
+</ul>
+```
+*/
+
+.os1-link-see-more {
+  @include os1-link-coloring(link-color-gold);
+  display: block;
+  text-align: right;
+
+  &::after {
+    @include os1-symbol-base;
+    content: map-get($os1-symbol-unicodes, 'arrow-oval-right');
+    padding-left: 3px;
+  }
+
+  &.-margin-top-S {
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+  }
+
+  &.-margin-top-M {
+    @include os1-set-margin($margin-side: top);
+  }
+}

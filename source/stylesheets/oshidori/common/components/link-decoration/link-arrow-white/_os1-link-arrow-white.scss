@@ -1,0 +1,67 @@
+/*
+---
+name: Link Decoration:汎用 white 矢印リンク
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/link-decoration
+  - 1_component/link-decoration/link-arrow-white
+---
+
+## コンポーネント
+リンクに付与する white 色のアロー
+
+- 背景色が white 以外の箇所で利用する
+
+### NOTE
+- ❗ a要素にのみ使用する
+- このコンポーネントはアローのサイズやテキストとの余白は調整できない
+
+### 左寄せの white arrow
+
+```html
+<a href="#dummy" class="os1-link-arrow-white">.os1-link-arrow-white</a>
+```
+
+### 右寄せの white arrow
+
+- `-text-align-right` クラスで文字配置を右寄せに変更する
+
+```html
+<a href="#dummy" class="os1-link-arrow-white -text-align-right">.os1-link-arrow-white</a>
+```
+
+## 誤った使用例
+❌ a要素以外に使用する
+```html
+<span class="os1-link-arrow-white">.os1-link-arrow-white</span>
+```
+*/
+
+.os1-link-arrow-white {
+  @include os1-link-coloring(link-color-navy);
+  display: block;
+  position: relative;
+  padding-right: 30px;
+  text-align: left;
+  text-decoration: none;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 13px;
+    transform: rotate(45deg);
+    border-top: solid 2px $os1-color-white;
+    border-right: solid 2px $os1-color-white;
+    width: 10px;
+    height: 10px;
+    content: "";
+  }
+
+  &.-text-align-right {
+    text-align: right;
+  }
+}

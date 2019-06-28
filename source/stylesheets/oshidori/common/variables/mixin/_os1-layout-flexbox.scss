@@ -1,0 +1,51 @@
+/*
+---
+name: Mixin:Layout flexbox
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/layout-flexbox
+---
+
+## flexbox を使った幅100%のレイアウトを作成する mixin
+
+- この mixin で指定しているスタイルセット
+
+  - `display: flex;`
+  - `box-sizing: border-box;`
+  - `width: 100%;`
+
+- align-items, justify-content など flexboxの関連プロパティは直接指定する
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item -border">
+    <div class="oshidori-mixin__layout-flexbox">
+      <div class="oshidori-mixin__layout-flexbox-item">column 1</div>
+      <div class="oshidori-mixin__layout-flexbox-item">column 2</div>
+      <div class="oshidori-mixin__layout-flexbox-item">column 3</div>
+    </div>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+
+```scss
+.os1-sample-scss {
+  @include os1-layout-flexbox;
+  //align-items, justify-content など flexboxの関連プロパティは直接指定する
+  align-items: center;
+  justify-content: center;
+}
+```
+*/
+
+@mixin os1-layout-flexbox {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+}

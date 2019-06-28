@@ -1,0 +1,41 @@
+/*
+---
+name: Mixin:Limit one line
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/limit-one-line
+---
+
+## 一行表示で行末を省略するための mixin
+
+### NOTE
+- 複数行には対応していない
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__limit-one-line">
+      みんなのウェディングは結婚にまつわる全てをサポートします。みんなのウェディングは結婚にまつわる全てをサポートします。みんなのウェディングは結婚にまつわる全てをサポートします。
+    </div>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+
+```scss
+.os1-sample-scss {
+  @include os1-limit-one-line;
+}
+```
+*/
+
+@mixin os1-limit-one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

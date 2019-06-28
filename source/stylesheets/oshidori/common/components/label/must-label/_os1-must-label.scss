@@ -1,0 +1,92 @@
+/*
+---
+name: ラベル:汎用 Must ラベル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/label
+  - 1_component/label/must-label
+---
+
+## コンポーネント
+フォームで入力が任意であることを知らせるために使用するラベル
+
+### 使用できるテキストの表記
+- `必須`
+
+### NOTE
+- modifier クラスを使ってラベルの左右余白を指定できる
+- font-size や font-weight の変更は許容しない
+
+### ノーマルの must-label
+
+```html
+<span class="os1-must-label">必須</span>
+```
+
+### 右マージン付きの must-label
+- `os1-must-label` クラスにマルチクラスで指定する
+- `-margin-right-(サイズ)` クラスで右マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-must-label -margin-right-S">必須</span>
+```
+
+### 左マージン付きの must-label
+- `os1-must-label` クラスにマルチクラスで指定する
+- `-margin-left-(サイズ)` クラスで左マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-must-label -margin-left-S">必須</span>
+```
+
+### 左右マージン付きの must-label
+- `os1-must-label` クラスにマルチクラスで指定する
+
+```html
+<span class="os1-must-label -margin-right-S -margin-left-S">必須</span>
+```
+
+## 使用例
+
+```html
+<table>
+  <tbody>
+    <tr>
+      <th>
+        <label>メールアドレス</label>
+        <span class="os1-must-label">必須</span>
+      </th>
+      <td>
+        <input type="email">
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+.os1-must-label {
+  @include os1-labels;
+  background-color: $os1-color-pink;
+
+  &.-margin-right-XS {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+  }
+
+  &.-margin-right-S {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+  }
+
+  &.-margin-left-XS {
+    @include os1-set-margin($margin-side: left, $margin-size: XS);
+  }
+
+  &.-margin-left-S {
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+  }
+}

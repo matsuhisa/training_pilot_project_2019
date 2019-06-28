@@ -1,0 +1,65 @@
+/*
+---
+name: Link Decoration:汎用 green 矢印リンク
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/link-decoration
+  - 1_component/link-decoration/link-arrow-green
+---
+
+## コンポーネント
+リンクに付与する green 色のアロー
+
+### NOTE
+- ❗ a要素にのみ使用する
+- このコンポーネントはアローのサイズやテキストとの余白は調整できない
+
+### 左寄せの green arrow
+
+```html
+<a href="#dummy" class="os1-link-arrow-green">.os1-link-arrow-green</a>
+```
+
+### 右寄せの green arrow
+
+- `-text-align-right` クラスで文字配置を右寄せに変更する
+
+```html
+<a href="#dummy" class="os1-link-arrow-green -text-align-right">.os1-link-arrow-green</a>
+```
+
+## 誤った使用例
+❌ a要素以外に使用する
+```html
+<span class="os1-link-arrow-green">.os1-link-arrow-green</span>
+```
+*/
+
+.os1-link-arrow-green {
+  @include os1-link-coloring(link-color-navy);
+  display: block;
+  position: relative;
+  padding-right: 30px;
+  text-align: left;
+  text-decoration: none;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 13px;
+    transform: rotate(45deg);
+    border-top: solid 2px $os1-color-green;
+    border-right: solid 2px $os1-color-green;
+    width: 11px;
+    height: 11px;
+    content: "";
+  }
+
+  &.-text-align-right {
+    text-align: right;
+  }
+}

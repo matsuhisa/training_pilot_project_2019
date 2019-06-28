@@ -1,0 +1,82 @@
+/*
+---
+name: ラベル:汎用 Alert ラベル
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/label
+  - 1_component/label/alert-label
+---
+
+## コンポーネント
+注意を促すために使用するラベル
+
+- 主に式場ページなどで利用する
+
+### NOTE
+- modifier クラスを使ってラベルの左右余白を指定できる
+- font-size や font-weight の変更は許容しない
+
+### ノーマルの alert-label
+
+```html
+<span class="os1-alert-label">受付終了</span>
+```
+
+### 右マージン付きの alert-label
+- `os1-alert-label` クラスにマルチクラスで指定する
+- `-margin-right-(サイズ)` クラスで右マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-alert-label -margin-right-S">受付終了</span>
+```
+
+### 左マージン付きの alert-label
+- `os1-alert-label` クラスにマルチクラスで指定する
+- `-margin-left-(サイズ)` クラスで左マージンを指定する
+- サイズは XS, S の二種類
+
+```html
+<span class="os1-alert-label -margin-left-S">受付終了</span>
+```
+
+### 左右マージン付きの alert-label
+- `os1-alert-label` クラスにマルチクラスで指定する
+
+```html
+<span class="os1-alert-label -margin-right-S -margin-left-S">受付終了</span>
+```
+
+## 使用例
+
+```html
+<div>
+  <span class="os1-alert-label">受付終了</span>
+  <h1>式場名</h1>
+</div>
+```
+*/
+
+.os1-alert-label {
+  @include os1-labels;
+  background-color: $os1-color-red;
+
+  &.-margin-right-XS {
+    @include os1-set-margin($margin-side: right, $margin-size: XS);
+  }
+
+  &.-margin-right-S {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+  }
+
+  &.-margin-left-XS {
+    @include os1-set-margin($margin-side: left, $margin-size: XS);
+  }
+
+  &.-margin-left-S {
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+  }
+}

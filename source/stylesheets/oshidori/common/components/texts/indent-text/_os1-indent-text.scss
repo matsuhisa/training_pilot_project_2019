@@ -1,0 +1,91 @@
+/*
+---
+name: テキスト:汎用 indent テキスト
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/texts
+  - 1_component/texts/indent-text
+---
+
+## コンポーネント
+
+- 行頭のアイコンに合わせてインデントさせるテキスト
+- `os1-indent-text` クラスを指定し、その中に以下のように要素を置く
+  - 行頭のアイコンとして使いたいアイコンもしくはテキストに `os1-indent-text__icon` クラスを指定し、親要素の中で最初に置く
+  - `os1-indent-text__icon` の後にインデントさせたいテキストを記述する
+
+### アイコンを行頭に置いた indent-text
+
+```html
+<p class="os1-indent-text">
+  <span class="os1-symbol-good os1-indent-text__icon"></span>みんなのウェディングのCSSフレームワークはとてもいいですね！<br>行頭アイコン用クラスを指定していないアイコンはテキストと同じようにインデントされます<span class="symbol-attention"></span>
+</p>
+```
+
+### テキストを行頭に置いた indent-text
+```html
+<p class="os1-indent-text">
+  <span class="os1-indent-text__icon">※</span>持ち込みはそもそも何ができるのかも聞いておこう
+</p>
+<p class="os1-indent-text">
+  <span class="os1-indent-text__icon">※</span>ご登録いただいた際のメールアドレスが間違っている場合があります。その際にはご面倒ですが、再度会員登録手続を行ってください。
+</p>
+```
+
+### 順序付きリストでマークアップした indent-text
+```html
+<ol>
+  <li class="os1-indent-text">
+    <span class="os1-indent-text__icon">(1)</span>ご登録いただいた際のメールアドレスが間違っている場合があります。その際にはご面倒ですが、再度会員登録手続を行ってください。
+  </li>
+  <li class="os1-indent-text">
+    <span class="os1-indent-text__icon">(2)</span>持ち込みはそもそも何ができるのかも聞いておこう
+  </li>
+  <li class="os1-indent-text">
+    <span class="os1-indent-text__icon">(3)</span>持ち込みはそもそも何ができるのかも聞いておこう
+  </li>
+</ol>
+```
+
+### NOTE
+
+- 行頭にないアイコンには `os1-indent-text__icon` クラスを指定しない
+- `os1-indent-text` の中にブロックレベル要素は含めない
+
+### 誤った使用例
+
+❌ 行頭にないアイコンには `os1-indent-text__icon` クラスを指定しない
+
+```html
+<p class="os1-indent-text">
+  <span class="os1-indent-text__icon">※</span>持ち込みはそもそも何ができるのかも聞いておこう<span class="symbol-attention os1-indent-text__icon"></span>
+</p>
+```
+
+❌ `os1-indent-text` の中にブロックレベル要素は含めない
+
+```html
+<p class="os1-indent-text">
+  <span class="os1-indent-text__icon">※</span>持ち込みはそもそも何ができるのかも聞いておこう
+  <div class="os1-default-button">
+    <a href="#dummy" class="os1-default-button__item">
+      <span class="os1-default-button__text">button</span>
+    </a>
+  </div>
+</p>
+```
+*/
+
+.os1-indent-text {
+  text-indent: -1.3em;
+  padding-left: 1.3em !important;
+
+  .os1-indent-text__icon {
+    width: 1.3em;
+    display: inline-block;
+    text-indent: 0;
+  }
+}

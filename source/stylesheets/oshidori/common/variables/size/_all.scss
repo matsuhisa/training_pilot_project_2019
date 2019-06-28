@@ -1,0 +1,19 @@
+@import "../size/os1-content-width";
+
+// NOTE:
+//スタイルガイドでサイズと変数を直接プレビューできるようにするためにstyleguide用のclassを使って指定しています。
+//size/ディレクトリ内のプレビュー確認用にまとめて記述しています。
+.aigis-contents {
+  .oshidori-size {
+    overflow: hidden;
+    .oshidori-size__item {
+      margin: 30px 2px;
+      padding: 3px;
+      display: block;
+      border-radius: 4px;
+    }
+    .oshidori-size__description {
+      display: block;
+    }
+  }
+}

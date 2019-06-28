@@ -1,0 +1,48 @@
+/*
+---
+name: Mixin:Screen
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/screen
+---
+
+## ブレイクポイントを指定する mixin
+
+- 引数を必ず指定して使用する
+
+## SCSSでの使い方
+引数に sp か pc を指定するとその画面幅でのスタイルを指定できる
+
+```scss
+.os1-sample-scss1 {
+  // @media screen and (min-width: 768px) {
+  //   width: 800px;
+  // }
+  @include os1-screen(pc) {
+    width: 800px;
+  }
+  // @media screen and (max-width: 768px) {
+  //   width: 100%;
+  // }
+  @include os1-screen(sp) {
+    width: 100%;
+  }
+}
+```
+*/
+
+@mixin os1-screen($screen) {
+  @if ($screen == pc) {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if ($screen == sp) {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}

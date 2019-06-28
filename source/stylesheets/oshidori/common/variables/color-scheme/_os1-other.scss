@@ -1,0 +1,87 @@
+/*
+---
+name: Color scheme Other
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/color-scheme
+  - 2_variables/color-scheme/other
+---
+
+## Oshidori CSSで使える色変数一覧
+
+- 使用用途が限られている
+
+### ranking color
+
+- ランキングを表現する時に使う色
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="" class="oshidori-color-scheme__item -rainking-1">$os1-color-rainking-1: $os1-color-gold;</li>
+  <li title="" class="oshidori-color-scheme__item -rainking-2">$os1-color-rainking-2: $os1-color-navy-2S;</li>
+  <li title="" class="oshidori-color-scheme__item -rainking-3">$os1-color-rainking-3: #cc9966; <span class="oshidori-color-scheme__note">本用途以外での使用不可</span></li>
+</ul>
+```
+
+### other service color
+
+- 外部サービスを表現する時に使う色
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="" class="oshidori-color-scheme__item -twitter">$os1-color-twitter: #55acee; <span class="oshidori-color-scheme__note">本用途以外での使用不可</span></li>
+  <li title="" class="oshidori-color-scheme__item -line">$os1-color-line: #1dcd00; <span class="oshidori-color-scheme__note">本用途以外での使用不可</span></li>
+  <li title="" class="oshidori-color-scheme__item -kufu">$os1-color-kufu: #fff574; <span class="oshidori-color-scheme__note">本用途以外での使用不可</span></li>
+</ul>
+```
+
+### anchor color
+
+- アンカーカラーは原則「$os1-color-green / $os1-color-gold / $os1-color-navy-D」を使用すること
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="" class="oshidori-color-scheme__item -anchor-green">$os1-color-anchor-green: $os1-color-green;</li>
+  <li title="" class="oshidori-color-scheme__item -anchor-gold">$os1-color-anchor-gold: $os1-color-gold;</li>
+  <li title="" class="oshidori-color-scheme__item -anchor-navy">$os1-color-anchor-navy: $os1-color-navy-D;</li>
+</ul>
+```
+
+### holiday color
+
+- 曜日を表現する時に使う色
+- 背景色とセットで使う場合の背景色は `-background` を使用すること
+
+```html
+<ul class="oshidori-color-scheme">
+  <li title="" class="oshidori-color-scheme__item -saturday">$os1-color-saturday: $os1-color-blue-D;</li>
+  <li title="" class="oshidori-color-scheme__item -saturday-background">$os1-color-saturday-background: $os1-color-blue-4S;</li>
+  <li title="" class="oshidori-color-scheme__item -holiday">$os1-color-holiday: $os1-color-pink-D;</li>
+  <li title="" class="oshidori-color-scheme__item -holiday-background">$os1-color-holiday-background: $os1-color-pink-4S;</li>
+</ul>
+```
+*/
+
+//ranking color
+$os1-color-rainking-1: $os1-color-gold;
+$os1-color-rainking-2: $os1-color-navy-1S;
+$os1-color-rainking-3: #cc9966;
+
+//other service color
+$os1-color-twitter: #55acee;
+$os1-color-line: #1dcd00;
+$os1-color-kufu: #fff574;
+
+//anchor color
+$os1-color-anchor-green: $os1-color-green;
+$os1-color-anchor-gold: $os1-color-gold;
+$os1-color-anchor-navy: $os1-color-navy-D;
+
+//holiday color
+$os1-color-saturday: $os1-color-blue-D;
+$os1-color-saturday-background: $os1-color-blue-4S;
+$os1-color-holiday: $os1-color-pink-D;
+$os1-color-holiday-background: $os1-color-pink-4S;

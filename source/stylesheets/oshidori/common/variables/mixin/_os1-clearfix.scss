@@ -1,0 +1,68 @@
+/*
+---
+name: Mixin:Clearfix
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/clearfix
+---
+
+## float を使っている要素の親に指定する Mixin
+
+- この Mixin を使わずに float を使っている要素をそのまま配置すると、レイアウトが崩れてしまうため、この Mixin を使用する
+- 引数なし
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__clearfix-preview">
+      <div class="oshidori-mixin__clearfix">
+        <div class="oshidori-mixin__clearfix -no-clearfix">
+          親要素に clearfix を指定せずに float: left; を指定した div 要素 1
+        </div>
+        <div class="oshidori-mixin__clearfix -no-clearfix">
+          親要素に clearfix を指定せずに float: left; を指定した div 要素 2
+        </div>
+      </div>
+      <div class="oshidori-mixin__clearfix">
+        通常の div 要素
+      </div>
+    </div>
+  </li>
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__clearfix-preview">
+      <div class="oshidori-mixin__clearfix -clearfix">
+        <div class="oshidori-mixin__clearfix -no-clearfix">
+          親要素に clearfix を指定して float: left; を指定した div 要素 1
+        </div>
+        <div class="oshidori-mixin__clearfix -no-clearfix">
+          親要素に clearfix を指定して float: left; を指定した div 要素 2
+        </div>
+      </div>
+      <div class="oshidori-mixin__clearfix">
+        通常の div 要素
+      </div>
+    </div>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+
+```scss
+.os1-sample-scss {
+  @include os1-clearfix;
+}
+```
+*/
+
+@mixin os1-clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}

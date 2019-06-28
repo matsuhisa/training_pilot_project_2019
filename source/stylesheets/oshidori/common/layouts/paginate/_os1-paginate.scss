@@ -1,0 +1,245 @@
+/*
+---
+name: Paginate
+tag:
+  - 3_layouts
+  - os1
+category:
+  - 3_layouts
+  - 3_layouts/paginate
+---
+
+## コンポーネント
+
+- `os1-paginate__nav` に `passive` クラスと `aria-disabled="true"` を指定して無効であることを示す
+- `os1-paginate__nav` が有効の時は `active` クラスを指定する
+- `os1-paginate__page` に `current` クラスと `aria-current="page"` を指定して現在ページを示す
+
+### NOTE
+
+- デフォルトで 20px の上マージンを持っている
+- マークアップの変更は許容しない
+
+### Paginate
+
+```html
+<div class="os1-paginate">
+  <span class="os1-paginate__nav passive" aria-disabled="true">前</span>
+  <a class="os1-paginate__page" href="#dummy">1</a>
+  <span class="os1-paginate__page current" aria-current="page">2</span>
+  <a class="os1-paginate__page" href="#dummy">3</a>
+  <a class="os1-paginate__page" href="#dummy">4</a>
+  <span class="os1-paginate__ellipsis">・・・</span>
+  <a class="os1-paginate__page" href="#dummy">52</a>
+  <a class="os1-paginate__nav active" href="#dummy">次</a>
+  <div class="os1-paginate__information">
+    <div class="os1-paginate__information-text">
+      <span class="os1-paginate__information-number">1〜30</span>件を表示
+    </div>
+    <div class="os1-paginate__information-text">
+      全<span class="os1-paginate__information-number">932</span>件中
+    </div>
+  </div>
+</div>
+```
+
+### ページ数が少ない場合
+
+```html
+<div class="os1-paginate">
+  <a class="os1-paginate__nav active" href="#dummy">前</span>
+  <a class="os1-paginate__page" href="#dummy">1</a>
+  <span class="os1-paginate__page current" aria-current="page">2</span>
+  <span class="os1-paginate__nav passive" aria-disabled="true">次</span>
+  <div class="os1-paginate__information">
+    <div class="os1-paginate__information-text">
+      <span class="os1-paginate__information-number">1〜30</span>件
+    </div>
+    <div class="os1-paginate__information-text">
+      全<span class="os1-paginate__information-number">50</span>件中
+    </div>
+  </div>
+</div>
+```
+*/
+
+.os1-paginate {
+  @include os1-screen(sp) {
+    //画面幅が 768px 以下のスタイルをここに記述
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+
+    .os1-paginate__page {
+      display: none;
+    }
+
+    .os1-paginate__nav {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+
+      &::after {
+        @include os1-default-border($border-color: border-color-navy);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: linear-gradient($os1-color-white, $os1-color-navy-3S);
+        width: 50px;
+        height: 50px;
+        pointer-events: none;
+        content: "";
+      }
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: calc(50% - 8px);
+        transform: rotate(45deg);
+        z-index: 2;
+        width: 15px;
+        height: 15px;
+        pointer-events: none;
+        content: "";
+      }
+
+      &:first-of-type {
+        left: 0;
+
+        &::before {
+          right: 12px;
+          border-bottom: solid 2px #8c8c8c;
+          border-left: solid 2px #8c8c8c;
+        }
+      }
+
+      &:last-of-type {
+        right: 0;
+
+        &::before {
+          left: 12px;
+          border-top: solid 2px #8c8c8c;
+          border-right: solid 2px #8c8c8c;
+        }
+      }
+
+      &[aria-disabled="true"], &.passive {
+        &::after {
+          border: none;
+          background-color: $os1-color-navy-4S;
+          background-image: none;
+        }
+
+        &::before {
+          border-color: #b3b3b3;
+        }
+      }
+    }
+
+    .os1-paginate__ellipsis {
+      display: none;
+    }
+
+    .os1-paginate__information {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .os1-paginate__information-text {
+      &:first-child {
+        @include os1-font-size;
+      }
+
+      &:last-child {
+        @include os1-font-size($font-size: S);
+        color: $os1-color-navy-1S;
+      }
+    }
+  }
+
+  @include os1-screen(pc) {
+    //画面幅が 768px 以上のスタイルをここに記述
+    @include os1-font-size($font-size: L);
+    @include os1-set-margin($margin-side: top);
+    color: $os1-color-navy;
+    text-align: center;
+
+    .os1-paginate__page {
+      //$os1-color-gold-3S -> $os1-color-gold-2S
+      @include os1-default-border;
+      @include os1-link-coloring(link-color-gold);
+      display: inline-block;
+      margin-left: 10px;
+      background-color: $os1-color-gold-5S;
+      padding: 8px 5px 0;
+      min-width: 28px;
+      height: 30px;
+      text-decoration: underline;
+
+      &[aria-current="page"], &.current {
+        background-color: $os1-color-gold-2S;
+        color: $os1-color-white;
+        text-decoration: none;
+      }
+    }
+
+    .os1-paginate__nav {
+      //$os1-color-gold-3S -> $os1-color-gold-2S
+      @include os1-default-border;
+      @include os1-link-coloring(link-color-gold);
+      display: inline-block;
+      margin-left: 10px;
+      background-color: $os1-color-gold-5S;
+      padding: 8px 5px 0;
+      min-width: 28px;
+      height: 30px;
+      text-decoration: underline;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &[aria-disabled="true"], &.passive {
+        @include os1-default-border(border-color-navy);
+        background-color: $os1-color-navy-4S;
+        color: $os1-color-navy-2S;
+        text-decoration: none;
+      }
+    }
+
+    .os1-paginate__ellipsis {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 8px 5px 0;
+      color: $os1-color-gold;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .os1-paginate__information {
+      padding-top: 10px;
+    }
+
+    .os1-paginate__information-text {
+      display: inline-block;
+
+      &:first-child {
+        padding-right: 5px;
+      }
+    }
+
+    .os1-paginate__information-number {
+      @include os1-font-size($font-size: XL);
+      padding: 0 3px;
+    }
+  }
+}

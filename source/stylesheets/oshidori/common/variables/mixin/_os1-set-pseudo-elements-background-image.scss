@@ -1,0 +1,53 @@
+/*
+---
+name: Mixin:Set pseudo elements background image
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/mixin
+  - 2_variables/mixin/set-pseudo-elements-background-image
+---
+
+## 疑似要素の背景画像を設定するための mixin
+
+- before/after の擬似要素に背景画像を設定する際に、 retina 用画像をセットするための mixin
+- 疑似要素に include して使う
+- 引数で背景画像のURLと高さと幅を設定している
+
+### 引数
+- $img-url
+  - 背景画像のURLを `url("")` 形式もしくは `asset-url("")` などで指定する
+- $height
+  - 元画像の高さを指定する
+- $width
+  - 元画像の幅を指定する
+
+```html
+<ul class="oshidori-mixin">
+  <li class="oshidori-mixin__item">
+    <div class="oshidori-mixin__set-image">@include os1-set-pseudo-elements-background-image(asset_url("esthe/pc/hint.png"), 20px, 20px);</div>
+  </li>
+</ul>
+```
+
+## SCSSでの使い方
+❗ $img-url, $height, $width を必ず指定する
+
+```scss
+.os1-sample-scss {
+  @include os1-set-pseudo-elements-background-image(asset_url("esthe/pc/hint.png"), 20px, 20px);
+}
+```
+*/
+
+@mixin os1-set-pseudo-elements-background-image($img-url, $height, $width) {
+  display: block;
+  background-image: $img-url;
+  background-repeat: no-repeat;
+  background-size: $width / 2 $height / 2;
+  width: $width / 2;
+  height: $height / 2;
+  content: "";
+}

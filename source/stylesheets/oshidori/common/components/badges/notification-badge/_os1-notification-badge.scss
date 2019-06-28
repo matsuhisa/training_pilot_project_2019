@@ -1,0 +1,59 @@
+/*
+---
+name: バッジ:汎用 notification バッジ
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/badges
+  - 1_component/badges/notification-badge
+---
+
+## コンポーネント
+
+- お知らせなど通知の件数を表示するときに使う
+
+### 使用できるテキストの制限
+
+- 数値のみを利用する
+- 4桁まで
+- 5桁以上の時のみ `9999+` とする（ただし、2019年5月現在は実例がない）
+
+```html
+<span class="os1-notification-badge">
+9
+</span>
+
+<span class="os1-notification-badge">
+1000
+</span>
+
+<span class="os1-notification-badge">
+9999+
+</span>
+```
+
+```html
+<a href="#">
+  <span class="os1-notification-badge">9</span>
+</a>
+
+<a href="#">
+  <span class="os1-notification-badge">1000</span>
+</a>
+
+<a href="#">
+  <span class="os1-notification-badge">9999+</span>
+</a>
+```
+*/
+
+.os1-notification-badge {
+  @include os1-font-size($font-size: XS, $line-height: 1);
+  background-color: $os1-color-red;
+  border-radius: 12px;
+  color: $os1-color-white;
+  display: inline-block;
+  padding: 4px 6px;
+}

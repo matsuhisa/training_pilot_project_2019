@@ -1,0 +1,26 @@
+/*
+---
+name: Icons Numerical Symbol
+tag:
+  - 2_variables
+  - os1
+category:
+  - 2_variables
+  - 2_variables/icons
+  - 2_variables/icons/symbol-numerical
+---
+
+- 数値の字体を変更する
+- 数字や数値に関係する記号に使用することが出来る
+
+```html
+<ul class="oshidori-icons">
+  <li class="oshidori-icons__item"><span class="oshidori-icons__icon os1-symbol-numerical">0123456789-,.</span>&lt;span class="os1-symbol-numerical"&gt;0123456789-,.&lt;/span&gt;</li>
+</ul>
+```
+*/
+
+.os1-symbol-numerical {
+  @include os1-symbol-base;
+  text-decoration-skip-ink: none;
+}

@@ -1,0 +1,54 @@
+/*
+---
+name: フォーム:汎用テキスト入力欄(複数行)
+tag:
+  - 1_components
+  - os1
+category:
+  - 1_component
+  - 1_component/forms
+  - 1_component/forms/text-field
+---
+
+## コンポーネント
+- 幅はPC版・SP版どちらとも `width: 100%;`
+- textareaは「rows="*"」で行数の指定が可能
+- デフォルトの行数は `5`
+
+### ノーマルの複数行テキスト入力欄（幅100%）
+
+```html
+<textarea class="os1-default-multiline-text-field" rows="5"></textarea>
+```
+
+### invalid 時の複数行テキスト入力欄
+- `aria-invalid="true"` で指定
+
+```html
+<textarea class="os1-default-multiline-text-field" rows="5" aria-invalid="true"></textarea>
+```
+*/
+
+.os1-default-multiline-text-field {
+  @include os1-default-border-radius;
+  @include os1-default-border($border-color: border-color-black);
+  @include os1-font-size;
+  @include os1-set-margin($margin-side: top-bottom, $margin-size: S);
+  box-sizing: border-box;
+  box-shadow: inset 1px 1px 4px #e6e6e6;
+  padding: 9.5px 10px;
+  width: 100%;
+
+  &:first-child {
+    @include os1-set-margin($margin-side: top, $margin-size: zero);
+  }
+
+  &:last-child {
+    @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+  }
+
+  &[aria-invalid="true"] {
+    border-color: $os1-color-red-D;
+    background-color: $os1-color-red-4S;
+  }
+}
