@@ -1,0 +1,15 @@
+.checkbox {
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid #FFBF80;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  .checkbox__check-icon {
+    stroke: #FFD9B3;
+  }
+}

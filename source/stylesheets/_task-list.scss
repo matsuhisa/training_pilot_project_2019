@@ -5,7 +5,7 @@
   color: $os1-color-navy-D;
 
   .task-item__task-title {
-    @include os1-font-size($line-height: 1);
+    @include os1-font-size;
     font-weight: bold;
   }
 
