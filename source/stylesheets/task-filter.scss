@@ -1,6 +1,5 @@
 .task-filter{
   @include os1-set-padding($padding-size: S);
-  @include os1-set-margin($margin-side: left-right, $margin-size: S);
   background: $os1-color-navy-5S;
 
   .task-filter__search-box{
