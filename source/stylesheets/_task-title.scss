@@ -10,6 +10,5 @@
 
   .task-title__task-deadline {
     @include os1-font-size($font-size: S, $line-height: 1);
-    // @include os1-set-margin($margin-side: top, $margin-size: XS);
   }
 }
