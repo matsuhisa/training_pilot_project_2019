@@ -1,15 +1,3 @@
 @import "reset";
 @import "oshidori/common/all.scss";
-
-.os1-form-header__sub-title{
-  margin: 5px 5px 0;
-  padding: 0 5px;
-  border-left: 1px solid #DEE4EA;
-  display: inline-flex;
-  vertical-align: top;
-  align-items: center;
-  height: 25px;
-  color: $os1-color-navy-D;
-  font-size: 12px;
-  font-weight: bold;
-}
+@import "header"
