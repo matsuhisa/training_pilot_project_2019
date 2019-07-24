@@ -3,8 +3,8 @@
     %img.os1-form-header__logo{ src: "images/global/logo.png", alt: "" }
 
 .about-task.os1-content
-  .task-title
-    .checkbox
+  %a.task-title
+    .checkbox{ href: "#" }
     %h2.task-title__task-name ふたりのToDoリストの使い方の確認
     .task-title__task-deadline 8ヶ月前〜5ヶ月前
   .progress-bar
@@ -15,18 +15,21 @@
     それぞれのやることには下のような細かいタスクが登録されています。全てにチェックを付けて結婚式準備を開始しましょう！
 
   .task-item-container
-    .task-item
+    %a.task-item{ href: "#" }
       .checkbox
-      .task-item__task-title 完了したタスクにチェックを付けましょう
-      .task-item__task-deadline 8ヶ月前〜5ヶ月前
-    .task-item
+      .task-item__text
+        .task-item__task-title 完了したタスクにチェックを付けましょう
+        .task-item__task-deadline 8ヶ月前〜5ヶ月前
+    %a.task-item{ href: "#" }
       .checkbox
-      .task-item__task-title 一括操作は画面左上のチェックを押します
-      .task-item__task-deadline 8ヶ月前〜5ヶ月前
-    .task-item
+      .task-item__text
+        .task-item__task-title 一括操作は画面左上のチェックを押します
+        .task-item__task-deadline 8ヶ月前〜5ヶ月前
+    %a.task-item{ href: "#" }
       .checkbox
-      .task-item__task-title 困ったら下の関連記事を読んでみましょう
-      .task-item__task-deadline 8ヶ月前〜5ヶ月前
+      .task-item__text
+        .task-item__task-title 困ったら下の関連記事を読んでみましょう
+        .task-item__task-deadline 8ヶ月前〜5ヶ月前
 
   .about-task__share
     .os1-default-button
