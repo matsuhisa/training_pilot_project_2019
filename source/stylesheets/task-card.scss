@@ -1,0 +1,29 @@
+.task-card {
+  @include os1-set-padding($padding-side: left-right, $padding-size: S);
+  @include os1-set-margin($margin-side: bottom, $margin-size: S);
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  border: solid 1px $os1-color-gold-2S;
+  border-bottom: solid 2px $os1-color-gold-2S;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+
+  &:last-child{
+    @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+  }
+
+  .task-card__infomation{
+    box-sizing: border-box;
+    padding-top: 15px;
+  }
+
+  .task-card__arrow{
+    box-sizing: border-box;
+    padding-top: 30px;
+    font-size: 20px;
+    color: $os1-color-gold-2S;
+
+  }
+}

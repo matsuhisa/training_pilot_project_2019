@@ -1,0 +1,6 @@
+.tasklist-container{
+    @include os1-set-padding($padding-side: left-right, $padding-size: S);
+    &:last-child{
+      @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+    }
+}
