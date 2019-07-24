@@ -1,0 +1,30 @@
+.related-article{
+  @include os1-set-padding($padding-side: bottom, $padding-size: S);
+  display: flex;
+  border-bottom: 1px solid $os1-color-gold-3S;
+  color: $os1-color-navy-D;
+  text-decoration: none;
+
+  .related-article__thumbnail{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .related-article__text{
+    @include os1-set-margin($margin-side: left, $margin-size: S);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: justify;
+  }
+
+  .related-article__title{
+    @include os1-font-size;
+  }
+
+  .related-article__postdate{
+    @include os1-font-size($font-size: XS);
+    color: $os1-color-navy-2S;
+  }
+}
