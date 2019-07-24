@@ -1,0 +1,8 @@
+.about-task{
+  @include os1-set-padding($padding-side: left-right, $padding-size: S);
+  color: $os1-color-navy-D;
+
+  .about-task__overview {
+    @include os1-font-size;
+  }
+}

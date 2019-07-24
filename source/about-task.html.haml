@@ -2,15 +2,40 @@
   %a{ href: "#" }
     %img.os1-form-header__logo{ src: "images/global/logo.png", alt: "" }
 
-.os1-content
-  .os1-default-button
-    %a.os1-default-button__item{ href: "#" }
-      %span.os1-default-button__text 予定をカレンダーに追加する
-      %span.os1-default-button__sub-text カレンダーアプリが開きます
-  .os1-default-button
-    %a.os1-default-button__item{ href: "#" }
-      %span.os1-default-button__text LINEで送る
-      %span.os1-default-button__sub-text LINEアプリが開きます
+.about-task
+  .task-title
+    .checkbox
+    %h2.task-title__task-name ふたりのToDoリストの使い方の確認
+    .task-title__task-deadline 8ヶ月前〜5ヶ月前
+  .progress-bar
+  %p.about-task__overview
+    ふたりのToDoリストは、結婚式準備を効率良く行いたい人のための専用ToDoツールです。
+    %br
+    %br
+    それぞれのやることには下のような細かいタスクが登録されています。全てにチェックを付けて結婚式準備を開始しましょう！
+
+  .task-item-container
+    .task-item
+      .checkbox
+      .task-item__task-title 完了したタスクにチェックを付けましょう
+      .task-item__task-deadline 8ヶ月前〜5ヶ月前
+
+  .about-task__share
+    .os1-default-button
+      %a.os1-default-button__item{ href: "#" }
+        %span.os1-default-button__text 予定をカレンダーに追加する
+        %span.os1-default-button__sub-text カレンダーアプリが開きます
+    .os1-default-button
+      %a.os1-default-button__item{ href: "#" }
+        %span.os1-default-button__text LINEで送る
+        %span.os1-default-button__sub-text LINEアプリが開きます
+
+  .related-articles
+    %h3.os1-title.-h3 関連記事
+    .related-article
+      %img.related-article__thumbnail{ src: "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/060/0600476919.jpg" }
+      %h4.related-article__title ＼これでスムーズ＆完璧／結婚式の準備スケジュール徹底ガイド
+      %p.related-article__postdate 2019.06.09
 
 %footer.os1-form-footer
   %p.os1-form-footer__links
