@@ -1,0 +1,33 @@
+.task-item-container {
+  background-color: #FFF2E6;
+  padding: 30px 10px;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-left: 1px solid #FFBF80;
+    border-top: 1px solid #FFBF80;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-left: 14px solid transparent;
+    border-bottom: 14px solid $os1-color-white;
+    border-right: 14px solid $os1-color-white;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+  }
+}
