@@ -13,6 +13,14 @@
     @include os1-font-size($font-size: S, $line-height: 1);
   }
 
+  &.-done {
+    opacity: .5;
+
+    .task-item__task-title {
+      text-decoration: line-through;
+    }
+  }
+
   &:first-child {
     @include os1-set-margin($margin-size: zero);
   }
