@@ -1,8 +1,14 @@
 .about-task {
+  @include os1-set-margin($margin-side: top-bottom, $margin-size: L);
   @include os1-set-padding($padding-side: left-right, $padding-size: S);
   color: $os1-color-navy-D;
 
   .about-task__overview {
     @include os1-font-size;
+    @include os1-set-margin($margin-side: top, $margin-size: M);
+  }
+
+  .about-task__share {
+    @include os1-set-margin($margin-side: top, $margin-size: L);
   }
 }
