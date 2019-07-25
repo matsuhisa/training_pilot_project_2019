@@ -25,6 +25,11 @@
     @include os1-font-size($font-size: L);
     color: $os1-color-navy-D;
     font-weight: bold;
+
+    &.-completed{
+      text-decoration: line-through;
+      color: $os1-color-navy-1S;
+    }
   }
 
   .task-card__progress-frame{
@@ -39,12 +44,44 @@
 
   .task-card__progress-bar{
     box-sizing: border-box;
-    background-color: #FFAD25;
-    width: 250px;
     height: 18px;
     border-radius: 9px;
     margin-top: 2px;
     margin-left: 2px;
+
+    &.-percent100{
+      background-color: #FFAD25;
+      width: 250px;
+      &::after{
+        content: "完了";
+        display: inline-block;
+        width: 250px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        line-height: 18px;
+      }
+    }
+
+    &.-percent60{
+      background-color: #FFBD50;
+      width: 150px;
+    }
+
+    &.-percent30{
+      background-color: #FFCB74;
+      width: 75px;
+    }
+
+    &.-percent0{
+      &::after{
+        content: "0%";
+        display: inline-block;
+        line-height: 18px;
+        margin-left: 10px;
+        color: $os1-color-navy-2S;
+      }
+    }
   }
 
   .task-card__arrow{
