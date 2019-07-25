@@ -14,7 +14,9 @@
   }
 
   &.-done {
-    opacity: .5;
+    .task-item__text {
+      opacity: .5;
+    }
 
     .task-item__task-title {
       text-decoration: line-through;
