@@ -1,8 +1,8 @@
-.task-filter{
+.task-filter {
   @include os1-set-padding($padding-size: S);
   background: $os1-color-navy-5S;
 
-  .task-filter__search-box{
+  .task-filter__search-box {
     @include os1-set-margin($margin-side: bottom, $margin-size: S);
     box-sizing: border-box;
     display: flex;
@@ -12,7 +12,7 @@
     border-radius: 4px;
   }
 
-  .task-filter__search-form{
+  .task-filter__search-form {
     width: 100%;
     border-width: 0px;
     border-radius: 4px;
@@ -21,7 +21,7 @@
     line-height: 1.45;
   }
 
-  .task-filter__search-button{
+  .task-filter__search-button {
     width: 42px;
     height: 42px;
     font-size: 20px;

@@ -11,28 +11,26 @@
   justify-content: space-between;
   align-items: center;
 
-  &:last-child{
+  &:last-child {
     @include os1-set-margin($margin-side: bottom, $margin-size: zero);
   }
 
-  .task-card__infomation{
+  .task-card__infomation {
     box-sizing: border-box;
-    // margin-top: 20px;
-    // margin-bottom: 20px;
   }
 
-  .task-card__name{
+  .task-card__name {
     @include os1-font-size($font-size: L);
     color: $os1-color-navy-D;
     font-weight: bold;
 
-    &.-completed{
+    &.-completed {
       text-decoration: line-through;
       color: $os1-color-navy-1S;
     }
   }
 
-  .task-card__progress-frame{
+  .task-card__progress-frame {
     @include os1-set-margin($margin-side: top, $margin-size: S);
     box-sizing: border-box;
     height: 25px;
@@ -42,17 +40,17 @@
     border-top: solid 2px $os1-color-gold-3S;
   }
 
-  .task-card__progress-bar{
+  .task-card__progress-bar {
     box-sizing: border-box;
     height: 18px;
     border-radius: 9px;
     margin-top: 2px;
     margin-left: 2px;
 
-    &.-percent100{
+    &.-percent100 {
       background-color: #FFAD25;
       width: 250px;
-      &::after{
+      &::after {
         content: "完了";
         display: inline-block;
         width: 250px;
@@ -63,18 +61,18 @@
       }
     }
 
-    &.-percent60{
+    &.-percent60 {
       background-color: #FFBD50;
       width: 150px;
     }
 
-    &.-percent30{
+    &.-percent30 {
       background-color: #FFCB74;
       width: 75px;
     }
 
-    &.-percent0{
-      &::after{
+    &.-percent0 {
+      &::after {
         content: "0%";
         display: inline-block;
         line-height: 18px;
@@ -84,10 +82,9 @@
     }
   }
 
-  .task-card__arrow{
+  .task-card__arrow {
     box-sizing: border-box;
     font-size: 20px;
     color: $os1-color-gold-2S;
-
   }
 }
