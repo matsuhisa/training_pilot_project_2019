@@ -2,13 +2,14 @@
   @include os1-set-padding($padding-side: left-right, $padding-size: S);
   @include os1-set-margin($margin-side: bottom, $margin-size: S);
   box-sizing: border-box;
-  height: 80px;
+  height: 91px;
   width: 100%;
   border: solid 1px $os1-color-gold-2S;
   border-bottom: solid 2px $os1-color-gold-2S;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   &:last-child{
     @include os1-set-margin($margin-side: bottom, $margin-size: zero);
@@ -16,12 +17,38 @@
 
   .task-card__infomation{
     box-sizing: border-box;
-    padding-top: 15px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
+  }
+
+  .task-card__name{
+    @include os1-font-size($font-size: L);
+    color: $os1-color-navy-D;
+    font-weight: bold;
+  }
+
+  .task-card__progress-frame{
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+    box-sizing: border-box;
+    height: 25px;
+    width: 256px;
+    border-radius: 12px;
+    border: solid 1px $os1-color-gold-3S;
+    border-top: solid 2px $os1-color-gold-3S;
+  }
+
+  .task-card__progress-bar{
+    box-sizing: border-box;
+    background-color: #FFAD25;
+    width: 250px;
+    height: 18px;
+    border-radius: 9px;
+    margin-top: 2px;
+    margin-left: 2px;
   }
 
   .task-card__arrow{
     box-sizing: border-box;
-    padding-top: 30px;
     font-size: 20px;
     color: $os1-color-gold-2S;
 
