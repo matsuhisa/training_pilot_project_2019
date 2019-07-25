@@ -1,4 +1,4 @@
-= partial 'header'
+= partial "header"
 
 .about-task.os1-content
   %a.task-title{ href: "#" }
@@ -16,35 +16,23 @@
     %br
     %br
     それぞれのやることには下のような細かいタスクが登録されています。タスクの期日は目安です。全てにチェックを付けて結婚式準備を開始しましょう！
-
   .task-item-container
-    %a.task-item{ href: "#" }
-      .checkbox
-        %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
-          %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
-            %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
-              %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
-      .task-item__text
-        .task-item__task-title 完了したタスクにチェックを付けましょう
-        .task-item__task-deadline 8ヶ月前〜5ヶ月前
-    %a.task-item{ href: "#" }
-      .checkbox
-        %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
-          %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
-            %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
-              %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
-      .task-item__text
-        .task-item__task-title 一括操作は画面左上のチェックを押します
-        .task-item__task-deadline 8ヶ月前〜5ヶ月前
-    %a.task-item{ href: "#" }
-      .checkbox
-        %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
-          %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
-            %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
-              %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
-      .task-item__text
-        .task-item__task-title 困ったら下の関連記事を読んでみましょう
-        .task-item__task-deadline 8ヶ月前〜5ヶ月前
+    :ruby
+      tasks = [
+        ["完了したタスクにチェックを付けましょう", "8ヶ月前〜5ヶ月前", "normal"],
+        ["一括操作は画面左上のチェックを押します", "8ヶ月前〜5ヶ月前", "normal"],
+        ["困ったら下の関連記事を読んでみましょう", "8ヶ月前〜5ヶ月前", "normal"]
+      ]
+    - for task in tasks
+      %a.task-item{ href: "#" }
+        .checkbox
+          %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
+            %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
+              %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
+                %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
+        .task-item__text
+          .task-item__task-title #{task[0]}
+          .task-item__task-deadline #{task[1]}
 
   .about-task__share
     .os1-default-button
@@ -58,11 +46,16 @@
 
   .related-articles
     %h3.os1-title.-h3 関連記事
-    %a.related-article{ href: "https://www.mwed.jp/manuals/380/" }
-      %img.related-article__thumbnail{ src: "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/060/0600476919.jpg" }
-      .related-article__text
-        %h4.related-article__title ＼これでスムーズ＆完璧／結婚式の準備スケジュール徹底ガイド
-        %p.related-article__postdate 2019.06.09
+    :ruby
+      articles = [
+        ["＼これでスムーズ＆完璧／結婚式の準備スケジュール徹底ガイド", "2019.06.09", "https://www.mwed.jp/manuals/380/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/060/0600476919.jpg"]
+      ]
+    - for article in articles
+      %a.related-article{ href: article[2] }
+        %img.related-article__thumbnail{ src: article[3] }
+        .related-article__text
+          %h4.related-article__title #{article[0]}
+          %p.related-article__postdate #{article[1]}
 
 %footer.os1-form-footer
   %p.os1-form-footer__links
