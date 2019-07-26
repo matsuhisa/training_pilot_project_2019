@@ -1,0 +1,46 @@
+.task-filter {
+  @include os1-set-padding($padding-size: S);
+  @include os1-set-margin($margin-side: bottom, $margin-size: XL);
+  background: $os1-color-navy-5S;
+
+  .task-filter__search-box {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 44px;
+    border: solid 1px $os1-color-navy;
+    border-radius: 4px;
+  }
+
+  .task-filter__search-form {
+    width: 100%;
+    border-width: 0px;
+    border-radius: 4px;
+    padding: 9px 13px 7px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .task-filter__search-button {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: $os1-color-navy-2S;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .task-filter__reset {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    @include os1-font-size($font-size: M);
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    color: $os1-color-navy;
+  }
+}
