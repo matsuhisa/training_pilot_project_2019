@@ -34,4 +34,14 @@
     border-radius: 4px;
   }
 
+  .task-filter__reset {
+    @include os1-set-margin($margin-side: bottom, $margin-size: S);
+    @include os1-font-size($font-size: M);
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    color: $os1-color-navy;
+  }
+
 }
