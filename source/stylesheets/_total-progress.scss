@@ -9,6 +9,6 @@
   }
 
   .total-progress__progress-bar {
-  @include os1-set-margin($margin-side: top);
-}
+    @include os1-set-margin($margin-side: top);
+  }
 }
