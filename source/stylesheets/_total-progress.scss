@@ -1,0 +1,14 @@
+.total-progress {
+  @include os1-set-margin($margin-side: top, $margin-size: L);
+  @include os1-set-padding($padding-side: left-right, $padding-size: S);
+
+  .total-progress__title {
+    color: $os1-color-navy-D;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .total-progress__progress-bar {
+  @include os1-set-margin($margin-side: top);
+}
+}
