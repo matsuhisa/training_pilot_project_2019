@@ -25,7 +25,7 @@
       ]
     - for task in tasks
       %a.task-item{ href: "#" , class: "-#{task[2]}" }
-        .checkbox{ class: "-"+task[2] }
+        .checkbox{ class: "-#{task[2]}" }
           %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
             %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
               %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
