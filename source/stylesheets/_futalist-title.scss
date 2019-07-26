@@ -1,0 +1,24 @@
+.futalist-title {
+  display: flex;
+  justify-content: center;
+
+  .futalist-title__logo-image {
+    @include os1-set-margin($margin-side: right, $margin-size: S);
+    width: 100px;
+  }
+
+  .futalist-title__logo-text {
+    display: flex;
+    flex-direction: column;
+    color: $os1-color-navy-D;
+    font-weight: bold;
+  }
+
+  .futalist-title__logo-text-small {
+    @include os1-font-size($font-size: XL);
+  }
+
+  .futalist-title__logo-text-big {
+    font-size: 24px;
+  }
+}

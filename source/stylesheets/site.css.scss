@@ -1,8 +1,15 @@
+// common
 @import "reset";
 @import "oshidori/common/all.scss";
 @import "header";
-@import "counseling-desk-information";
 
+//top
+@import "counseling-desk-information";
+@import "futalist-title";
+@import "top-header";
+@import "total-progress";
+
+// detail
 @import "about-task";
 @import "checkbox";
 @import "related-article";
@@ -10,6 +17,7 @@
 @import "task-item-container";
 @import "task-title";
 
+// list
 @import "task-filter.scss";
 @import "tasklist-container.scss";
 @import "task-card";

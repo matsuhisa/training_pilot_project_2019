@@ -1,0 +1,45 @@
+---
+title: Welcome to Middleman
+---
+
+= partial 'header'
+
+.os1-content.top-header
+  %h1.futalist-title
+    %img.futalist-title__logo-image{ src: "images/global/futalist-logo.png" }
+    .futalist-title__logo-text
+      %span.futalist-title__logo-text-small ふたりの
+      %span.futalist-title__logo-text-big ToDoリスト
+  %p.top-header__information 結婚式準備の「やること」がわかる
+  .total-progress
+    %h2.total-progress__title 全体の進みぐあい
+    .total-progress__progress-bar プログレスバー
+
+.tasklist-container
+  .tasklist
+    %h4.os1-title.-h4 次にやること
+    %a.task-card{ href: "#" }
+      .task-card__infomation
+        .task-card__name.-completed 式場を決める
+        .task-card__progress
+          .task-card__progress-frame
+            .task-card__progress-bar.-percent100
+      .task-card__arrow
+        %span.os1-symbol-arrow-right
+
+.counseling-desk-information
+  %h2.os1-title.-h3 迷ったら結婚式のプロに相談しよう
+  %p.counseling-desk-information__text 結婚式を知り尽くしたプロのアドバイザーが、お悩みやご要望に応じてピッタリの式場をご紹介
+  %img.counseling-desk-information__image{ src: "https://d4w9i1j5cm7ll.cloudfront.net/o/C001/smartphone/desk/top/desk_thumbnail_710_240.jpg", alt: "みんなのウェディング相談デスク" }
+  .os1-primary-button.-size-L.counseling-desk-information__button
+    %button.os1-primary-button__item{ type: "button" }
+      %span.os1-primary-button__text LINEで相談する
+  %a.os1-link-see-more みんなのウェディング相談デスクへ
+
+%footer.os1-form-footer
+  %a.os1-form-footer__link{ href: "#" } 会社概要
+  |
+  %a.os1-form-footer__link{ href: "#" } 会員規約
+  |
+  %a.os1-form-footer__link{ href: "#" } プライバシーポリシー
+  %p.os1-form-footer__copyright &copy; Minnano Wedding Co., Ltd.

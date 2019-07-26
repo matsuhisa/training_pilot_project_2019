@@ -1,0 +1,12 @@
+.top-header {
+  background-color: #FFF2E6;
+  padding: 30px 0 40px;
+  border-radius: 0 0 50% 50% / 0 0 25px 25px;
+
+  .top-header__information {
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+    @include os1-font-size;
+    color: $os1-color-navy-D;
+    text-align: center;
+  }
+}
