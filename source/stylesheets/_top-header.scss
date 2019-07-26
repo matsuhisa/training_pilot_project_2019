@@ -1,7 +1,9 @@
 .top-header {
   background-color: #FFF2E6;
+  @include os1-set-padding($padding-side: top, $padding-size: L);
 
   .top-header__information {
+    @include os1-set-padding($padding-side: top, $padding-size: S);
     @include os1-font-size;
     color: $os1-color-navy-D;
     text-align: center;
