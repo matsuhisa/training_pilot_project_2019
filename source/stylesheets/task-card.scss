@@ -12,7 +12,7 @@
   align-items: center;
 
   &:last-child {
-    @include os1-set-margin($margin-side: bottom, $margin-size: zero);
+    @include os1-set-margin($margin-side: bottom, $margin-size: XL);
   }
 
   .task-card__infomation {
@@ -62,12 +62,12 @@
     }
 
     &.-percent60 {
-      background-color: #FFBD50;
+      background-color: #FFC86D;
       width: 150px;
     }
 
     &.-percent30 {
-      background-color: #FFCB74;
+      background-color: #FFD897;
       width: 75px;
     }
 
