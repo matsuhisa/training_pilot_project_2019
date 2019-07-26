@@ -10,9 +10,11 @@
   justify-content: center;
   flex-shrink: 0;
   box-sizing: border-box;
+
   .checkbox__check-icon {
     stroke: #FFD9B3;
   }
+
   &.-done {
     background-color: #FFAD26;
     border: 0;
