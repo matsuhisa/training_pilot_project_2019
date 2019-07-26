@@ -4,8 +4,8 @@
 
   .counseling-desk-information__text {
     @include os1-font-size($font-size: S);
-    color: $os1-color-navy-D;
     @include os1-set-margin($margin-side: top);
+    color: $os1-color-navy-D;
   }
 
   .counseling-desk-information__image {
