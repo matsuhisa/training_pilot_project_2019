@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
 
   &:last-child {
     @include os1-set-margin($margin-side: bottom, $margin-size: XL);
