@@ -1,0 +1,24 @@
+.task-title {
+  display: flex;
+  text-decoration: none;
+  color: $os1-color-navy-D;
+
+  .task-title__task-name {
+    @include os1-font-size($font-size: L);
+    font-weight: bold;
+  }
+
+  .task-title__task-deadline {
+    @include os1-font-size($font-size: S, $line-height: 1);
+  }
+
+  &.-done {
+    .task-title__text {
+      opacity: .5;
+    }
+
+    .task-title__task-name {
+      text-decoration: line-through;
+    }
+  }
+}
