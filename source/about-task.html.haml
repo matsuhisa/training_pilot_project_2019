@@ -24,7 +24,7 @@
         ["困ったら下の関連記事を読んでみましょう", "8ヶ月前〜5ヶ月前", "normal"]
       ]
     - for task in tasks
-      %a.task-item{ href: "#" , class: "-"+task[2] }
+      %a.task-item{ href: "#" , class: "-#{task[2]}" }
         .checkbox{ class: "-"+task[2] }
           %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
             %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }

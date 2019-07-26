@@ -4,7 +4,7 @@
   width: 30px;
   border-radius: 50%;
   border: 1px solid #FFBF80;
-  background-color: #fff;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +17,8 @@
     background-color: #FFAD26;
     border: 0;
 
-  .checkbox__check-icon {
-    stroke: #fff;
-  }
+    .checkbox__check-icon {
+      stroke: #FFFFFF;
+    }
   }
 }
