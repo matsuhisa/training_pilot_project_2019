@@ -13,7 +13,9 @@ title: TOP
   %p.top-header__information 結婚式準備の「やること」がわかる
   .total-progress
     %h2.total-progress__title 全体の進みぐあい
-    .total-progress__progress-bar プログレスバー
+    .task-progress
+      .task-progress__frame
+        .task-progress__bar.-percent10
 
 .tasklist-container
   .tasklist
@@ -21,9 +23,9 @@ title: TOP
     %a.task-card{ href: "#" }
       .task-card__infomation
         .task-card__name.-completed 式場を決める
-        .task-card__progress
-          .task-card__progress-frame
-            .task-card__progress-bar.-percent100
+        .task-progress
+          .task-progress__frame
+            .task-progress__bar.-percent100
       .task-card__arrow
         %span.os1-symbol-arrow-right
     = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
