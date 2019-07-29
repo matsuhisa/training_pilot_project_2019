@@ -1,0 +1,53 @@
+.task-progress {
+  .task-progress__frame {
+    @include os1-set-margin($margin-side: top, $margin-size: S);
+    box-sizing: border-box;
+    height: 25px;
+    width: 100%;
+    border-radius: 12px;
+    border: solid 1px $os1-color-gold-3S;
+    border-top: solid 2px $os1-color-gold-3S;
+  }
+
+  .task-progress__bar {
+    box-sizing: border-box;
+    height: 18px;
+    border-radius: 9px;
+    margin-top: 2px;
+    margin-left: 2px;
+
+    &.-percent100 {
+      background-color: #FF9E2B;
+      width: calc(100% - 4px);
+      &::after {
+        content: "完了";
+        display: inline-block;
+        width: calc(100% - 4px);
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        line-height: 18px;
+      }
+    }
+
+    &.-percent60 {
+      background-color: #FFBB4A;
+      width: calc(60% - 4px);
+    }
+
+    &.-percent30 {
+      background-color: #FFD971;
+      width: calc(30% - 4px);
+    }
+
+    &.-percent0 {
+      &::after {
+        content: "0%";
+        display: inline-block;
+        line-height: 18px;
+        margin-left: 10px;
+        color: $os1-color-navy-2S;
+      }
+    }
+  }
+}
