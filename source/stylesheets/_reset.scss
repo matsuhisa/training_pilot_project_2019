@@ -31,7 +31,9 @@
     @include reset-quotation; }
   a img {
     @include reset-image-anchor-border; }
-  @include reset-html5; }
+  @include reset-html5;
+  a {
+    @include reset-a-underline} }
 
 // Reset all elements within some selector scope. To reset the selector itself,
 // mixin the appropriate reset mixin for that element type as well. This could be
@@ -117,6 +119,10 @@
   header, hgroup, main, menu,
   nav, section, summary {
     display: block; } }
+
+@mixin reset-a-underline {
+  text-decoration: none;
+}
 
 // execution
 @include global-reset;
