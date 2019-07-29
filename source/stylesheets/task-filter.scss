@@ -38,9 +38,12 @@
     @include os1-set-margin($margin-side: bottom, $margin-size: S);
     @include os1-font-size($font-size: M);
     display: inline-block;
-    text-align: center;
     width: 100%;
+    text-align: center;
     box-sizing: border-box;
+  }
+
+  .task-filter__reset-link{
     color: $os1-color-navy;
   }
 }
