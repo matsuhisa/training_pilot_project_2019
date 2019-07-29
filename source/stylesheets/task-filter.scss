@@ -44,7 +44,7 @@
   }
 
   .task-filter__reset-link{
+    @include os1-link-coloring(link-color-navy);
     color: $os1-color-navy;
-    text-decoration: underline;
   }
 }
