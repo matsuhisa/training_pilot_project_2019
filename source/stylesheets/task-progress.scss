@@ -1,5 +1,5 @@
 .task-progress {
-  .task-progress-frame {
+  .task-progress__frame {
     @include os1-set-margin($margin-side: top, $margin-size: S);
     box-sizing: border-box;
     height: 25px;
@@ -9,7 +9,7 @@
     border-top: solid 2px $os1-color-gold-3S;
   }
 
-  .task-progress-bar {
+  .task-progress__bar {
     box-sizing: border-box;
     height: 18px;
     border-radius: 9px;
