@@ -26,9 +26,7 @@ title: TOP
             .task-card__progress-bar.-percent100
       .task-card__arrow
         %span.os1-symbol-arrow-right
-    .os1-default-button.-size-L.tasklist-seemore
-      %a.os1-default-button__item{ href: "tasklist.html" }
-        %span.os1-default-button__text やること一覧を見る
+    = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
 
 .counseling-desk-information
   %h2.os1-title.-h3 迷ったら結婚式のプロに相談しよう
