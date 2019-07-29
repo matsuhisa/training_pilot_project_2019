@@ -2,7 +2,7 @@
 title: 結婚式準備やること一覧
 ---
 
-= partial 'header'
+= partial('header', locals: { href: "top.html" })
 
 .os1-content
   .tasklist-container
@@ -30,7 +30,8 @@ title: 結婚式準備やること一覧
             %input.os1-default-checkbox__input{ type: "checkbox" , name: "foo" , value: "foo1" }
             %span.os1-default-checkbox__text 未完了のみ表示する
 
-        %a.task-filter__reset.-hidden{ href: "#" } 表示をリセットする
+        .task-filter__reset.-hidden
+          %a.task-filter__reset-link{ href: "#" } 表示をリセットする
 
     .tasklist
       %h4.os1-title.-h4 12ヶ月前〜9ヶ月前からはじめよう

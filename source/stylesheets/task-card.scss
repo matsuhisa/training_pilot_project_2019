@@ -18,6 +18,7 @@
 
   .task-card__infomation {
     box-sizing: border-box;
+    width: 75%;
   }
 
   .task-card__name {
@@ -35,7 +36,7 @@
     @include os1-set-margin($margin-side: top, $margin-size: S);
     box-sizing: border-box;
     height: 25px;
-    width: 256px;
+    width: 100%;
     border-radius: 12px;
     border: solid 1px $os1-color-gold-3S;
     border-top: solid 2px $os1-color-gold-3S;
@@ -50,11 +51,11 @@
 
     &.-percent100 {
       background-color: #FF9E2B;
-      width: 250px;
+      width: calc(100% - 4px);
       &::after {
         content: "完了";
         display: inline-block;
-        width: 250px;
+        width: calc(100% - 4px);
         color: #ffffff;
         font-weight: bold;
         text-align: center;
@@ -64,12 +65,12 @@
 
     &.-percent60 {
       background-color: #FFBB4A;
-      width: 150px;
+      width: calc(60% - 4px);
     }
 
     &.-percent30 {
       background-color: #FFD971;
-      width: 75px;
+      width: calc(30% - 4px);
     }
 
     &.-percent0 {
