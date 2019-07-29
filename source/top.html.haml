@@ -1,5 +1,5 @@
 ---
-title: Welcome to Middleman
+title: TOP
 ---
 
 = partial('header', locals: { href: "top.html" })
@@ -26,6 +26,7 @@ title: Welcome to Middleman
             .task-card__progress-bar.-percent100
       .task-card__arrow
         %span.os1-symbol-arrow-right
+    = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
 
 .counseling-desk-information
   %h2.os1-title.-h3 迷ったら結婚式のプロに相談しよう

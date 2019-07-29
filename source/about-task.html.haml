@@ -56,6 +56,7 @@
         .related-article__text
           %h4.related-article__title #{article[0]}
           %p.related-article__postdate #{article[1]}
+    = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
 
 %footer.os1-form-footer
   %p.os1-form-footer__links
