@@ -44,6 +44,6 @@
   }
 
   .task-filter__reset-link{
-    color: $os1-color-navy;
+    @include os1-link-coloring(link-color-navy);
   }
 }
