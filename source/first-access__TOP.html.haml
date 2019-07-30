@@ -1,8 +1,8 @@
 ---
-title: Welcome to Middleman
+title: TOP
 ---
 
-= partial('header', locals: { href: "index.html" })
+= partial('header', locals: { href: "first-access__TOP.html" })
 
 .os1-content.top-header
   %h1.futalist-title
@@ -15,35 +15,35 @@ title: Welcome to Middleman
     %h2.total-progress__title 全体の進みぐあい
     .task-progress
       .task-progress__frame
-        .task-progress__bar.-percent60
+        .task-progress__bar.-percent0
 
-.os1-content.futalist-index
-  %h2.os1-title.-h2 デモページ
-  .os1-default-button
-    %a.os1-default-button__item{ href: "first-access__TOP.html" }
-      %span.os1-default-button__text 初アクセス時TOP
-  .os1-default-button
-    %a.os1-default-button__item{ href: "normal-TOP.html" }
-      %span.os1-default-button__text 二度目以降TOP
-
-.os1-content.futalist-index
-  %h2.os1-title.-h2 テンプレートページ
-  .os1-default-button
-    %a.os1-default-button__item{ href: "top.html" }
-      %span.os1-default-button__text TOP
-  .os1-default-button
-    %a.os1-default-button__item{ href: "about-task.html" }
-      %span.os1-default-button__text タスク詳細
-  .os1-default-button
-    %a.os1-default-button__item{ href: "tasklist.html" }
-      %span.os1-default-button__text タスク一覧
+.tasklist-container
+  .tasklist
+    %h4.os1-title.-h4 次にやること
+    %a.task-card{ href: "task__tutorial-30.html" }
+      .task-card__infomation
+        .task-card__name ふたりのToDoリストの使い方の確認
+        .task-progress
+          .task-progress__frame
+            .task-progress__bar.-percent30
+      .task-card__arrow
+        %span.os1-symbol-arrow-right
+    %a.task-card{ href: "task__decide-the-wedding-hall-0.html" }
+      .task-card__infomation
+        .task-card__name 式場を決める
+        .task-progress
+          .task-progress__frame
+            .task-progress__bar.-percent0
+      .task-card__arrow
+        %span.os1-symbol-arrow-right
+    = partial( "tasklist-seemore", locals: { href: "first-access__tasklist.html" } )
 
 .counseling-desk-information
   %h2.os1-title.-h3 迷ったら結婚式のプロに相談しよう
   %p.counseling-desk-information__text 結婚式を知り尽くしたプロのアドバイザーが、お悩みやご要望に応じてピッタリの式場をご紹介
   %img.counseling-desk-information__image{ src: "https://d4w9i1j5cm7ll.cloudfront.net/o/C001/smartphone/desk/top/desk_thumbnail_710_240.jpg", alt: "みんなのウェディング相談デスク" }
   .os1-primary-button.-size-L.counseling-desk-information__button
-    %button.os1-primary-button__item{:type => "button"}
+    %button.os1-primary-button__item{ type: "button" }
       %span.os1-primary-button__text LINEで相談する
   %a.os1-link-see-more みんなのウェディング相談デスクへ
 
