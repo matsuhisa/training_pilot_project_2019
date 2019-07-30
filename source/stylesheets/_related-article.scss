@@ -1,4 +1,5 @@
 .related-article{
+  @include os1-set-margin($margin-side: top, $margin-size: S);
   @include os1-set-padding($padding-side: bottom, $padding-size: S);
   display: flex;
   border-bottom: 1px solid $os1-color-gold-3S;

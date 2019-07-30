@@ -1,15 +1,19 @@
-= partial('header', locals: { href: "index.html" })
+---
+title: 式場を決める / ふたりのToDoリスト
+---
+
+= partial('header', locals: { href: "normal-1__top.html" })
 
 .about-task.os1-content
-  %a.task-title{ href: "#" }
+  %a.task-title{ href: "task__decide-the-wedding-hall-100.html" }
     .checkbox
       %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
         %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
           %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
             %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
     .task-title__text
-      %h2.task-title__task-name ふたりのToDoリストの使い方の確認
-      .task-title__task-deadline 8ヶ月前〜5ヶ月前
+      %h2.task-title__task-name 式場を決める
+      .task-title__task-deadline 12ヶ月前〜9ヶ月前
   .task-progress
     .task-progress__frame
       .task-progress__bar.-percent30
@@ -21,9 +25,10 @@
   .task-item-container
     :ruby
       tasks = [
-        ["完了したタスクにチェックを付けましょう", "12ヶ月前〜9ヶ月前", "done", "#"],
-        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "normal", "#"],
-        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "normal", "#"]
+        ["式場決定の条件リストを作る", "12ヶ月前〜9ヶ月前", "done", "task__decide-the-wedding-hall-0.html"],
+        ["気になる結婚式場のリストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-60.html"],
+        ["気になる式場のブライダルフェアに参加する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-60.html"],
+        ["式場と契約する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-60.html"]
       ]
     - for task in tasks
       %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
@@ -50,7 +55,8 @@
     %h3.os1-title.-h3 関連記事
     :ruby
       articles = [
-        ["＼これでスムーズ＆完璧／結婚式の準備スケジュール徹底ガイド", "2019.06.09", "https://www.mwed.jp/manuals/380/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/060/0600476919.jpg"]
+        ["【後悔のない式場探し特集】式場探しを始めてみよう！編", "2019.05.09", "https://www.mwed.jp/articles/7848/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/065/0652558410.jpg"],
+        ["【結婚式場探し】ブライダルフェアで注意しておきたい確認ポイント", "2019.06.09", "https://www.mwed.jp/manuals/535/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/058/0588821467.jpg"]
       ]
     - for article in articles
       %a.related-article{ href: article[2] }
@@ -58,7 +64,7 @@
         .related-article__text
           %h4.related-article__title #{article[0]}
           %p.related-article__postdate #{article[1]}
-    = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
+    = partial( "tasklist-seemore", locals: { href: "normal-1__tasklist.html" } )
 
 %footer.os1-form-footer
   %p.os1-form-footer__links

@@ -1,6 +1,6 @@
 .futalist-header__sub-title{
+  @include os1-set-padding($padding-side: left-right, $padding-size: XS);
   margin: 5px 5px 0;
-  padding: 0 5px;
   border-left: 1px solid #DEE4EA;
   display: inline-flex;
   vertical-align: top;

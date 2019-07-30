@@ -2,15 +2,46 @@
 title: Welcome to Middleman
 ---
 
-= partial('header', locals: { href: "top.html" })
+= partial('header', locals: { href: "index.html" })
 
-.os1-content
-  %h1.os1-title.-h1 テストです
+.os1-content.top-header
+  %h1.futalist-title
+    %img.futalist-title__logo-image{ src: "images/global/futalist-logo.png" }
+    .futalist-title__logo-text
+      %span.futalist-title__logo-text-small ふたりの
+      %span.futalist-title__logo-text-big ToDoリスト
+  %p.top-header__information 結婚式準備の「やること」がわかる
+  .total-progress
+    %h2.total-progress__title 全体の進みぐあい
+    .task-progress
+      .task-progress__frame
+        .task-progress__bar.-percent60
+
+.os1-content.futalist-index
+  %h2.os1-title.-h2 デモページ
+  .os1-default-button
+    %a.os1-default-button__item{ href: "first-access__top.html" }
+      %span.os1-default-button__text 初アクセス時TOP
+  .os1-default-button
+    %a.os1-default-button__item{ href: "normal-1__top.html" }
+      %span.os1-default-button__text 二度目以降TOP
+
+.os1-content.futalist-index
+  %h2.os1-title.-h2 テンプレートページ
+  .os1-default-button
+    %a.os1-default-button__item{ href: "top.html" }
+      %span.os1-default-button__text TOP
+  .os1-default-button
+    %a.os1-default-button__item{ href: "about-task.html" }
+      %span.os1-default-button__text タスク詳細
+  .os1-default-button
+    %a.os1-default-button__item{ href: "tasklist.html" }
+      %span.os1-default-button__text タスク一覧
 
 .counseling-desk-information
   %h2.os1-title.-h3 迷ったら結婚式のプロに相談しよう
   %p.counseling-desk-information__text 結婚式を知り尽くしたプロのアドバイザーが、お悩みやご要望に応じてピッタリの式場をご紹介
-  %img.counseling-desk-information__image{ src: "https://d4w9i1j5cm7ll.cloudfront.net/o/C001/smartphone/desk/top/desk_thumbnail_710_240.jpg", alt: "みんなのウェディング相談デスク" }
+  %img.counseling-desk-information__image{ src: "images/global/desk_thumbnail_710_240.jpg", alt: "みんなのウェディング相談デスク" }
   .os1-primary-button.-size-L.counseling-desk-information__button
     %button.os1-primary-button__item{:type => "button"}
       %span.os1-primary-button__text LINEで相談する

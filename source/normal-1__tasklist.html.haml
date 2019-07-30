@@ -1,8 +1,8 @@
 ---
-title: 結婚式準備やること一覧
+title: 結婚式準備やること一覧 / ふたりのToDoリスト
 ---
 
-= partial('header', locals: { href: "index.html" })
+= partial('header', locals: { href: "normal-1__top.html" })
 
 .os1-content
   .tasklist-container
@@ -35,9 +35,17 @@ title: 結婚式準備やること一覧
 
     .tasklist
       %h4.os1-title.-h4 12ヶ月前〜9ヶ月前からはじめよう
-      %a.task-card{ href: "#" }
+      %a.task-card{ href: "task__decide-the-wedding-hall-0.html" }
         .task-card__infomation
-          .task-card__name.-completed 式場を決める
+          .task-card__name 式場を決める
+          .task-progress
+            .task-progress__frame
+              .task-progress__bar.-percent0
+        .task-card__arrow
+          %span.os1-symbol-arrow-right
+      %a.task-card{ href: "task__tutorial-100.html" }
+        .task-card__infomation
+          .task-card__name.-completed ふたりのToDoリストの使い方の確認
           .task-progress
             .task-progress__frame
               .task-progress__bar.-percent100
@@ -48,10 +56,10 @@ title: 結婚式準備やること一覧
       %h4.os1-title.-h4 8ヶ月前〜5ヶ月前からはじめよう
       %a.task-card{ href: "#" }
         .task-card__infomation
-          .task-card__name.-completed ゲストの出欠確認
+          .task-card__name ゲストの出欠確認
           .task-progress
             .task-progress__frame
-              .task-progress__bar.-percent100
+              .task-progress__bar.-percent0
         .task-card__arrow
           %span.os1-symbol-arrow-right
       %a.task-card{ href: "#" }
@@ -59,7 +67,7 @@ title: 結婚式準備やること一覧
           .task-card__name 指輪の準備
           .task-progress
             .task-progress__frame
-              .task-progress__bar.-percent60
+              .task-progress__bar.-percent0
         .task-card__arrow
           %span.os1-symbol-arrow-right
       %a.task-card{ href: "#" }
@@ -67,7 +75,7 @@ title: 結婚式準備やること一覧
           .task-card__name ウェディングアイテムの準備
           .task-progress
             .task-progress__frame
-              .task-progress__bar.-percent30
+              .task-progress__bar.-percent0
         .task-card__arrow
           %span.os1-symbol-arrow-right
       %a.task-card{ href: "#" }

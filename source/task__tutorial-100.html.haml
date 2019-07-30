@@ -1,18 +1,22 @@
-= partial('header', locals: { href: "index.html" })
+---
+title: ふたりのToDoリストの使い方の確認 / ふたりのToDoリスト
+---
+
+= partial('header', locals: { href: "normal-1__top.html" })
 
 .about-task.os1-content
-  %a.task-title{ href: "#" }
-    .checkbox
+  %a.task-title.-done{ href: "task__tutorial-0.html" }
+    .checkbox.-done
       %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
         %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
           %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
             %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
     .task-title__text
       %h2.task-title__task-name ふたりのToDoリストの使い方の確認
-      .task-title__task-deadline 8ヶ月前〜5ヶ月前
+      .task-title__task-deadline 12ヶ月前〜9ヶ月前
   .task-progress
     .task-progress__frame
-      .task-progress__bar.-percent30
+      .task-progress__bar.-percent100
   %p.about-task__overview
     ふたりのToDoリストは、結婚式準備を効率良く行いたい人のための専用ToDoツールです。
     %br
@@ -21,9 +25,9 @@
   .task-item-container
     :ruby
       tasks = [
-        ["完了したタスクにチェックを付けましょう", "12ヶ月前〜9ヶ月前", "done", "#"],
-        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "normal", "#"],
-        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "normal", "#"]
+        ["完了したタスクにチェックを付けましょう", "12ヶ月前〜9ヶ月前", "done", "task__tutorial-0.html"],
+        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "done", "#"],
+        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "done", "#"]
       ]
     - for task in tasks
       %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
@@ -47,18 +51,24 @@
         %span.os1-default-button__sub-text LINEアプリが開きます
 
   .related-articles
-    %h3.os1-title.-h3 関連記事
-    :ruby
-      articles = [
-        ["＼これでスムーズ＆完璧／結婚式の準備スケジュール徹底ガイド", "2019.06.09", "https://www.mwed.jp/manuals/380/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/060/0600476919.jpg"]
-      ]
-    - for article in articles
-      %a.related-article{ href: article[2] }
-        %img.related-article__thumbnail{ src: article[3] }
-        .related-article__text
-          %h4.related-article__title #{article[0]}
-          %p.related-article__postdate #{article[1]}
-    = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
+    %h3.os1-title.-h3 次にやること
+    %a.task-card{ href: "task__decide-the-wedding-hall-0.html" }
+      .task-card__infomation
+        .task-card__name 式場を決める
+        .task-progress
+          .task-progress__frame
+            .task-progress__bar.-percent0
+      .task-card__arrow
+        %span.os1-symbol-arrow-right
+    %a.task-card{ href: "#" }
+      .task-card__infomation
+        .task-card__name ゲストの出欠確認
+        .task-progress
+          .task-progress__frame
+            .task-progress__bar.-percent0
+      .task-card__arrow
+        %span.os1-symbol-arrow-right
+    = partial( "tasklist-seemore", locals: { href: "first-access__tasklist.html" } )
 
 %footer.os1-form-footer
   %p.os1-form-footer__links

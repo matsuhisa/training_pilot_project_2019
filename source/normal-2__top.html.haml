@@ -1,12 +1,12 @@
 ---
-title: TOP
+title: ふたりのToDoリスト
 ---
 
 = partial('header', locals: { href: "index.html" })
 
 .os1-content.top-header
   %h1.futalist-title
-    %img.futalist-title__logo-image{ src: "images/global/futalist-logo.png" }
+    %img.futalist-title__logo-image{ src: "images/global/futalist-logo.png", alt: "ふたりのToDoリスト" }
     .futalist-title__logo-text
       %span.futalist-title__logo-text-small ふたりの
       %span.futalist-title__logo-text-big ToDoリスト
@@ -22,13 +22,21 @@ title: TOP
     %h4.os1-title.-h4 次にやること
     %a.task-card{ href: "#" }
       .task-card__infomation
-        .task-card__name.-completed 式場を決める
+        .task-card__name ゲストの出欠確認
         .task-progress
           .task-progress__frame
-            .task-progress__bar.-percent100
+            .task-progress__bar.-percent0
       .task-card__arrow
         %span.os1-symbol-arrow-right
-    = partial( "tasklist-seemore", locals: { href: "tasklist.html" } )
+    %a.task-card{ href: "#" }
+      .task-card__infomation
+        .task-card__name 親への挨拶
+        .task-progress
+          .task-progress__frame
+            .task-progress__bar.-percent0
+      .task-card__arrow
+        %span.os1-symbol-arrow-right
+    = partial( "tasklist-seemore", locals: { href: "normal-2__tasklist.html" } )
 
 .counseling-desk-information
   %h2.os1-title.-h3 迷ったら結婚式のプロに相談しよう

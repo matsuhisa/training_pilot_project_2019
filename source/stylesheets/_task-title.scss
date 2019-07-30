@@ -13,10 +13,6 @@
   }
 
   &.-done {
-    .task-title__text {
-      opacity: .5;
-    }
-
     .task-title__task-name {
       text-decoration: line-through;
     }
