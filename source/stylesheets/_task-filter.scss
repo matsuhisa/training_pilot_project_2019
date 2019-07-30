@@ -28,7 +28,7 @@
     font-size: 20px;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: $os1-color-white;
     color: $os1-color-navy-2S;
     border: none;
     border-radius: 4px;
@@ -45,6 +45,5 @@
 
   .task-filter__reset-link{
     @include os1-link-coloring(link-color-navy);
-    color: $os1-color-navy;
   }
 }
