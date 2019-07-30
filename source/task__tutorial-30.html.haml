@@ -21,12 +21,12 @@
   .task-item-container
     :ruby
       tasks = [
-        ["完了したタスクにチェックを付けましょう", "12ヶ月前〜9ヶ月前", "done"],
-        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "normal"],
-        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "normal"]
+        ["完了したタスクにチェックを付けましょう", "12ヶ月前〜9ヶ月前", "done", "task__tutorial-0.html"],
+        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "normal", "#"],
+        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "normal", "#"]
       ]
     - for task in tasks
-      %a.task-item{ href: "#" , class: "-#{task[2]}" }
+      %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
         .checkbox{ class: "-#{task[2]}" }
           %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
             %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
