@@ -5,6 +5,7 @@
   .futalist-title__logo-image {
     @include os1-set-margin($margin-side: right, $margin-size: S);
     width: 100px;
+    height: 100%;
   }
 
   .futalist-title__logo-text {

@@ -71,7 +71,7 @@
 
 // Reset the font and vertical alignment.
 @mixin reset-font {
-  font: inherit;
+  font-family: Hiragino Kaku Gothic Pro, sans-serif, HelveticaNeue;
   font-size: 100%;
   vertical-align: baseline; }
 
