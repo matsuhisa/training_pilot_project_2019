@@ -1,0 +1,76 @@
+---
+title: 式場を決める / ふたりのToDoリスト
+---
+
+= partial('header', locals: { href: "first-access__top.html" })
+
+.about-task.os1-content
+  %a.task-title{ href: "task__decide-the-wedding-hall-100.html" }
+    .checkbox
+      %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
+        %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
+          %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
+            %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
+    .task-title__text
+      %h2.task-title__task-name 式場を決める
+      .task-title__task-deadline 12ヶ月前〜9ヶ月前
+  .task-progress
+    .task-progress__frame
+      .task-progress__bar.-percent0
+  %p.about-task__overview
+    ふたりのToDoリストは、結婚式準備を効率良く行いたい人のための専用ToDoツールです。
+    %br
+    %br
+    それぞれのやることには下のような細かいタスクが登録されています。タスクの期日は目安です。全てにチェックを付けて結婚式準備を開始しましょう！
+  .task-item-container
+    :ruby
+      tasks = [
+        ["式場決定の条件リストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-0.html"],
+        ["気になる結婚式場のリストを作る", "12ヶ月前〜9ヶ月前", "normal", "#"],
+        ["気になる式場のブライダルフェアに参加する", "12ヶ月前〜9ヶ月前", "normal", "#"],
+        ["式場と契約する", "12ヶ月前〜9ヶ月前", "normal", "#"]
+      ]
+    - for task in tasks
+      %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
+        .checkbox{ class: "-#{task[2]}" }
+          %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
+            %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
+              %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
+                %polyline{ points: "6 10.8871576 10.8384674 15.725625 18.3941768 8" }
+        .task-item__text
+          .task-item__task-title #{task[0]}
+          .task-item__task-deadline #{task[1]}
+
+  .about-task__share
+    .os1-default-button
+      %a.os1-default-button__item{ href: "#" }
+        %span.os1-default-button__text 予定をカレンダーに追加する
+        %span.os1-default-button__sub-text カレンダーアプリが開きます
+    .os1-default-button
+      %a.os1-default-button__item{ href: "#" }
+        %span.os1-default-button__text LINEで送る
+        %span.os1-default-button__sub-text LINEアプリが開きます
+
+  .related-articles
+    %h3.os1-title.-h3 関連記事
+    :ruby
+      articles = [
+        ["【後悔のない式場探し特集】式場探しを始めてみよう！編", "2019.05.09", "https://www.mwed.jp/articles/7848/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/065/0652558410.jpg"],
+        ["【結婚式場探し】ブライダルフェアで注意しておきたい確認ポイント", "2019.06.09", "https://www.mwed.jp/manuals/535/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/058/0588821467.jpg"]
+      ]
+    - for article in articles
+      %a.related-article{ href: article[2] }
+        %img.related-article__thumbnail{ src: article[3] }
+        .related-article__text
+          %h4.related-article__title #{article[0]}
+          %p.related-article__postdate #{article[1]}
+    = partial( "tasklist-seemore", locals: { href: "first-access__tasklist.html" } )
+
+%footer.os1-form-footer
+  %p.os1-form-footer__links
+    %a.os1-form-footer__link{ href: "#" } 会社概要
+    |
+    %a.os1-form-footer__link{ href: "#" } 会員規約
+    |
+    %a.os1-form-footer__link{ href: "#" } プライバシーポリシー
+  %p.os1-form-footer__copyright &copy; Minnano Wedding Co., Ltd.
