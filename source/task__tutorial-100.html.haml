@@ -1,8 +1,8 @@
 = partial('header', locals: { href: "first-access__top.html" })
 
 .about-task.os1-content
-  %a.task-title{ href: "task__tutorial-100.html" }
-    .checkbox
+  %a.task-title.-done{ href: "task__tutorial-0.html" }
+    .checkbox.-done
       %svg{ height: "11px", version: "1.1", viewbox: "0 0 15 11", width: "15px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink": "http://www.w3.org/1999/xlink" }
         %g{ fill: "none", "fill-rule": "evenodd", stroke: "none", "stroke-width": "1" }
           %g.checkbox__check-icon{ id: "checkbox/v5/normal", "stroke-width": "3", transform: "translate(-5.000000, -7.000000)" }
@@ -12,7 +12,7 @@
       .task-title__task-deadline 12ヶ月前〜9ヶ月前
   .task-progress
     .task-progress__frame
-      .task-progress__bar.-percent30
+      .task-progress__bar.-percent100
   %p.about-task__overview
     ふたりのToDoリストは、結婚式準備を効率良く行いたい人のための専用ToDoツールです。
     %br
@@ -22,8 +22,8 @@
     :ruby
       tasks = [
         ["完了したタスクにチェックを付けましょう", "12ヶ月前〜9ヶ月前", "done", "task__tutorial-0.html"],
-        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "normal", "#"],
-        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "normal", "#"]
+        ["一括操作は画面左上のチェックを押します", "12ヶ月前〜9ヶ月前", "done", "#"],
+        ["困ったら下の関連記事を読んでみましょう", "12ヶ月前〜9ヶ月前", "done", "#"]
       ]
     - for task in tasks
       %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
