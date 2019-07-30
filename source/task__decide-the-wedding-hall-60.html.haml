@@ -16,7 +16,7 @@ title: 式場を決める / ふたりのToDoリスト
       .task-title__task-deadline 12ヶ月前〜9ヶ月前
   .task-progress
     .task-progress__frame
-      .task-progress__bar.-percent0
+      .task-progress__bar.-percent60
   %p.about-task__overview
     ふたりのToDoリストは、結婚式準備を効率良く行いたい人のための専用ToDoツールです。
     %br
@@ -25,10 +25,10 @@ title: 式場を決める / ふたりのToDoリスト
   .task-item-container
     :ruby
       tasks = [
-        ["式場決定の条件リストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"],
-        ["気になる結婚式場のリストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"],
-        ["気になる式場のブライダルフェアに参加する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"],
-        ["式場と契約する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"]
+        ["式場決定の条件リストを作る", "12ヶ月前〜9ヶ月前", "done", "task__decide-the-wedding-hall-30.html"],
+        ["気になる結婚式場のリストを作る", "12ヶ月前〜9ヶ月前", "done", "task__decide-the-wedding-hall-30.html"],
+        ["気になる式場のブライダルフェアに参加する", "12ヶ月前〜9ヶ月前", "done", "task__decide-the-wedding-hall-30.html"],
+        ["式場と契約する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-100.html"]
       ]
     - for task in tasks
       %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
@@ -55,8 +55,7 @@ title: 式場を決める / ふたりのToDoリスト
     %h3.os1-title.-h3 関連記事
     :ruby
       articles = [
-        ["【後悔のない式場探し特集】式場探しを始めてみよう！編", "2019.05.09", "https://www.mwed.jp/articles/7848/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/065/0652558410.jpg"],
-        ["【結婚式場探し】ブライダルフェアで注意しておきたい確認ポイント", "2019.06.09", "https://www.mwed.jp/manuals/535/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/058/0588821467.jpg"]
+        ["【後悔のない式場探し特集】式場探しを始めてみよう！編", "2019.05.09", "https://www.mwed.jp/articles/7848/", "https://d4w9i1j5cm7ll.cloudfront.net/rc/C001/1320x680cq80/u/065/0652558410.jpg"]
       ]
     - for article in articles
       %a.related-article{ href: article[2] }

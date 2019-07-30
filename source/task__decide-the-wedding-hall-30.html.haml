@@ -16,7 +16,7 @@ title: 式場を決める / ふたりのToDoリスト
       .task-title__task-deadline 12ヶ月前〜9ヶ月前
   .task-progress
     .task-progress__frame
-      .task-progress__bar.-percent0
+      .task-progress__bar.-percent30
   %p.about-task__overview
     ふたりのToDoリストは、結婚式準備を効率良く行いたい人のための専用ToDoツールです。
     %br
@@ -25,10 +25,10 @@ title: 式場を決める / ふたりのToDoリスト
   .task-item-container
     :ruby
       tasks = [
-        ["式場決定の条件リストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"],
-        ["気になる結婚式場のリストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"],
-        ["気になる式場のブライダルフェアに参加する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"],
-        ["式場と契約する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-30.html"]
+        ["式場決定の条件リストを作る", "12ヶ月前〜9ヶ月前", "done", "task__decide-the-wedding-hall-0.html"],
+        ["気になる結婚式場のリストを作る", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-60.html"],
+        ["気になる式場のブライダルフェアに参加する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-60.html"],
+        ["式場と契約する", "12ヶ月前〜9ヶ月前", "normal", "task__decide-the-wedding-hall-60.html"]
       ]
     - for task in tasks
       %a.task-item{ href: "#{task[3]}" , class: "-#{task[2]}" }
