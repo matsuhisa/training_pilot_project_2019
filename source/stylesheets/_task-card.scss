@@ -1,7 +1,7 @@
 .task-card {
   @include os1-set-margin($margin-side: bottom, $margin-size: S);
   box-sizing: border-box;
-  height: height;
+  height: auto;
   width: 100%;
   padding: 15px 10px;
   border: solid 1px $os1-color-gold-2S;
