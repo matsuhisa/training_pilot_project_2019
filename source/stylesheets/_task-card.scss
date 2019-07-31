@@ -12,6 +12,12 @@
   align-items: center;
   text-decoration: none;
 
+  &:visited {
+    * {
+      all: initial;
+    }
+  }
+
   &:last-child {
     @include os1-set-margin($margin-side: bottom, $margin-size: XL);
   }
