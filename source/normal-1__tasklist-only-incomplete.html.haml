@@ -8,30 +8,31 @@ title: 結婚式準備やること一覧 / ふたりのToDoリスト
   .tasklist-container
     %h1.os1-title.-h1 結婚式準備やること一覧
     %form
-      .task-filter
-        %a{ href: "normal-1__tasklist-search.html" }
-          .task-filter__search-box
-            %input.task-filter__search-form{ type: "serach" , id: "hoge" , name: "hoge" , placeholder: "例）親、招待客" }
-            %button.task-filter__search-button{ name: "button" , type: "submit" }
-              %span.os1-symbol-search
-        %a{ href: "normal-1__tasklist-4-to-3-month-ago.html" }
-          .os1-default-select
-            .os1-default-select__item-wrapper
-              %select.os1-default-select__item{ name: "hoge" , id: "hoge" }
-                %option{ value: "0" }時期を選択
-                %option{ value: "1" }12ヶ月〜9ヶ月前
-                %option{ value: "2" }8ヶ月〜5ヶ月前
-                %option{ value: "3" }4ヶ月〜3ヶ月前
-                %option{ value: "4" }2ヶ月前
-                %option{ value: "5" }1ヶ月前
-              %span.os1-default-select__arrow-mark
+    .task-filter
+      .task-filter__search-box
+        %input.task-filter__search-form{ type: "serach" , id: "hoge" , name: "hoge" , placeholder: "例）親、招待客" }
+        %button.task-filter__search-button{ name: "button" , type: "submit" }
+          %span.os1-symbol-search
 
-        .os1-default-checkbox
-          %label
-            %input.os1-default-checkbox__input{ type: "checkbox" , name: "foo" , value: "foo1" }
+      .os1-default-select
+        .os1-default-select__item-wrapper
+          %select.os1-default-select__item{ name: "hoge" , id: "hoge" }
+            %option{ value: "0" }時期を選択
+            %option{ value: "1" }12ヶ月〜9ヶ月前
+            %option{ value: "2" }8ヶ月〜5ヶ月前
+            %option{ value: "3" }4ヶ月〜3ヶ月前
+            %option{ value: "4" }2ヶ月前
+            %option{ value: "5" }1ヶ月前
+          %span.os1-default-select__arrow-mark
+
+      .os1-default-checkbox
+        %label
+          %input.os1-default-checkbox__input{ type: "checkbox" , name: "foo" , value: "foo1" , checked: "checked" }
             %span.os1-default-checkbox__text
-              %a.task-filter__reset-container{ href: "normal-1__tasklist-only-incomplete.html" } 未完了のみ表示する
-              -# 色を変えるぞ色を
+              %a.task-filter__reset-container{ href: "normal-1__tasklist.html" } 未完了のみ表示する
+
+      .task-filter__reset
+        %a.task-filter__reset-link{ href: "normal-1__tasklist.html" } 表示をリセットする
 
     .tasklist
       %h4.os1-title.-h4 12ヶ月前〜9ヶ月前からはじめよう
@@ -41,14 +42,6 @@ title: 結婚式準備やること一覧 / ふたりのToDoリスト
           .task-progress
             .task-progress__frame
               .task-progress__bar.-percent0
-        .task-card__arrow
-          %span.os1-symbol-arrow-right
-      %a.task-card{ href: "task__tutorial-100.html" }
-        .task-card__infomation
-          .task-card__name.-completed ふたりのToDoリストの使い方の確認
-          .task-progress
-            .task-progress__frame
-              .task-progress__bar.-percent100
         .task-card__arrow
           %span.os1-symbol-arrow-right
 
